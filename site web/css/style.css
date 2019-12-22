@@ -3,6 +3,7 @@ body,html, header {
   padding: 0px;
   width: 100%;
   height: 100%;
+  background-color: #576574;
 }
 
 header {
@@ -45,9 +46,7 @@ header {
 .slide_news {
   width: 100%;
   height: 200px;
-  border: 1px solid blue;
   word-wrap: break-word;
-
 }
 
 .img_news {
@@ -59,7 +58,7 @@ header {
   width: 30%;
   height: 10%;
   overflow: hidden;
-  border: 1px solid red;
+  margin-left: 2%;
 }
 
 .desc_news {
@@ -74,4 +73,55 @@ header {
 
 .slick-dots li.slick-active button:before { /* Quand le point est actif */
   color: white;
+}
+
+/* OBSTACLES */
+
+.obstacles {
+  width: 100%;
+  height: 100%;
+  margin-top: 3%;
+  margin-bottom: 28%;
+}
+
+/* SALLES */
+
+.salles {
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+}
+
+.slide_salles {
+  width: 100%;
+  height: 100%;
+}
+
+/* LOGIN */
+
+.login {
+width: 100%;
+height: 100%;
+background: #576574;
+}
+
+.title_login {
+width: 542px;
+height: 113px;
+left: 52px;
+top: 410px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 96px;
+line-height: 112px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+}
+
+.formulaire {
+  
 }

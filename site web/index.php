@@ -10,7 +10,7 @@ include 'include/header.php';
             <a class="nav-link font-weight-bold" href="#">EDC</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link text-uppercase" href="#">obstacles</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -25,36 +25,52 @@ include 'include/header.php';
         <div class="content_news">
           <h1>Les NEWS</h1>
           <div class="slide_news">
-           <div class="desc_news">
-             <div class="col-sm-6">
-               <img src="css/images/noel.jpg" alt="" class="img_news">
-             </div>
-             <div class="col-sm-6">
-               <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
-             </div>
-          </div>
-          <div class="desc_news">
-            <div class="col-sm-6">
-              <img src="css/images/noel.jpg" alt="" class="img_news">
+            <div class="desc_news">
+              <div class="col-sm-6">
+                <p class="card-text"><small class="text-white font-weight-bold">2019-2020</small></p>
+              </div>
+              <div class="col-sm-6">
+                <img src="css/images/noel.jpg" alt="" class="img_news">
+              </div>
+              <div class="col-sm-6">
+                <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
+              </div>
             </div>
-            <div class="col-sm-6">
-              <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
+            <div class="desc_news">
+              <div class="col-sm-6">
+                <p class="card-text"><small class="text-white font-weight-bold">2019-2020</small></p>
+              </div>
+              <div class="col-sm-6">
+                <img src="css/images/noel.jpg" alt="" class="img_news">
+              </div>
+              <div class="col-sm-6">
+                <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
+              </div>
             </div>
-         </div>
-         <div class="desc_news">
-           <div class="col-sm-6">
-             <img src="css/images/noel.jpg" alt="" class="img_news">
-           </div>
-           <div class="col-sm-6">
-             <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
-           </div>
-        </div>
+            <div class="desc_news">
+              <div class="col-sm-6">
+                <p class="card-text"><small class="text-white font-weight-bold">2019-2020</small></p>
+              </div>
+              <div class="col-sm-6">
+                <img src="css/images/noel.jpg" alt="" class="img_news">
+              </div>
+              <div class="col-sm-6">
+                <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </header>
+
+<?php
+include 'vues/obstacles.php';
+include 'vues/salles.php';
+include 'vues/login.php';
+?>
+
 <?php
 include 'include/footer.php';
 ?>
