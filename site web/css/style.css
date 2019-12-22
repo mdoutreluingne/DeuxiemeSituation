@@ -37,7 +37,41 @@ header {
 }
 
 .content_news {
-  margin-top: 6%;
+  margin-top: 5%;
   color: white;
   text-align: center;
+}
+
+.slide_news {
+  width: 100%;
+  height: 200px;
+  border: 1px solid blue;
+  word-wrap: break-word;
+
+}
+
+.img_news {
+  float: left;
+}
+
+.txt {
+  float: left;
+  width: 30%;
+  height: 10%;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+.desc_news {
+}
+
+.slick-dots li button:before /* le style des points */
+{
+  font-size: 20px;
+  line-height: 20px;
+  color: red;
+}
+
+.slick-dots li.slick-active button:before { /* Quand le point est actif */
+  color: white;
 }
