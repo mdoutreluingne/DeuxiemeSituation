@@ -1,6 +1,9 @@
 <div class="obstacles">
   <div class="container">
     <div class="row">
+      <div class="text-center">
+        <h2 class="underline text-uppercase">Découvrez nos obstacles</h2>
+      </div>
       <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-4">
           <div class="card">
