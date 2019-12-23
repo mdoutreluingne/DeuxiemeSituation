@@ -7,10 +7,19 @@ include 'include/header.php';
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="#">EDC</a>
+            <a class="nav-link font-weight-bold" href="#">EGC</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-uppercase" href="#">obstacles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="vues/login.php">salles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="vues/login.php">statistiques</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="vues/login.php">commentaires & photos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-uppercase" href="vues/login.php">connexion</a>
@@ -69,6 +78,7 @@ include 'include/header.php';
 include 'vues/obstacles.php';
 include 'vues/salles.php';
 include 'vues/stat.php';
+include 'vues/comm_avis.php';
 ?>
 
 <?php

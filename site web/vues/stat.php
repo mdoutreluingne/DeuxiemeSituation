@@ -2,15 +2,46 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h2 class="underline text-uppercase">Statistique de nos joueurs</h2>
+        <h2 class="underline text-uppercase">Taux de satisfaction de nos joueurs</h2>
       </div>
     </div>
+    <!-- Première rangée -->
     <div class="row">
         <div class="card-deck text-white">
           <div class="card col-4 cardstat">
             <div class="card-body">
               <h5 class="card-title">Jurassic Park</h5>
               <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalScrollable">
+                AVIS
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade text-dark" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalScrollableTitle">Jurassic Park</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      5/4 trés bon !
+                      5/4 trés bon !
+                      5/4 trés bon !
+                      5/4 trés bon !
+                      5/4 trés bon !
+                      5/4 trés bon !
+                      5/4 trés bon !
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="card col-4 cardstat">
@@ -27,6 +58,7 @@
           </div>
         </div>
     </div>
+    <!-- Deuxième rangée -->
     <div class="row">
         <div class="card-deck text-white">
           <div class="card col-4 cardstat">
@@ -49,6 +81,7 @@
           </div>
         </div>
     </div>
+    <!-- Troisème rangée -->
     <div class="row">
         <div class="card-deck text-white">
           <div class="card col-4 cardstat">
