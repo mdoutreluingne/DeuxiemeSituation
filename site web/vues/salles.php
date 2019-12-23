@@ -1,6 +1,9 @@
 <div class="salles">
   <div class="container">
     <div class="row">
+      <div class="text-center">
+        <h2 class="underline text-uppercase">Nos différentes salles</h2>
+      </div>
       <div class="slide_salles">
         <div>
           <div class="card-deck">

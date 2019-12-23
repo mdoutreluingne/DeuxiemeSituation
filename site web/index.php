@@ -13,7 +13,7 @@ include 'include/header.php';
             <a class="nav-link text-uppercase" href="#">obstacles</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link text-uppercase" href="vues/login.php">connexion</a>
           </li>
         </ul>
       </div>
@@ -68,7 +68,7 @@ include 'include/header.php';
 <?php
 include 'vues/obstacles.php';
 include 'vues/salles.php';
-include 'vues/login.php';
+include 'vues/stat.php';
 ?>
 
 <?php
