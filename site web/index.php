@@ -4,7 +4,6 @@ include 'include/header.php';
 <header>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link font-weight-bold" href="#">EGC</a>
@@ -25,7 +24,6 @@ include 'include/header.php';
             <a class="nav-link text-uppercase" href="vues/login.php">connexion</a>
           </li>
         </ul>
-      </div>
       <div class="content">
         <div class="content_accueil">
           <h1 class="title">Bienvenue chez Escape Game Corporation</h1>

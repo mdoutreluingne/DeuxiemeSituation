@@ -12,11 +12,15 @@ header {
 }
 
 .nav {
-  font-size: 18px;
+  font-size: 15px;
+  background-color: #2C3E50;
+  width: 100%;
+
 }
 
-.nav li:nth-child(1)::first-letter {
-  color: #da1a35;
+.nav li:hover{
+  background-color: #eb3b5a;
+  color: white;
 }
 
 .nav li:nth-child(1){
@@ -24,6 +28,10 @@ header {
 }
 
 .nav-link {
+  color: white;
+}
+
+.nav-link:hover {
   color: white;
 }
 
