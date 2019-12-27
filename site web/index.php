@@ -4,26 +4,9 @@ include 'include/header.php';
 <header>
   <div class="container-fluid">
     <div class="row">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link font-weight-bold" href="#">EGC</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">obstacles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="vues/login.php">salles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="vues/login.php">statistiques</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="vues/login.php">commentaires & photos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase" href="vues/login.php">connexion</a>
-          </li>
-        </ul>
+      <?php
+      include 'include/navbar.php';
+      ?>
       <div class="content">
         <div class="content_accueil">
           <h1 class="title">Bienvenue chez Escape Game Corporation</h1>
