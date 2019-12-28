@@ -7,7 +7,7 @@
     </div>
     <!-- Première rangée -->
     <div class="row">
-        <div class="card-deck text-white">
+        <div class="card-deck text-white w-100">
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle1"></h5>
@@ -102,11 +102,11 @@
     </div>
     <!-- Deuxième rangée -->
     <div class="row">
-        <div class="card-deck text-white">
+        <div class="card-deck text-white w-100">
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle4"></h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">80%</p>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" id="button_salle1" data-toggle="modal" data-target="#exampleModalScrollable">
                 AVIS
@@ -136,7 +136,7 @@
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle5"></h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">80%</p>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" id="button_salle1" data-toggle="modal" data-target="#exampleModalScrollable">
                 AVIS
@@ -166,7 +166,7 @@
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle6"></h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <p class="card-text">80%</p>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" id="button_salle1" data-toggle="modal" data-target="#exampleModalScrollable">
                 AVIS
@@ -197,11 +197,11 @@
     </div>
     <!-- Troisème rangée -->
     <div class="row">
-        <div class="card-deck text-white">
+        <div class="card-deck text-white w-100">
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle7"></h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">80%</p>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" id="button_salle1" data-toggle="modal" data-target="#exampleModalScrollable">
                 AVIS
@@ -231,7 +231,7 @@
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle8"></h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text">80%</p>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" id="button_salle1" data-toggle="modal" data-target="#exampleModalScrollable">
                 AVIS
@@ -261,7 +261,7 @@
           <div class="card col-4 cardstat">
             <div class="card-body text-center">
               <h5 class="card-title" id="salle9"></h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <p class="card-text">80%</p>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" id="button_salle1" data-toggle="modal" data-target="#exampleModalScrollable">
                 AVIS

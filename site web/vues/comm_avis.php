@@ -26,11 +26,9 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
         <div class="card" style="width: 18rem;">
-          <div class="card-header">
-            <span class="pseudo_avis">Cartman</span>
-          </div>
           <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">3/5</h6>
+            <h5 class="font-italic text-danger">Zone 51</h5>
+            <h6 class="card-subtitle mb-2 font-weight-bold">3/5</h6>
             <p class="card-text">Trés bon, je recommande !</p>
           </div>
         </div>
@@ -38,11 +36,9 @@
 
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
         <div class="card" style="width: 18rem;">
-          <div class="card-header">
-            <span class="pseudo_avis">Cartman</span>
-          </div>
           <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">3/5</h6>
+            <h5 class="font-italic text-danger">Zone 51</h5>
+            <h6 class="card-subtitle mb-2 font-weight-bold">3/5</h6>
             <p class="card-text">Trés bon, je recommande !</p>
           </div>
         </div>
@@ -50,11 +46,9 @@
 
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
         <div class="card" style="width: 18rem;">
-          <div class="card-header">
-            <span class="pseudo_avis">Cartman</span>
-          </div>
           <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">3/5</h6>
+            <h5 class="font-italic text-danger">Zone 51</h5>
+            <h6 class="card-subtitle mb-2 font-weight-bold">3/5</h6>
             <p class="card-text">Trés bon, je recommande !</p>
           </div>
         </div>
