@@ -1,4 +1,4 @@
-<div class="stat">
+<div class="stat" id="stat">
   <div class="container">
     <div class="row">
       <div class="text-center">

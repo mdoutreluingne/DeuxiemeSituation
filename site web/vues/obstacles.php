@@ -1,4 +1,4 @@
-<div class="obstacles">
+<div class="obstacles" id="obstacles">
   <div class="container">
     <div class="row">
       <div class="text-center">

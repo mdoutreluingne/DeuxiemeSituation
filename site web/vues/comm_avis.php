@@ -1,4 +1,4 @@
-<div class="comm_avis">
+<div class="comm_avis" id="comm_avis">
   <div class="container">
     <div class="row">
       <div class="text-center">
@@ -6,15 +6,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
         <img src="css/images/noel.jpg" class="img-responsive">
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-4 filter sprinkle">
         <img src="css/images/noel.jpg" class="img-responsive">
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
         <img src="css/images/noel.jpg" class="img-responsive">
       </div>
     </div>

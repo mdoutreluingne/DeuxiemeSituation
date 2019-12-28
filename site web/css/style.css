@@ -97,7 +97,6 @@ header {
   width: 50%;
   height: 100%;
   margin-left: 2%;
-  border: 1px solid red;
 }
 
 .desc_news {
@@ -226,6 +225,7 @@ input, textarea {
   width: 100%;
   height: 100%;
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .gallery_comm {
@@ -234,6 +234,12 @@ input, textarea {
 
 .pseudo_avis {
   font-weight: 650;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 5px solid #da1a35;
 }
 
 /* RESPONSIVE */
