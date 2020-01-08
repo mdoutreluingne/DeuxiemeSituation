@@ -7,7 +7,7 @@ $(function() {
       .then(response => response.json())
       .then(response => {
           response.forEach(function(element){
-            $("#taux1").append(element['1'] + "%");
+            $("#taux1").append(Math.round(element['1']) + "%");
 
           });
       })
