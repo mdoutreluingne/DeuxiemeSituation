@@ -99,7 +99,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/doutreluingne/dev/ApiFromVide" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -175,6 +175,7 @@
       <workItem from="1578127850562" duration="352000" />
       <workItem from="1578469274060" duration="6460000" />
       <workItem from="1578479287530" duration="1803000" />
+      <workItem from="1578493759948" duration="4377000" />
     </task>
     <servers />
   </component>
@@ -186,7 +187,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

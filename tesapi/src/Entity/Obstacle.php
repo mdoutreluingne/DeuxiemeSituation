@@ -6,7 +6,9 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\ObstacleRepository")
  */
 class Obstacle

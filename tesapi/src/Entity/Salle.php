@@ -6,7 +6,33 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"pagination_enabled"=false},
+ *     collectionOperations={
+ *      "get",
+ *      "bySalle"={
+ *          "method"="GET",
+ *          "path"="/avis/bySalle/{salle}",
+ *          "defaults"={"_api_receive"=false},
+ *          "controller"=App\Controller\RecupVilleBySalle::class,
+ *          "openapi_context"={
+ *              "operationId"="getbySalle",
+ *              "parameters"={
+ *                  {
+ *                      "name"="salle",
+ *                      "required"=true,
+ *                      "type"="string",
+ *                      "in"="path",
+ *                      "description"="nom de la salle"
+ *                  }
+ *              },
+ *              "produces"={
+ *                  "application/json"
+ *              }
+ *          }
+ *      }
+ *    }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\SalleRepository")
  */
 class Salle

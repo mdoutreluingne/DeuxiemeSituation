@@ -74,15 +74,4 @@ class Article
         return $this;
     }
 
-    public function getArticleSalle(): ?ArticleSalle
-    {
-        return $this->articleSalle;
-    }
-
-    public function setArticleSalle(?ArticleSalle $articleSalle): self
-    {
-        $this->articleSalle = $articleSalle;
-
-        return $this;
-    }
 }
