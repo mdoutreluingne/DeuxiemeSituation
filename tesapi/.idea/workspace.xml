@@ -14,6 +14,9 @@
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="24b76fc9-eb68-4cc4-86fc-88929fd93a94" />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
@@ -92,9 +95,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1VQqnzetbilZTdnE1USH8svvPJm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/xampp/htdocs/e4/DeuxiemeSituation/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin/console" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -114,6 +119,7 @@
       <command value="s doctrine:schema:update" />
       <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:schema:validate" />
+      <command value="c update" />
     </option>
   </component>
   <component name="RunDashboard">
