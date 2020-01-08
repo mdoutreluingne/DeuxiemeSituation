@@ -19,6 +19,16 @@ class AvisRepository extends ServiceEntityRepository
         parent::__construct($registry, Avis::class);
     }
 
+    public function findTauxSatisfactionByTheme($salle)
+    {
+        return $this->createQueryBuilder('a')
+            ->select('(AVG(a.note)/MAX(a.note)*100)')
+            ->Where('a.salle = :salle')
+            ->setParameter('salle', $salle)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Avis[] Returns an array of Avis objects
     //  */

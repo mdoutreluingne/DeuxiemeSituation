@@ -6,7 +6,33 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"pagination_enabled"=false},
+ *      collectionOperations={
+ *          "get",
+ *          "soldeById"={
+ *              "method"="GET",
+ *              "path"="/client/soldeById/{id}",
+ *              "defaults"={"_api_receive"=false},
+ *              "controller"=App\Controller\soldeById::class,
+ *              "openapi_context"={
+ *                  "operationId"="soldeById",
+ *                  "parameters"={
+ *                      {
+ *                          "name"="id",
+ *                          "required"=true,
+ *                          "type"="int",
+ *                          "in"="path",
+ *                          "description"="id du client"
+ *                      }
+ *                  },
+ *                  "produces"={
+ *                      "application/json"
+ *                  }
+ *              }
+ *          }
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client

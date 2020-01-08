@@ -19,6 +19,17 @@ class ClientRepository extends ServiceEntityRepository
         parent::__construct($registry, Client::class);
     }
 
+    public function findSolde($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('(SUM(montant)')
+            ->join('transaction', 'c.id', '=', 'transaction.client_id')
+            ->Where('c.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Client[] Returns an array of Client objects
     //  */
