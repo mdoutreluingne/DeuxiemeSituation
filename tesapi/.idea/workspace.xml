@@ -17,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
@@ -175,7 +175,7 @@
       <workItem from="1578127850562" duration="352000" />
       <workItem from="1578469274060" duration="6460000" />
       <workItem from="1578479287530" duration="1803000" />
-      <workItem from="1578493759948" duration="4377000" />
+      <workItem from="1578493892110" duration="4118000" />
     </task>
     <servers />
   </component>

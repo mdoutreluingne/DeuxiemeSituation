@@ -2,15 +2,13 @@
 
 
 namespace App\Operation;
-
-
 use Doctrine\Persistence\ManagerRegistry;
 
 class SoldeByIdHandler
 {
     protected $em;
     /**
-     * RecupAvisHandler constructor.
+     * SoldeByIdHandler constructor.
      * @param ManagerRegistry $em
      */
     public function __construct(ManagerRegistry $em)

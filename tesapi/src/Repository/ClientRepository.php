@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Client;
+use App\Entity\Transaction;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -22,9 +23,9 @@ class ClientRepository extends ServiceEntityRepository
     public function findSolde($id)
     {
         return $this->createQueryBuilder('c')
-            ->select('(SUM(montant)')
-            ->join('transaction', 'c.id', '=', 'transaction.client_id')
-            ->Where('c.id = :id')
+            ->select('SUM(t.montant)')
+            ->from(Transaction::class , 't')
+            ->Where('t.client = :id')
             ->setParameter('id', $id)
             ->getQuery()
             ->getResult()

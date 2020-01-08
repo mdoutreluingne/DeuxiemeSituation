@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  *              "method"="GET",
  *              "path"="/client/soldeById/{id}",
  *              "defaults"={"_api_receive"=false},
- *              "controller"=App\Controller\soldeById::class,
+ *              "controller"=App\Controller\SoldeById::class,
  *              "openapi_context"={
  *                  "operationId"="soldeById",
  *                  "parameters"={

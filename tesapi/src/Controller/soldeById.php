@@ -2,19 +2,19 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Client;
 use App\Operation\SoldeByIdHandler;
 
-class soldeById
+class SoldeById
 {
     private $soldeHandler;
     /**
      * SoldeByIdHandler constructor.
-     * @param $recupHandler
+     * @param $soldeHandler
      */
     public function __construct(SoldeByIdHandler $soldeHandler)
     {
-        $this->recupHandler = $soldeHandler;
+        $this->soldeHandler = $soldeHandler;
     }
     public function __invoke($id){
         $entitie = $this->soldeHandler->handle($id);
