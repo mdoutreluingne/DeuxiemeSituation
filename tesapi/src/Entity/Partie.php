@@ -11,14 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Partie
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
+     * @ORM\Id()
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue("NONE")
      * @ORM\OneToOne(targetEntity="App\Entity\Reservation", cascade={"persist", "remove"})
      */
     private $reservation;
@@ -27,11 +24,6 @@ class Partie
      * @ORM\Column(type="time")
      */
     private $temps;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getReservation(): ?Reservation
     {

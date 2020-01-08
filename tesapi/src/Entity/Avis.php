@@ -6,7 +6,54 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"pagination_enabled"=false},
+ *     collectionOperations={
+ *      "get",
+ *      "byTheme"={
+ *          "method"="GET",
+ *          "path"="/avis/byTheme/{theme}",
+ *          "defaults"={"_api_receive"=false},
+ *          "controller"=App\Controller\RecupAvisByTheme::class,
+ *          "openapi_context"={
+ *              "operationId"="getByTheme",
+ *              "parameters"={
+ *                  {
+ *                      "name"="theme",
+ *                      "required"=true,
+ *                      "type"="string",
+ *                      "in"="path",
+ *                      "description"="nom du theme de la salle"
+ *                  }
+ *              },
+ *              "produces"={
+ *                  "application/json"
+ *              }
+ *          }
+ *      },
+ *     "byTauxSatisfaction"={
+ *          "method"="GET",
+ *          "path"="/avis/byTauxSatisfaction/{theme}",
+ *          "defaults"={"_api_receive"=false},
+ *          "controller"=App\Controller\RecupTauxSatisfactionByTheme::class,
+ *          "openapi_context"={
+ *              "operationId"="getByTheme",
+ *              "parameters"={
+ *                  {
+ *                      "name"="theme",
+ *                      "required"=true,
+ *                      "type"="string",
+ *                      "in"="path",
+ *                      "description"="nom du theme de la salle"
+ *                  }
+ *              },
+ *              "produces"={
+ *                  "application/json"
+ *              }
+ *          }
+ *      }
+ *   }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\AvisRepository")
  */
 class Avis
@@ -19,12 +66,12 @@ class Avis
     private $id;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="decimal", precision=6, scale=2)
      */
     private $note;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $date;
 
@@ -50,12 +97,12 @@ class Avis
         return $this->id;
     }
 
-    public function getNote(): ?float
+    public function getNote(): ?string
     {
         return $this->note;
     }
 
-    public function setNote(float $note): self
+    public function setNote(string $note): self
     {
         $this->note = $note;
 

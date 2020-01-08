@@ -13,14 +13,14 @@ class ArticleSalle
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue("NONE")
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article")
      * @ORM\JoinColumn(nullable=false)
      */
     private $article;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Salle", cascade={"persist", "remove"})
+     * @ORM\Id()
+     * @ORM\ManyToOne(targetEntity="App\Entity\Salle")
      * @ORM\JoinColumn(nullable=false)
      */
     private $salle;
@@ -30,7 +30,7 @@ class ArticleSalle
         return $this->article;
     }
 
-    public function setArticle(Article $article): self
+    public function setArticle(?Article $article): self
     {
         $this->article = $article;
 
@@ -42,7 +42,7 @@ class ArticleSalle
         return $this->salle;
     }
 
-    public function setSalle(Salle $salle): self
+    public function setSalle(?Salle $salle): self
     {
         $this->salle = $salle;
 

@@ -6,7 +6,11 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     itemOperations={
+ *        "get"
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\ThemeRepository")
  */
 class Theme

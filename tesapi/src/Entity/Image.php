@@ -37,7 +37,7 @@ class Image
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Partie")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="partie_id", referencedColumnName="reservation", nullable=false)
      */
     private $partie;
 

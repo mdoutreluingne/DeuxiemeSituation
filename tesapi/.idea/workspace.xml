@@ -14,7 +14,7 @@
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="24b76fc9-eb68-4cc4-86fc-88929fd93a94" />
     </execution>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
@@ -94,7 +94,7 @@
   <component name="ProjectId" id="1VQqnzetbilZTdnE1USH8svvPJm" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/xampp/htdocs/e4/DeuxiemeSituation/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -110,8 +110,9 @@
       <command value="c require symfony/maker-bundle --dev" />
       <command value="s doctrine:database:create" />
       <command value="s doctrine:schema:create " />
-      <command value="s make:entity --api-resource " />
+      <command value="s make:controller" />
       <command value="s doctrine:schema:update" />
+      <command value="s make:entity --api-resource " />
       <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:schema:validate" />
     </option>
@@ -146,6 +147,23 @@
       <workItem from="1577195838908" duration="847000" />
       <workItem from="1577200312294" duration="3940000" />
       <workItem from="1577351050231" duration="4538000" />
+      <workItem from="1577356769298" duration="313000" />
+      <workItem from="1577368267250" duration="26000" />
+      <workItem from="1577374146781" duration="6808000" />
+      <workItem from="1577438476980" duration="2163000" />
+      <workItem from="1577453156550" duration="773000" />
+      <workItem from="1577462091713" duration="1261000" />
+      <workItem from="1577523873197" duration="1368000" />
+      <workItem from="1577539653355" duration="701000" />
+      <workItem from="1577547631100" duration="2370000" />
+      <workItem from="1577612136565" duration="2316000" />
+      <workItem from="1577617362875" duration="16000" />
+      <workItem from="1577617380105" duration="24000" />
+      <workItem from="1577628800147" duration="1159000" />
+      <workItem from="1577632962209" duration="3471000" />
+      <workItem from="1577648508914" duration="542000" />
+      <workItem from="1578127850562" duration="352000" />
+      <workItem from="1578469274060" duration="6460000" />
     </task>
     <servers />
   </component>
