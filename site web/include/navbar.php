@@ -1,4 +1,4 @@
-<ul class="nav">
+<ul class="nav fixed-top" id="navbar">
   <li class="nav-item">
     <a class="nav-link font-weight-bold" href="#">EGC</a>
   </li>

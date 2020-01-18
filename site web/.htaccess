@@ -1,1 +1,1 @@
-ErrorDocument 404 http://localhost/e4/DeuxiemeSituation/site%20web/error.php?code=404
+ErrorDocument 404 http://localhost/DeuxiemeSituation/site%20web/404.php?code=404
