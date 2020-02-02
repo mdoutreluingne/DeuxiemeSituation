@@ -26,47 +26,40 @@
     <div class="row">
 
       <?php
-      $nbavis = 0;
-      $notemini = 0;
-      $nbAvisAlea = 0;
-      $tab = array();
-      //Recherche le nombre d'avis d'avis
-      $nbAvisTotal = file_get_contents("http://localhost:8080/api/avis/countAvis");
-      $nbMaxAvis = json_decode($nbAvisTotal, true);
+          $nbavis = 0;
+          $notemini = 0;
+          $nbAvisAlea = 0;
 
+          //Recherche le nombre d'avis d'avis
+          $nbAvisTotal = file_get_contents("http://localhost:8080/api/avis/countAvis");
+          $nbMaxAvis = json_decode($nbAvisTotal, true);
 
-      $configurations = file_get_contents("http://localhost:8080/api/configurations");
-      $parsee = json_decode($configurations, true);
+          //Recherche et stock la configuration
+          $configurations = file_get_contents("http://localhost:8080/api/configurations");
+          $parsee = json_decode($configurations, true);
 
-      foreach ($parsee as $config){
-        $nbavis = $config['nbAvis'];
-        $notemini = $config['noteMin'];
-      }
-
-      $lesAvis = file_get_contents("http://localhost:8080/api/avis/allAvis");
-      $avis = json_decode($lesAvis, true);
-
-      /*foreach ($avis as $key => $value) {
-
-        if ($value['note'] >= $notemini) {
-          $tab['id'] = $value['id'];
-
-        }
-      }*/
-        //var_dump($random[0]);
-
-$inc = 1;
-        for ($j=1; $j < $nbMaxAvis; $j++) {
-
-          $nbAvisAlea = rand(1, $nbMaxAvis-1); //nombre aléatoire
-
-          if ($inc > $nbavis) {
-            break;
+          foreach ($parsee as $config){
+            $nbavis = $config['nbAvis'];
+            $notemini = $config['noteMin'];
           }
-          if ($avis[$nbAvisAlea]['note'] >= $notemini) {
+
+          //Affichage des avis
+          $lesAvis = file_get_contents("http://localhost:8080/api/avis/allAvis");
+          $avis = json_decode($lesAvis, true);
+
+          $inc = 1;
+
+          for ($j=1; $j < $nbMaxAvis; $j++) {
+
+            $nbAvisAlea = rand(1, $nbMaxAvis-1); //nombre aléatoire
+
+            if ($inc > $nbavis) {
+              break;
+            }
+            if ($avis[$nbAvisAlea]['note'] >= $notemini) {
 
               echo '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-              <div class="card" style="width: 18rem;">
+              <div class="card" id="lesAvis">
               <div class="card-body">
               <h5 class="font-italic text-danger">'. $avis[$nbAvisAlea]['theme'] .'</h5>
               <h6 class="card-subtitle mb-2 font-weight-bold">'. $avis[$nbAvisAlea]['note'] .'/5</h6>
@@ -76,22 +69,9 @@ $inc = 1;
               </div>';
 
               $inc++;
+            }
+
           }
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
        ?>
 

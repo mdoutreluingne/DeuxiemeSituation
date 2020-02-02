@@ -238,6 +238,11 @@ input, textarea {
   font-weight: 650;
 }
 
+#lesAvis {
+  width: 18rem;
+  margin-bottom:1.5rem;
+}
+
 /* FOOTER */
 
 footer {

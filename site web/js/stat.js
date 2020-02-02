@@ -1,38 +1,32 @@
-/************************************************************************/
-/***************Affiche les thèmes**********/
-/************************************************************************/
 $(function() {
-  fetch("http://localhost:8080/api/themes")
-      .then(response => response.json())
-      .then(response => {
-          response.forEach(function(element){
-            for (var i = 0; i < response.length; i++) {
-              if (i == element.id) {
-                $("#salle" + i).append(element.nom);
-              }
-            }
-
-          });
-      })
-      .catch(error => alert("Erreur : " + error));
-
-
-
-
 
 
 /************************************************************************/
 /***************Affiche les avis lors du clique de chaque bouton**********/
 /************************************************************************/
 
-      $('#button_salle1').on("click",function() {
-        var salle = document.getElementById('salle1');
+      $('#button_salle0').on("click",function() {
+        var salle = document.getElementById('salle0');
         var monTexte = salle.innerText || salle.textContent;
         fetch("http://localhost:8080/api/avis/byTheme/" + monTexte)
         .then(response => response.json())
         .then(response => {
           response.forEach(function(element){
-            $("#avis_salle1").append("<h6>" + element.note + "/5" + " " + element.commentaire + "</h6><br>");
+            $("#avis_salle0").append("<h6>" + element.note + "/5" + " " + element.commentaire + "</h6><br>");
+          });
+        })
+        .catch(error => alert("Erreur : " + error));
+
+      })
+
+      $('#button_salle1').on("click",function() {
+        var salle = document.getElementById('salle1');
+        var lasalle = salle.innerText || salle.textContent;
+        fetch("http://localhost:8080/api/avis/byTheme/" + lasalle)
+        .then(response => response.json())
+        .then(response => {
+          response.forEach(function(e){
+            $("#avis_salle1").append("<h6>" + e.note + "/5" + " " + e.commentaire + "</h6><br>");
           });
         })
         .catch(error => alert("Erreur : " + error));
@@ -131,20 +125,6 @@ $(function() {
         .then(response => {
           response.forEach(function(e){
             $("#avis_salle8").append("<h6>" + e.note + "/5" + " " + e.commentaire + "</h6><br>");
-          });
-        })
-        .catch(error => alert("Erreur : " + error));
-
-      })
-
-      $('#button_salle9').on("click",function() {
-        var salle = document.getElementById('salle9');
-        var lasalle = salle.innerText || salle.textContent;
-        fetch("http://localhost:8080/api/avis/byTheme/" + lasalle)
-        .then(response => response.json())
-        .then(response => {
-          response.forEach(function(e){
-            $("#avis_salle9").append("<h6>" + e.note + "/5" + " " + e.commentaire + "</h6><br>");
           });
         })
         .catch(error => alert("Erreur : " + error));
