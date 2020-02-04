@@ -7,7 +7,6 @@
     </div>
     <div class="row" id="test">
         <div class="card-deck text-white w-100">
-    <!-- Première rangée -->
 
           <?php
           //Récupère le nombre de salles
@@ -18,6 +17,7 @@
           $themes = file_get_contents("http://localhost:8080/api/themes/lesThemes");
           $lesThemes = json_decode($themes, true);
 
+          //Génère les cards avec les noms et les avis des salles
           for ($i=0; $i < $nbSalles; $i++) {
 
             echo '

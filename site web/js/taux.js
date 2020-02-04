@@ -1,14 +1,13 @@
 $(function() {
 
-  var s = document.getElementById('salle0');
-  var monTexte = s.innerText || s.textContent;
+  var i = 0;
 
-  fetch("http://localhost:8080/api/avis/byTauxSatisfaction/Alcatraz")
+  fetch("http://localhost:8080/api/avis/byTauxSatisfaction")
       .then(response => response.json())
       .then(response => {
           response.forEach(function(element){
-            $("#taux0").append(Math.round(element['1']) + "%");
-
+            $("#taux" + i).append(Math.round(element.taux) + "%");
+              i++;
           });
       })
       .catch(error => alert("Erreur : " + error));
