@@ -1,5 +1,7 @@
 $(document).ready(function(){
   $('.slide_news').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
     accessibility: false,
     arrows: false,
     dots: true,
@@ -9,6 +11,8 @@ $(document).ready(function(){
 
   });
   $('.slide_salles').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
     accessibility: false,
     arrows: false,
     dots: true,

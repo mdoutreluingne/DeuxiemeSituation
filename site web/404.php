@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Erreur 404 - Page introuvable</title>
-  <link rel="shortcut icon" href="favicon.ico">
-  <style type="text/css">
-  @font-face {
+  <head>
+    <title>Erreur 404 - Page introuvable</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+    @font-face {
+        font-family: titre;
+        src: url(css/fonts/404.otf);
+    }
+
+    body,html, header {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)),url("css/images/404.jpg") no-repeat center center;
+      background-size: cover;
+      color: white;
+    }
+
+    h1 {
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      font-size: 85px;
       font-family: titre;
-      src: url(css/fonts/404.otf);
-  }
+      white-space:nowrap;
+    }
 
-  body,html, header {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;
-  }
+    .titre {
+      white-space:nowrap;
+      display: block;
+    }
 
-  header {
-    background: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)),url("css/images/404.jpg") no-repeat center center;
-    background-size: cover;
-    color: white;
-  }
+    .chiffre::first-letter {
+      color: #eb3b5a;
+    }
 
-  h1 {
-    text-transform: uppercase;
-    letter-spacing: 10px;
-    font-size: 85px;
-    font-family: titre;
-    white-space:nowrap;
-  }
+    .wrapper {
+      display: table;
+      width: 100%;
+      height: 100%;
+    }
 
-  .titre {
-    white-space:nowrap;
-    display: block;
-  }
+    .content {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
 
-  .chiffre::first-letter {
-    color: #eb3b5a;
-  }
+    a {
+      text-decoration: none;
+      color: #eb3b5a;
+    }
 
-  .wrapper {
-    display: table;
-    width: 100%;
-    height: 100%;
-  }
-
-  .content {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  a {
-    text-decoration: none;
-    color: #eb3b5a;
-  }
-
-  p {
-    font-size: 25px;
-    letter-spacing: 1px;
-  }
-</style>
-</head>
+    p {
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+  </style>
+  </head>
 <body>
   <header>
     <div class="wrapper">

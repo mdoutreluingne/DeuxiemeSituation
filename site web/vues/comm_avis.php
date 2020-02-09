@@ -5,19 +5,33 @@
         <h2 class="underline text-uppercase">Photos</h2>
       </div>
     </div>
+
     <div class="row">
       <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
-        <img src="css/images/noel.jpg" class="img-responsive">
+        <img src="css/images/1.jpg" class="img-responsive">
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-4 filter sprinkle">
-        <img src="css/images/noel.jpg" class="img-responsive">
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter sprinkle">
+        <img src="css/images/2.jpg" class="img-responsive">
       </div>
 
-      <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
-        <img src="css/images/noel.jpg" class="img-responsive">
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
+        <img src="css/images/3.jpg" class="img-responsive">
+      </div>
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
+        <img src="css/images/1.jpg" class="img-responsive">
+      </div>
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
+        <img src="css/images/1.jpg" class="img-responsive">
+      </div>
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
+        <img src="css/images/2.jpg" class="img-responsive">
+      </div>
+      <div class="gallery_comm col-lg-4 col-md-4 col-sm-4 col-xs-4 filter hdpe">
+        <img src="css/images/1.jpg" class="img-responsive">
       </div>
     </div>
+    <!--LES AVIS-->
     <div class="row">
       <div class="text-center">
         <h2 class="underline text-uppercase">Avis</h2>

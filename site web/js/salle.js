@@ -1,4 +1,5 @@
 /*$(function() {
+
   var container = document.getElementById("slide_salles");
 var content="";
 

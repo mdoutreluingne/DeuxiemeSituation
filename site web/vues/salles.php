@@ -8,113 +8,71 @@
         <?php
         $json = file_get_contents("http://localhost:8080/api/salles/countSalle");
         $parsee = json_decode($json, true);
+
+        //Récupère les salles avec theme et ville
+        $salles = file_get_contents("http://localhost:8080/api/salles/lesSalles");
+        $lesSalles = json_decode($salles, true);
+
         $m=0;
 
-        for ($i=0; $i < 2; $i++) {
-          echo '<div>';
-          echo '<div class="card-deck">';
-          for ($j=0; $j < 3; $j++) {
-            $m++;
-            echo '
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation'. $m .'"></h5>
-                <span class="text-muted font-italic" id="ville' . $m .'"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>';
+        for ($i=0; $i < 3; $i++) {
 
-          }
-          echo '</div>';
-          echo '</div>';
+          echo '
+          <div class="col-sm-4 col-md-4 pb-2">
+            <div class="card-deck">';
+            for ($j=0; $j < 3; $j++) {
+              echo '
+              <div class="card">';
+              if ($i == 2 && $j == 2) { //La dernière card
+                echo '
+                <img src="css/images/comming_soon.png" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title" id="salle_presentation">Jack L\'eventreur</h5>
+                    <span class="text-muted font-italic" id="ville">Toutes les salles</span>
+                    <p class="card-text">Bientôt disponible !</p>
+                  </div>
+                </div>';
+              }
+              else {
+                echo '
+                <img src="css/images/noel.jpg" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title" id="salle_presentation'. $m .'">'. $lesSalles[$m]['theme'] .'</h5>
+                    <span class="text-muted font-italic" id="ville' . $m .'">'. $lesSalles[$m]['ville'] .'</span>
+                  </div>
+                </div>';
+              }
+
+              $m++;
+            }
+
+            echo '
+            </div>
+          </div>';
+
+
         }
+
+        /*for ($i=0; $i < $parsee; $i++) {
+          echo '
+          <div class="col-sm-4 col-md-4 pb-2">
+            <div class="card card-outline-info" id="Panel">
+              <div class="card-block">
+                <div class="card-title">
+                <img src="css/images/noel.jpg" class="card-img-top" alt="...">
+                    <span>Card #</span>
+                    <button type="button" class="close" data-target="#Panel" data-dismiss="alert">
+                    <span class="float-right"><i class="fa fa-remove"></i></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+          </div>';
+        }*/
+
+
          ?>
-        <!--
-        <div>
-          <div class="card-deck">
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation1"></h5>
-                <span class="text-muted font-italic" id="ville1"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation2"></h5>
-                <span class="text-muted font-italic" id="ville2"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation3"></h5>
-                <span class="text-muted font-italic" id="ville3"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="card-deck">
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation4"></h5>
-                <span class="text-muted font-italic" id="ville4"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation5"></h5>
-                <span class="text-muted font-italic" id="ville5"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation6"></h5>
-                <span class="text-muted font-italic" id="ville6"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="card-deck">
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation7"></h5>
-                <span class="text-muted font-italic" id="ville7"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation8"></h5>
-                <span class="text-muted font-italic" id="ville8"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-            <div class="card">
-              <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title" id="salle_presentation9"></h5>
-                <span class="text-muted font-italic" id="ville9"></span>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            </div>
-          </div>
-        </div>-->
+
       </div>
     </div>
   </div>
