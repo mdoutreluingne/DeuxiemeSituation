@@ -1,17 +1,17 @@
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link font-weight-bold" href="../index.php">EGC</a>
+    <a class="nav-link font-weight-bold" href="../">EGC</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-uppercase" href="../index.php#obstacles">obstacles</a>
+    <a class="nav-link text-uppercase" href="../#obstacles">obstacles</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-uppercase" href="../index.php#salles">salles</a>
+    <a class="nav-link text-uppercase" href="../#salles">salles</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-uppercase" href="../index.php#stat">statistiques</a>
+    <a class="nav-link text-uppercase" href="../#stat">statistiques</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-uppercase" href="../index.php#comm_avis">commentaires & photos</a>
+    <a class="nav-link text-uppercase" href="../#comm_avis">commentaires & photos</a>
   </li>
 </ul>

@@ -35,7 +35,7 @@ include 'include/header.php';
         <div class="col-6">
           <button type="button" class="btn btn-danger btn-lg btn-block text-uppercase" id="button_deletenews">Supprimer des news</button>
           <div class="delete_news">
-            
+
           </div>
           <?php if (isset($msg)) { echo $msg; } ?>
         </div>
@@ -56,6 +56,14 @@ include 'include/header.php';
         <div class="col-12">
           <span class="text-white font-weight-bold">Saisir le nombre d’affichage des avis : </span>
           <input type="text" name="" value="" placeholder="Minimum 3">
+          <button type="button" class="btn btn-info">Valider</button>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-12">
+          <span class="text-white font-weight-bold">Saisir la note minimale des avis : </span>
+          <input type="text" name="" value="" placeholder="Chiffre entre 0 et 5">
           <button type="button" class="btn btn-info">Valider</button>
         </div>
       </div>

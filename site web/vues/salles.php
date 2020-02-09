@@ -35,7 +35,7 @@
               }
               else {
                 echo '
-                <img src="css/images/noel.jpg" class="card-img-top">
+                <img src="css/images/'. $lesSalles[$m]['image'] .'" class="card-img-top">
                   <div class="card-body">
                     <h5 class="card-title" id="salle_presentation'. $m .'">'. $lesSalles[$m]['theme'] .'</h5>
                     <span class="text-muted font-italic" id="ville' . $m .'">'. $lesSalles[$m]['ville'] .'</span>
