@@ -243,6 +243,15 @@ input, textarea {
   margin-bottom:1.5rem;
 }
 
+#border_salle .card {
+  border: none;
+  margin-bottom: 7%;
+}
+
+.affiche_photos {
+  height: 300px;
+}
+
 /* FOOTER */
 
 footer {
