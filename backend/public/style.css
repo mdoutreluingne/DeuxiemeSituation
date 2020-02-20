@@ -1,0 +1,146 @@
+body{
+    margin: 0;
+}
+
+.page .entete {
+    position: sticky;
+    top: 0;
+}
+.page .entete .navigation {
+    background-color: #333852;
+    color: white;
+    padding: 15px 0 15px 0;
+}
+.page .entete .navigation .title,
+.page .entete .navigation .nav {
+    display: inline-block;
+}
+.page .entete .navigation .title {
+    margin-left: 15px;
+    margin-right: 70%;
+    text-decoration: underline;
+}
+.page .entete .navigation .nav {
+    margin-left: 15px;
+}
+.page .entete .stickClient {
+    padding: 5px 0 5px 0;
+    box-shadow: 3px 3px 2px #3F3F3F;
+    background-color: white;
+}
+.page .entete .stickClient h3 {
+    display: inline-block;
+    margin: 15px 0 0 15px;
+}
+.page .corps {
+    height: 3000px;
+}
+.page .corps .client {
+    display: inline-block;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    vertical-align: top;
+}
+.page .corps .client .title {
+    margin-block-start: 2em;
+    text-align: center;
+    text-decoration: underline;
+}
+.page .corps .client .saisie .description {
+    margin: 20px 0 5px 25%;
+    padding-left: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+.page .corps .client .saisie .zone {
+    display: block;
+    margin-left: 25%;
+    width: 50%;
+    height: 25px;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid;
+}
+.page .corps .client .saisie .zone:focus {
+    border-bottom: 2px solid #7190BB;
+}
+.page .corps .client .saisie .zone:disabled {
+    background-color: white;
+    border-bottom: 2px solid #ac4848;
+}
+.page .corps .client .actions button {
+    display: inline-block;
+    margin-top: 5%;
+    height: 40px;
+    width: 45%;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    color: #3F3F3F;
+    background-color: white;
+    border: 2px solid #7190BB;
+}
+.page .corps .client .actions button:disabled{
+    background-color: lightgray;
+    border: 2px solid #ac4848;
+    cursor: initial;
+}
+
+.page .corps .client .actions button:disabled:hover{
+    background-color: lightgray;
+}
+
+.page .corps .client .actions button:hover {
+    background-color: #7190BB;
+}
+.page .corps .client .actions .archiver {
+    margin-left: 5%;
+}
+.page .corps .client .actions .desarchiver {
+    margin-left: 5%;
+    border: 2px solid #ac4848;
+}
+.page .corps .client .actions .nouveau {
+    margin-left: 25%;
+}
+
+.page .corps .transaction {
+    display: inline-block;
+    width: 50%;
+    margin: 8% 25% 0 25%;
+    vertical-align: top;
+}
+.page .corps .transaction .title {
+    text-align: center;
+    text-decoration: underline;
+}
+.page .corps .transaction .tableau {
+    border: 1px solid;
+}
+.page .corps .transaction .tableau .bordure {
+    border-left: 1px solid;
+}
+.page .corps .transaction .tableau .colonne {
+    display: inline-block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding: 5px 0 5px 0;
+    width: 45%;
+    text-align: center;
+}
+.page .corps .transaction .tableau .ligne {
+    border-top: 1px solid;
+}
+.page .corps .transaction .tableau .ligne .date,
+.page .corps .transaction .tableau .ligne .montant {
+    display: inline-block;
+    width: 45%;
+    padding: 5px 0 5px 0;
+    text-align: center;
+}
+.page .corps .transaction .tableau .ligne:hover {
+    background-color: #7190BB;
+    cursor: pointer;
+}
