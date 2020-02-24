@@ -25,7 +25,7 @@
               <div class="card">';
               if ($i == 2 && $j == 2) { //La dernière card
                 echo '
-                <img src="css/images/comming_soon.png" class="card-img-top">
+                <img src="css/images/salles/comming_soon.png" class="card-img-top">
                   <div class="card-body">
                     <h5 class="card-title" id="salle_presentation">Jack L\'eventreur</h5>
                     <span class="text-muted font-italic" id="ville">Toutes les salles</span>
@@ -35,7 +35,7 @@
               }
               else {
                 echo '
-                <img src="css/images/'. $lesSalles[$m]['image'] .'" class="card-img-top">
+                <img src="css/images/salles/'. $lesSalles[$m]['image'] .'" class="card-img-top">
                   <div class="card-body">
                     <h5 class="card-title" id="salle_presentation'. $m .'">'. $lesSalles[$m]['theme'] .'</h5>
                     <span class="text-muted font-italic" id="ville' . $m .'">'. $lesSalles[$m]['ville'] .'</span>

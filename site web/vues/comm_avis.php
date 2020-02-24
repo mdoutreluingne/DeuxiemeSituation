@@ -49,7 +49,7 @@
           echo '
           <div class="col-md-4" id="border_salle">
                 <div class="card">
-                    <img src="css/images/'. $nomPhotos[$nbPhotosAlea]['nom'] .'" class="card-img-top affiche_photos">
+                    <img src="css/images/photos/'. $nomPhotos[$nbPhotosAlea]['nom'] .'" class="card-img-top affiche_photos">
                 </div>
             </div>';
         }

@@ -16,42 +16,30 @@ include 'include/header.php';
           </div>
           <div class="content_news">
             <div class="slide_news">
-              <div class="desc_news">
-                <div class="col-sm-4">
-                  <h5>Titre</h5>
-                  <p class="card-text"><small class="text-white font-weight-bold">2019-2020</small></p>
-                </div>
-                <div class="col-sm-4">
-                  <img src="css/images/noel.jpg" alt="" class="img_news">
-                </div>
-                <div class="col-sm-4">
-                  <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
-                </div>
-              </div>
-              <div class="desc_news">
-                <div class="col-sm-4">
-                  <h5>Titre</h5>
-                  <p class="card-text"><small class="text-white font-weight-bold">2019-2020</small></p>
-                </div>
-                <div class="col-sm-4">
-                  <img src="css/images/noel.jpg" alt="" class="img_news">
-                </div>
-                <div class="col-sm-4">
-                  <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
-                </div>
-              </div>
-              <div class="desc_news">
-                <div class="col-sm-4">
-                  <h5>Titre</h5>
-                  <p class="card-text"><small class="text-white font-weight-bold">2019-2020</small></p>
-                </div>
-                <div class="col-sm-4">
-                  <img src="css/images/noel.jpg" alt="" class="img_news">
-                </div>
-                <div class="col-sm-4">
-                  <p class="txt">testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttestesttesttesttesttesttesttesttest</p>
-                </div>
-              </div>
+              <?php
+                //Récupération des actualités en json
+                $lesActus = file_get_contents("http://localhost:8080/api/actualites");
+                $actualites = json_decode($lesActus, true);
+                $date_debut = date('d-m-Y H:i:s', strtotime($actualites[0]['dateDebut'])); //Fomatage de date
+                $date_fin = date('d-m-Y H:i:s', strtotime($actualites[0]['dateFin'])); //Fomatage de date
+
+
+                for ($t=0; $t < 2; $t++) {
+                  echo '
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="css/images/actualites/'. $actualites[$t]['image'] .'" class="img-fluid img-thumbnail mx-auto d-block">
+                      <div class="carousel-caption">
+                        <h3>'. $actualites[$t]['titre'] .'</h3>
+                        <p>'. $date_debut .' - '. $date_fin .'</p>
+                        <p>'. $actualites[$t]['paragraphe'] .'</p>
+                      </div>
+                    </div>
+                  </div>';
+                }
+
+              ?>
+
             </div>
           </div>
         </div>
