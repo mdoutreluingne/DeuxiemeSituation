@@ -25,7 +25,7 @@
               <div class="card cardstat" id="Panel">
                 <div class="card-block text-center">
                   <div class="card-title"><h5 class="card-title" id="salle'. $i .'">'. $lesThemes[$i]['nom'] .'</h5></div>
-                  <p class="card-text" id="taux'. $i .'"></p>
+                  <p class="card-text taux" id="taux'. $i .'"></p>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" id="button_salle'. $i .'" data-toggle="modal" data-target="#modal'. $i .'">
                     AVIS

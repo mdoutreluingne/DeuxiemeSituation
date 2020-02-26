@@ -3,6 +3,16 @@
     src: url(fonts/play.otf);
 }
 
+@font-face {
+    font-family: chiffre;
+    src: url(fonts/newyorkescape.ttf);
+}
+
+@font-face {
+    font-family: title;
+    src: url(fonts/redundead.ttf);
+}
+
 html { /* Effect scrolling */
   overflow-x: hidden;
   overflow-y: scroll;
@@ -54,15 +64,10 @@ header {
 .description_egc {
   color: white;
   width: 50%;
+  margin-top: 1%;
   font-weight: 600;
-}
-
-#color_accueil {
-  color: #FF0000;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-family: play;
+  color: rgb(175, 0, 0);
+  font-family: title;
 }
 
 .content {
@@ -73,10 +78,9 @@ header {
 }
 
 .content_accueil {
-  margin-top: 4%;
+  margin-top: 7%;
+  margin-bottom: 8%;
 }
-
-
 
 .img_news {
   float: left;
@@ -112,6 +116,36 @@ header {
   text-align: center;
   margin: 0 0 35px;
   letter-spacing: 1px;
+  font-family: title;
+  font-size: 45px;
+}
+
+/* Le jeu */
+
+.description {
+  font-size: 18px;
+}
+
+.contexte {
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+#color_accueil {
+  color: rgb(175, 0, 0);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  font-size: 20px;
+  font-family: play;
+}
+
+#color_lejeu {
+  color: rgb(175, 0, 0);
+  font-style: italic;
+  font-size: 1.7em;
+  font-weight: normal;
+
 }
 
 /* OBSTACLES */
@@ -210,6 +244,11 @@ input, textarea {
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(50,9,9,1) 53%, rgba(218,26,53,1) 100%);
 }
 
+.taux {
+  font-family: chiffre;
+  font-size: 25px;
+}
+
 /* COMMENTAIRES ET AVIS */
 
 .comm_avis {
@@ -239,6 +278,10 @@ input, textarea {
 
 .affiche_photos {
   height: 300px;
+}
+
+.photos {
+  cursor: zoom-in;
 }
 
 /* FOOTER */
