@@ -22,14 +22,13 @@
             <div class="card-deck">';
             for ($j=0; $j < 3; $j++) {
               echo '
-              <div class="card">';
+              <div class="card cardsalle">';
               if ($i == 2 && $j == 2) { //La dernière card
                 echo '
                 <img src="css/images/salles/comming_soon.png" class="card-img-top">
                   <div class="card-body">
                     <h5 class="card-title" id="salle_presentation">Jack L\'eventreur</h5>
-                    <span class="text-muted font-italic" id="ville">Toutes les salles</span>
-                    <p class="card-text">Bientôt disponible !</p>
+                    <span class="text-white font-italic" id="ville">Toutes les salles</span>
                   </div>
                 </div>';
               }
@@ -37,8 +36,8 @@
                 echo '
                 <img src="css/images/salles/'. $lesSalles[$m]['image'] .'" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title" id="salle_presentation'. $m .'">'. $lesSalles[$m]['theme'] .'</h5>
-                    <span class="text-muted font-italic" id="ville' . $m .'">'. $lesSalles[$m]['ville'] .'</span>
+                    <h5 class="card-title" id="salle_presentation">'. $lesSalles[$m]['theme'] .'</h5>
+                    <span class="font-italic text-white" id="ville">'. $lesSalles[$m]['ville'] .'</span>
                   </div>
                 </div>';
               }

@@ -85,14 +85,15 @@
             }
             if ($avis[$nbAvisAlea]['note'] >= $notemini) { //Affichage des avis
 
-              echo '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-              <div class="card" id="lesAvis">
-              <div class="card-body">
-              <h5 class="font-italic text-danger">'. $avis[$nbAvisAlea]['theme'] .'</h5>
-              <h6 class="card-subtitle mb-2 font-weight-bold">'. $avis[$nbAvisAlea]['note'] .'/5</h6>
-              <p class="card-text">'. $avis[$nbAvisAlea]['commentaire'] .'</p>
-              </div>
-              </div>
+              echo '
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                <div class="card cardavis" id="lesAvis">
+                  <div class="card-body">
+                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]['theme'] .'</h5>
+                    <h6 class="card-subtitle mb-2 font-weight-bold text-white">'. $avis[$nbAvisAlea]['note'] .'/5</h6>
+                    <p class="card-text text-white">'. $avis[$nbAvisAlea]['commentaire'] .'</p>
+                  </div>
+                </div>
               </div>';
 
               $inc++;

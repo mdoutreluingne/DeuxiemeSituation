@@ -22,6 +22,7 @@
       <div class="col mb-4 text-center">
         <img src="css/images/hourglass.png" class="img_jeu" alt="Hourglass">
         <p class="description">Tic tac, tic tac... Le temps vous est compté ! Vous aurez 60 minutes pour résoudre votre mission.</p>
+        <p class="compte_a_rebours"></p>
       </div>
     </div>
     <p class="text-center" id="color_lejeu">Sortirez-vous à temps de cette escape-room ?</p>

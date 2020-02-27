@@ -1,5 +1,8 @@
 <?php
 include 'include/header.php';
+include 'put_nbphotos.php'; //Formulaire pour changer le nombre de photo
+include 'put_nbavis.php'; //Formulaire pour changer le nombre d'avis
+include 'put_notemini.php'; //Formulaire pour changer la note minimale
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -30,14 +33,12 @@ include 'include/header.php';
                 <input type="submit" class="btn btn-info" name="submit" value="Envoyer"><br>
             </form>
           </div>
-          <?php if (isset($msg)) { echo $msg; } ?>
         </div>
         <div class="col-6">
           <button type="button" class="btn btn-danger btn-lg btn-block text-uppercase" id="button_deletenews">Supprimer des news</button>
           <div class="delete_news">
 
           </div>
-          <?php if (isset($msg)) { echo $msg; } ?>
         </div>
       </div>
     </div>
@@ -46,28 +47,38 @@ include 'include/header.php';
     <div class="container text-center">
       <div class="row">
         <div class="col-12">
-          <span class="text-white font-weight-bold">Saisir le nombre d’affichage des photos : </span>
-          <input type="text" name="" value="" placeholder="Minimum 3">
-          <button type="button" class="btn btn-info">Valider</button>
+          <form class="" action="" method="post">
+            <span class="text-white font-weight-bold">Saisir le nombre d’affichage des photos : </span>
+            <input type="number" name="nbphotos" value="" placeholder="Minimum 3">
+            <button type="submit" name="submit_nbphotos" id="submit" class="btn btn-info">Valider</button>
+            <?php if(isset($msg_nbphotos)) {echo $msg_nbphotos;}  ?>
+          </form>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-12">
-          <span class="text-white font-weight-bold">Saisir le nombre d’affichage des avis : </span>
-          <input type="text" name="" value="" placeholder="Minimum 3">
-          <button type="button" class="btn btn-info">Valider</button>
+          <form class="" action="" method="post">
+            <span class="text-white font-weight-bold">Saisir le nombre d’affichage des avis : </span>
+            <input type="number" name="nbavis" value="" placeholder="Minimum 3">
+            <button type="submit" name="submit_nbavis" id="submit" class="btn btn-info">Valider</button>
+            <?php if(isset($msg_nbavis)) {echo $msg_nbavis;}  ?>
+          </form>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-12">
-          <span class="text-white font-weight-bold">Saisir la note minimale des avis : </span>
-          <input type="text" name="" value="" placeholder="Chiffre entre 0 et 5">
-          <button type="button" class="btn btn-info">Valider</button>
+          <form class="" action="" method="post">
+            <span class="text-white font-weight-bold">Saisir la note minimale des avis : </span>
+            <input type="number" name="notemini" value="" placeholder="Chiffre entre 0 et 5">
+            <button type="submit" name="submit_notemini" id="submit" class="btn btn-info">Valider</button>
+            <?php if(isset($msg_notemini)) {echo $msg_notemini;}  ?>
+          </form>
         </div>
       </div>
     </div>
+
   </div>
 
 </div>

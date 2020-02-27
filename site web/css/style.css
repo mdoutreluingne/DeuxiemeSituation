@@ -122,6 +122,10 @@ header {
 
 /* Le jeu */
 
+.le_jeu {
+  margin-top: 2%;
+}
+
 .description {
   font-size: 18px;
 }
@@ -145,7 +149,6 @@ header {
   font-style: italic;
   font-size: 1.7em;
   font-weight: normal;
-
 }
 
 /* OBSTACLES */
@@ -164,9 +167,22 @@ header {
   padding-top: 5%;
 }
 
+.cardsalle {
+  background-color: black;
+  border: 1px solid #da1a35;
+}
+
 .slide_salles {
   width: 100%;
   height: 100%;
+}
+
+#salle_presentation {
+  font-family: title;
+  font-weight: 900;
+  font-size: 23px;
+  color: white;
+  letter-spacing: 1px;
 }
 
 /* LOGIN */
@@ -237,6 +253,11 @@ input, textarea {
   margin-top: 5%;
 }
 
+.stat_salle {
+  font-family: title;
+  font-size: 25px;
+}
+
 .cardstat {
   margin-top: 1%;
   background: rgb(0,0,0);
@@ -250,6 +271,16 @@ input, textarea {
 }
 
 /* COMMENTAIRES ET AVIS */
+
+.cardavis {
+  background-color: black;
+  border: 1px solid #da1a35;
+}
+
+.avis_theme {
+  font-family: title;
+  letter-spacing: 1px;
+}
 
 .comm_avis {
   width: 100%;
