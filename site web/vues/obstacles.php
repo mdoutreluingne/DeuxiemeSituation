@@ -14,11 +14,11 @@
         for ($y=0; $y < 6; $y++) {
           echo '
           <div class="col mb-4">
-            <div class="card">
-              <img src="css/images/obstacles/'. $lesArticles[$y]['image'] .'" class="img-fluid img-thumbnail" alt="...">
+            <div class="card cardobstacles">
+              <img src="css/images/obstacles/'. $lesArticles[$y]['image'] .'" class="img-fluid img-thumbnail yy" alt="...">
               <div class="card-body">
-                <h5 class="card-title">'. $lesArticles[$y]['libelle'] .'</h5>
-                <p class="card-text">'. $lesArticles[$y]['montant'] .'€</p>
+                <h5 class="card-title titre_obstacles">'. $lesArticles[$y]['libelle'] .'</h5>
+                <p class="card-text chiffre_obstacles">'. $lesArticles[$y]['montant'] .'€</p>
               </div>
             </div>
           </div>';

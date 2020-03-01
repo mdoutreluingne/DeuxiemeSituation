@@ -86,7 +86,7 @@
             if ($avis[$nbAvisAlea]['note'] >= $notemini) { //Affichage des avis
 
               echo '
-              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 content_avis">
                 <div class="card cardavis" id="lesAvis">
                   <div class="card-body">
                     <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]['theme'] .'</h5>

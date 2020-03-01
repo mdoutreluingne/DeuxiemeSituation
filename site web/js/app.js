@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  
+  /*Configuration des deux slides */
   $('.slide_news').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -35,7 +37,6 @@ $(document).ready(function(){
   }
 
   /* Timer */
-
   var min=60,sec=0,dse=0;
   var tmp=(min*60+sec)*10+dse;
 

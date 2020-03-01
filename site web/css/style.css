@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: timer;
+    src: url(fonts/Pixel-lcd-machine.ttf);
+}
+
+@font-face {
     font-family: title;
     src: url(fonts/redundead.ttf);
 }
@@ -99,14 +104,14 @@ header {
   height: 100%;
 }
 
-.slick-dots li button:before /* le style des points */
+.slick-dots li button:before /* le style des points (Slider) */
 {
   font-size: 20px;
   line-height: 20px;
   color: red;
 }
 
-.slick-dots li.slick-active button:before { /* Quand le point est actif */
+.slick-dots li.slick-active button:before { /* Quand le point est actif (Slider) */
   color: white;
 }
 
@@ -118,6 +123,20 @@ header {
   letter-spacing: 1px;
   font-family: title;
   font-size: 45px;
+}
+
+.titre_actu {
+  font-family: title;
+  font-size: 3.5vw;
+  letter-spacing: 1px;
+}
+
+.date_actu {
+  font-size: 18px;
+}
+
+.text_actu {
+  font-size: 18px;
 }
 
 /* Le jeu */
@@ -151,12 +170,34 @@ header {
   font-weight: normal;
 }
 
+.compte_a_rebours {
+  font-family: timer;
+  color: #da1a35;
+  font-size: 30px;
+}
+
 /* OBSTACLES */
 
 .obstacles {
   width: 100%;
   height: 100%;
   margin-top: 5%;
+}
+
+.cardobstacles {
+  background: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.50));
+}
+
+.yy {
+  background: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.50));
+}
+
+.titre_obstacles {
+  font-family: title;
+}
+
+.chiffre_obstacles {
+  font-family: chiffre;
 }
 
 /* SALLES */
@@ -327,8 +368,10 @@ footer {
 
 /* RESPONSIVE */
 
-/*@media screen and (max-width: 780px) {
-  .txt {
-    float: right;
+@media screen and (max-width: 1000px) {
+  .content_avis {
+    width: 100%;
+    max-width: 1200px;
   }
-}*/
+
+}

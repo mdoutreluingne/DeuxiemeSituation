@@ -15,9 +15,11 @@ if (isset($_POST['submit_new'])) {
                           // On peut valider le fichier et le stocker définitivement
                           move_uploaded_file($_FILES['photo']['tmp_name'], '../css/images/actualites/' . basename($_FILES['photo']['name']));
                           $image = $_FILES['photo']['name'];
-                          $image = str_replace('.', ',', $image); //Remplace , par . dans le nom de l'image 
+                          $image = str_replace('.', ',', $image); //Remplace , par . dans le nom de l'image
                           $titre = $_POST['titre'];
+                          $titre = str_replace(' ', '%', $titre); //Remplace l'espace par % pour l'url
                           $contenu = $_POST['contenu'];
+                          $contenu = str_replace(' ', '%', $contenu); //Remplace l'espace par % pour l'url
                           $date_debut = $_POST['date_debut'];
                           $date_fin = $_POST['date_fin'];
 
@@ -26,12 +28,13 @@ if (isset($_POST['submit_new'])) {
 
                           $options = array(
                               'http' => array(
-                                  'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                                  'header'  => "Content-type: application/x-www-form-urlencoded",
                                   'method'  => 'POST',
                                   'content' => http_build_query($data)
                               )
                           );
                           $context  = stream_context_create($options);
+
                           $result = file_get_contents($url, false, $context);
 
                           $msg_news = '<div class="alert alert-success" role="alert">La news a bien été ajouté</div>';

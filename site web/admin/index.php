@@ -62,7 +62,7 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
                     <tr>
                       <th scope="row">'. $actu['titre'] .'</th>
                       <input type="hidden" name="test" value="'. $actu['id'] .'">
-                      <td><input type="submit" name="delete_new" value="Delete"></td>
+                      <td><input type="submit" name="delete_new" class="btn btn-danger" value="Supprimer"></td>
                     </tr>
                   </form>';
                 }

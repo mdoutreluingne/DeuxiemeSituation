@@ -5,6 +5,7 @@ include 'include/header.php';
     <div class="container-fluid">
       <div class="row">
         <?php
+        /* Barre de naviguation */
         include 'include/navbar.php';
         ?>
         <div class="content">
@@ -19,8 +20,8 @@ include 'include/header.php';
                 //Récupération des actualités en json
                 $lesActus = file_get_contents("http://localhost:8080/api/actualites");
                 $actualites = json_decode($lesActus, true);
-                $date_debut = date('d-m-Y H:i:s', strtotime($actualites[0]['dateDebut'])); //Fomatage de date
-                $date_fin = date('d-m-Y H:i:s', strtotime($actualites[0]['dateFin'])); //Fomatage de date
+                $date_debut = date('d/m/Y H:i:s', strtotime($actualites[0]['dateDebut'])); //Fomatage de date
+                $date_fin = date('d/m/Y H:i:s', strtotime($actualites[0]['dateFin'])); //Fomatage de date
 
                 //Récupération du nombre d'actualités en json
                 $nombreActualites = file_get_contents("http://localhost:8080/api/actualites/countActualite");
@@ -32,9 +33,9 @@ include 'include/header.php';
                     <div class="item active">
                       <img src="css/images/actualites/'. $actualites[$t]['image'] .'" class="img-fluid img-thumbnail mx-auto d-block">
                       <div class="carousel-caption">
-                        <h3>'. $actualites[$t]['titre'] .'</h3>
-                        <p>'. $date_debut .' - '. $date_fin .'</p>
-                        <p>'. $actualites[$t]['paragraphe'] .'</p>
+                        <h3 class="titre_actu">'. $actualites[$t]['titre'] .'</h3>
+                        <p class="date_actu">'. $date_debut .' - '. $date_fin .'</p>
+                        <p class="text_actu">'. $actualites[$t]['paragraphe'] .'</p>
                       </div>
                     </div>
                   </div>';
