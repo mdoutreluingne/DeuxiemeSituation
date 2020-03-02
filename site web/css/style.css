@@ -38,28 +38,32 @@ header {
   padding-bottom: 2%;
 }
 
-.nav {
-  font-size: 15px;
-  background-color: #2C3E50;
+.navbar {
   width: 100%;
-
+  list-style-type: none;
+  height: 8%;
+  background-color: transparent;
 }
 
-.nav li:hover{
-  background-color: #eb3b5a;
-  color: white;
+.links {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
-.nav li:nth-child(1){
-  font-size: 23px;
+.links::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #da1a35;
+  transition: width 0.3s;
 }
 
-.nav-link {
-  color: white;
-}
-
-.nav-link:hover {
-  color: white;
+.links:hover::after {
+  width: 100%;
+  transition: width 0.3s;
 }
 
 .title {
@@ -186,10 +190,12 @@ header {
 
 .cardobstacles {
   background: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.50));
+  border: 1px solid #da1a35;
 }
 
-.yy {
+.img_obstacle {
   background: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.50));
+  border: none;
 }
 
 .titre_obstacles {

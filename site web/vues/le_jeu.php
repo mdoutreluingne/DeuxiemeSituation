@@ -1,4 +1,4 @@
-<div class="le_jeu">
+<div class="le_jeu" id="le_jeu">
   <div class="container">
     <div class="row">
       <div class="text-center">

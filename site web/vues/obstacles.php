@@ -15,10 +15,10 @@
           echo '
           <div class="col mb-4">
             <div class="card cardobstacles">
-              <img src="css/images/obstacles/'. $lesArticles[$y]['image'] .'" class="img-fluid img-thumbnail yy" alt="...">
+              <img src="css/images/obstacles/'. $lesArticles[$y]['image'] .'" class="img-fluid img-thumbnail img_obstacle" alt="...">
               <div class="card-body">
-                <h5 class="card-title titre_obstacles">'. $lesArticles[$y]['libelle'] .'</h5>
-                <p class="card-text chiffre_obstacles">'. $lesArticles[$y]['montant'] .'€</p>
+                <h5 class="card-title text-white titre_obstacles">'. $lesArticles[$y]['libelle'] .'</h5>
+                <p class="card-text text-white chiffre_obstacles">'. $lesArticles[$y]['montant'] .'€</p>
               </div>
             </div>
           </div>';
