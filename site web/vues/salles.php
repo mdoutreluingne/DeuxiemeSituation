@@ -49,26 +49,7 @@
             </div>
           </div>';
 
-
         }
-
-        /*for ($i=0; $i < $parsee; $i++) {
-          echo '
-          <div class="col-sm-4 col-md-4 pb-2">
-            <div class="card card-outline-info" id="Panel">
-              <div class="card-block">
-                <div class="card-title">
-                <img src="css/images/noel.jpg" class="card-img-top" alt="...">
-                    <span>Card #</span>
-                    <button type="button" class="close" data-target="#Panel" data-dismiss="alert">
-                    <span class="float-right"><i class="fa fa-remove"></i></span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-          </div>';
-        }*/
-
 
          ?>
 

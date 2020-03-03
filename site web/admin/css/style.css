@@ -6,13 +6,6 @@ body,html, header {
   background-color: #0e0e0e;
 }
 
-.navbar {
-  width: 100%;
-  list-style-type: none;
-  height: 8%;
-  background-color: transparent;
-}
-
 .links {
   display: inline-block;
   text-transform: uppercase;

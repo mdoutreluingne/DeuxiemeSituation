@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+
   /*Configuration des deux slides */
   $('.slide_news').slick({
     slidesToShow: 1,
@@ -12,7 +12,20 @@ $(document).ready(function(){
     autoplaySpeed: 2500,
 
   });
+
   $('.slide_salles').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    accessibility: false,
+    arrows: false,
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+
+  });
+
+  $('.slides_obstacles').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     accessibility: false,
