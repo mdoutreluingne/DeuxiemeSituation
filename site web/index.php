@@ -20,8 +20,6 @@ include 'include/header.php';
                 //Récupération des actualités en json
                 $lesActus = file_get_contents("http://localhost:8080/api/actualites");
                 $actualites = json_decode($lesActus, true);
-                $date_debut = date('d/m/Y H:i:s', strtotime($actualites[0]['dateDebut'])); //Fomatage de date
-                $date_fin = date('d/m/Y H:i:s', strtotime($actualites[0]['dateFin'])); //Fomatage de date
 
                 //Récupération du nombre d'actualités en json
                 $nombreActualites = file_get_contents("http://localhost:8080/api/actualites/countActualite");
@@ -34,7 +32,7 @@ include 'include/header.php';
                       <img src="css/images/actualites/'. $actualites[$t]['image'] .'" class="img-fluid img-thumbnail mx-auto d-block">
                       <div class="carousel-caption">
                         <h3 class="titre_actu">'. $actualites[$t]['titre'] .'</h3>
-                        <p class="date_actu">'. $date_debut .' - '. $date_fin .'</p>
+                        <p class="date_actu">'. date('d/m/Y H:i:s', strtotime($actualites[$t]['dateDebut'])) .' - '. date('d/m/Y H:i:s', strtotime($actualites[$t]['dateFin'])) .'</p>
                         <p class="text_actu">'. $actualites[$t]['paragraphe'] .'</p>
                       </div>
                     </div>

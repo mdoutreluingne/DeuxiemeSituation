@@ -28,12 +28,12 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
                 <span class="text-white">Contenu de la news :</span><br>
                 <textarea class="form-control" name="contenu" id="exampleFormControlTextarea1" rows="3"></textarea><br>
                 <span class="text-white">Date de début :</span><br>
-                <input type="date" name="date_debut" value=""><br>
+                <input type="datetime-local" name="date_debut" value=""><br>
                 <span class="text-white">Date de fin :</span><br>
-                <input type="date" name="date_fin" value=""><br>
+                <input type="datetime-local" name="date_fin" value=""><br>
                 <span class="text-white">Image :</span><br>
                 <input type="file" class="text-white" name="photo"><br>
-                <input type="submit" class="btn btn-info" name="submit_new" value="Envoyer"><br>
+                <input type="submit" class="btn btn-info" name="submit_new" value="Valider"><br>
             </form>
           </div>
         </div>
