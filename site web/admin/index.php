@@ -16,7 +16,7 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
 
 <div class="panel_admin">
   <div class="gestion_news">
-    <div class="container text-center">
+    <div class="container">
       <div class="row">
         <div class="col-6">
           <?php if(isset($msg_news)) {echo $msg_news;}  ?>
@@ -24,23 +24,25 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
           <div class="add_news">
             <form action="" method="post" enctype="multipart/form-data">
                 <span class="text-white">Titre de la news :</span><br>
-                <input type="text" name="titre" class="form-control" placeholder="Titre"><br>
+                <input type="text" name="titre" class="form-control">
                 <span class="text-white">Contenu de la news :</span><br>
-                <textarea class="form-control" name="contenu" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+                <textarea class="form-control" name="contenu" id="exampleFormControlTextarea1" rows="3"></textarea>
                 <span class="text-white">Date de début :</span><br>
-                <input type="datetime-local" name="date_debut" value=""><br>
+                <input type="datetime-local" class="form-control" name="date_debut" value="">
                 <span class="text-white">Date de fin :</span><br>
-                <input type="datetime-local" name="date_fin" value=""><br>
+                <input type="datetime-local" class="form-control" name="date_fin" value="">
                 <span class="text-white">Image :</span><br>
-                <input type="file" class="text-white" name="photo"><br>
-                <input type="submit" class="btn btn-info" name="submit_new" value="Valider"><br>
+                <span class="text-danger font-italic">Taille maximale : 1Mo </span><br>
+                <span class="text-danger font-italic">Dimension 1200x400 de préférence</span><br>
+                <input type="file" class="text-white" name="photo">
+                <input type="submit" class="btn btn-info form-control save" name="submit_new" value="Valider">
             </form>
           </div>
         </div>
         <div class="col-6">
           <?php if(isset($msg_delete_news)) {echo $msg_delete_news;}  ?>
           <button type="button" class="btn btn-danger btn-lg btn-block text-uppercase" id="button_deletenews">Supprimer des news</button>
-          <div class="delete_news">
+          <div class="delete_news text-center">
             <table class="table table-bordered table-dark table-hover">
               <thead>
                 <tr>
@@ -61,7 +63,7 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
                   <form class="" action="" method="post">
                     <tr>
                       <th scope="row">'. $actu['titre'] .'</th>
-                      <input type="hidden" name="test" value="'. $actu['id'] .'">
+                      <input type="hidden" name="id_title" value="'. $actu['id'] .'">
                       <td><input type="submit" name="delete_new" class="btn btn-danger" value="Supprimer"></td>
                     </tr>
                   </form>';

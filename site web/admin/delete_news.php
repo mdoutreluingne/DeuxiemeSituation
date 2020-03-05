@@ -2,7 +2,7 @@
 if (isset($_POST['delete_new'])) {
 
 
-      $delete_actu = $_POST['test'];
+      $delete_actu = $_POST['id_title'];
 
       $url = "http://localhost:8080/api/actualites/$delete_actu";
       $data = array('id' => $delete_actu);

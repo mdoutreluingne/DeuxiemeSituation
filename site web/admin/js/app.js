@@ -14,9 +14,9 @@ $(function() {
 
 });
 
-//Fait disparaitre l'alert après 4sec
+//Fait disparaitre l'alert après 3sec
 window.setTimeout(function() {
   $(".alert").fadeTo(500, 0).slideUp(500, function(){
     $(this).remove();
   });
-}, 4000);
+}, 3000);
