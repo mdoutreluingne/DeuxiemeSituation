@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
 
   var i = 0;
 
@@ -12,4 +12,4 @@ $(function() {
       })
       .catch(error => alert("Erreur : " + error));
 
-});
+});*/

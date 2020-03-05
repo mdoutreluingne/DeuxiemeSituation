@@ -17,6 +17,10 @@
           $themes = file_get_contents("http://localhost:8080/api/themes/lesThemes");
           $lesThemes = json_decode($themes, true);
 
+          //Récupère les taux de satisfaction des salles
+          $taux = file_get_contents("http://localhost:8080/api/avis/byTauxSatisfaction");
+          $lesTaux = json_decode($taux, true);
+
           //Génère les cards avec les noms et les avis des salles
           for ($i=0; $i < $nbSalles; $i++) {
 
@@ -25,7 +29,7 @@
               <div class="card cardstat" id="Panel">
                 <div class="card-block text-center">
                   <div class="card-title"><h5 class="card-title stat_salle" id="salle'. $i .'">'. $lesThemes[$i]['nom'] .'</h5></div>
-                  <p class="card-text taux" id="taux'. $i .'"></p>
+                  <p class="card-text taux" id="taux'. $i .'">'. round($lesTaux[$i]['taux']) .'%</p>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" id="button_salle'. $i .'" data-toggle="modal" data-target="#modal'. $i .'">
                     AVIS
@@ -45,7 +49,7 @@
                         <div class="modal-body text-left" id="avis_salle'. $i .'">
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
                         </div>
                       </div>
                     </div>
@@ -54,7 +58,7 @@
               </div>
             </div>';
           }
-          
+
            ?>
 
          </div>
