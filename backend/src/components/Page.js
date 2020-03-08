@@ -1,6 +1,9 @@
 import React from 'react';
 import InfosClient from './InfosClient';
+import Transactions from './Transactions';
 import client from "../metier/client";
+import Transaction from "../metier/Transaction";
+import Credits from "./Credits";
 import Dbal from "../modele/dbal";
 
 export default class Page extends React.Component {
@@ -10,6 +13,7 @@ export default class Page extends React.Component {
             initialized: false,
             liste_clients: props.clients,
             client: new client(null),
+            transactions: [],
         }
     }
 
@@ -27,10 +31,31 @@ export default class Page extends React.Component {
         })
     }
 
-    changeClient(client){
+    async changeClient(client){
+        const list = [];
+        if (client.id !== ""){
+            const d = new Dbal();
+            const response = await d.get("http://localhost:8080/api/transaction/byIdClient/" + client.id);
+            const transactions = (JSON.parse(response));
+            transactions.forEach((t)=>{
+                list.push(new Transaction(t))
+            });
+        }
         this.setState({
             client: client,
-        })
+            transactions: list,
+        });
+    }
+
+    afficherDonnees(){
+        if (this.state.client.id !== ""){
+            return(
+                <section>
+                    <Transactions transactions={this.state.transactions}/>
+                    <Credits client={this.state.client} onAdd={this.changeClient.bind(this)}/>
+                </section>
+            )
+        }
     }
 
     render() {
@@ -55,6 +80,7 @@ export default class Page extends React.Component {
                     </section>
                     <section className="corps">
                         <InfosClient clients={this.state.liste_clients} onChange={this.changeClient.bind(this)}/>
+                        {this.afficherDonnees()}
                     </section>
                 </section>
             )

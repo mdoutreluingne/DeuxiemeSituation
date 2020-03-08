@@ -31,17 +31,14 @@ class InfosClient extends React.Component {
 
     selectClient(event) {
         //Indique si l'on a séléctionne le client
+        const self = this;
         if (event.nativeEvent.data === undefined) {
             const options = Array.from(event.target.list.children);
             options.forEach(async (option) => {
                 if (option.value === event.target.value) {
-                    let c = JSON.parse(option.dataset.client);
-                    let response = await d.get("http://localhost:8080" + c.ville);
-                    c.ville = (JSON.parse(response)).nom;
-                    response = await d.get("http://localhost:8080/api/client/soldeById/" + c.id);
-                    c.solde = (JSON.parse(response))[0][1];
-                    this.setState({client: new client(c)});
-                    this.props.onChange(new client(c));
+                    const c =  await self.loadClient(JSON.parse(option.dataset.client));
+                    this.setState({client: c});
+                    this.props.onChange(c);
                 }
             });
         //Ou si l'on change son nom
@@ -55,6 +52,14 @@ class InfosClient extends React.Component {
         }
     }
 
+    async loadClient(c){
+        let response = await d.get("http://localhost:8080" + c.ville);
+        c.ville = (JSON.parse(response)).nom;
+        response = await d.get("http://localhost:8080/api/client/soldeById/" + c.id);
+        c.solde = JSON.parse(response);
+        return new client(c);
+    }
+
     reset() {
         const c = new client(null);
         this.setState({
@@ -63,36 +68,76 @@ class InfosClient extends React.Component {
         this.props.onChange(c);
     }
 
-    async archiver(){
+    async archiver(archive){
         const client = this.state.client;
-        const ville = "";
-        const url = "/api/client/modifClient/"+ client.id +
-            "/"+client.nom+"/"+client.prenom+"/"+ville+"/"+
-            client.tel+"/"+client.mail+"/1";
-        //const response = d.get(url)
+        client.archive = (archive !== "0");
+        const url = "http://localhost:8080/api/client/modifClient/"+ client.id + "/,/,/,/,/,/" + archive;
+        d.put(url);
+        this.setState({
+            client: client
+        })
+    }
+
+    async modifier(){
+        const client = this.state.client;
+        const archive = (!client.archive)?"0":"1";
+        const mail = client.mail.replace(".", ",");
+        const url = "http://localhost:8080/api/client/modifClient/"+ client.id + "/"
+            + client.nom + "/"
+            + client.prenom + "/"
+            + client.ville + "/"
+            + client.tel + "/"
+            + mail + "/"
+            + archive;
+        d.put(url);
+        this.update();
+    }
+
+    async creer(){
+        let client = this.state.client;
+        const mail = client.mail.replace(".", ",");
+        const aujourdhui = d.date2amd(new Date());
+        const ville = client.ville;
+        let url = "http://localhost:8080/api/client/addClient/"
+            + client.nom + "/"
+            + client.prenom + "/"
+            + ville + "/"
+            + client.tel + "/"
+            + mail + "/0";
+        let response = await d.post(url);
+        const lastId = JSON.parse(response);
+        url = "http://localhost:8080/api/clients/" + lastId;
+        response = await d.get(url);
+        client = JSON.parse(response);
+        url = "http://localhost:8080/api/transaction/addTransaction/" + aujourdhui + "/0,00/Carte bancaire/ /Creation du compte/ /" + client.id;
+        response = await d.post(url);
+        client =  await this.loadClient(client);
+        this.setState({client: client});
+        this.props.onChange(client);
+        if(JSON.parse(response)){alert("Le joueur à bien été crée.")}
     }
 
     afficherActions() {
         if (this.state.client.id !== "" && !this.state.client.archive) {
             return (
                 <section className="actions">
-                    <button className="editer">MODIFIER</button>
-                    <button className="archiver" onClick={this.archiver.bind(this)}>ARCHIVER</button>
+                    <button className="editer" onClick={this.modifier.bind(this)}>MODIFIER</button>
+                    <button className="archiver" onClick={this.archiver.bind(this,"1")}>ARCHIVER</button>
                     <button className="nouveau" onClick={this.reset.bind(this)}>NOUVEAU</button>
                 </section>
             )
-        } else if (this.state.client.archive) {
+        } else if (this.state.client.id !== "") {
             return (
                 <section className="actions">
-                    <button className="editer">MODIFIER</button>
-                    <button className="desarchiver">DESARCHIVER</button>
+                    <button className="editer" onClick={this.modifier.bind(this)}>MODIFIER</button>
+                    <button className="desarchiver" onClick={this.archiver.bind(this,"0")}>DESARCHIVER</button>
                     <button className="nouveau" onClick={this.reset.bind(this)}>NOUVEAU</button>
                 </section>
             )
         } else {
             return (
                 <section className="actions">
-                    <button className="editer">CREER</button>
+                    <button className="editer" onClick={this.creer.bind(this)}>CREER</button>
                     <button className="archiver" disabled>ARCHIVER</button>
                 </section>
             )
@@ -100,7 +145,6 @@ class InfosClient extends React.Component {
     }
 
     render() {
-        //console.log(this.state.listeClients);
         const client = this.state.client;
         return (
             <section className="selectionClient">
@@ -144,25 +188,6 @@ class InfosClient extends React.Component {
                         <input className="zone solde" type="text" value={client.solde} disabled/>
                     </div>
                     {this.afficherActions()}
-                </section>
-                <section className="transaction">
-                    <h2 className="title">TRANSACTIONS</h2>
-                    <section className="tableau">
-                        <h3 className="colonne">Date</h3>
-                        <h3 className="colonne bordure">Montant</h3>
-                        <section className="ligne">
-                            <span className="date">23/09/2020</span>
-                            <span className="montant bordure">15€</span>
-                        </section>
-                        <section className="ligne">
-                            <span className="date">23/09/2020</span>
-                            <span className="montant bordure">15€</span>
-                        </section>
-                        <section className="ligne">
-                            <span className="date">23/09/2020</span>
-                            <span className="montant bordure">15€</span>
-                        </section>
-                    </section>
                 </section>
             </section>
         )
