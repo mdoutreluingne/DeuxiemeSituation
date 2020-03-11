@@ -26,7 +26,9 @@ include 'include/header.php';
                 $nbActus = json_decode($nombreActualites, true);
 
                 for ($t=0; $t < $nbActus; $t++) {
-                  echo '
+                    //Affiche les news qui sont supérieur à celle d'aujourd'hui
+                  if (new DateTime($actualites[$t]['dateFin']) > new DateTime(date('Y-m-d'))) {
+                      echo '
                   <div class="carousel-inner">
                     <div class="item active">
                       <img src="css/images/actualites/'. $actualites[$t]['image'] .'" class="img-fluid img-thumbnail mx-auto d-block">
@@ -37,6 +39,7 @@ include 'include/header.php';
                       </div>
                     </div>
                   </div>';
+                  }
                 }
 
               ?>

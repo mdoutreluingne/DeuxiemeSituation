@@ -25,6 +25,7 @@ if (isset($_POST['submit_new'])) {
           $date_debut = $_POST['date_debut'];
           $date_fin = $_POST['date_fin'];
 
+          
           $url = "http://localhost:8080/api/actualites/addActualite/$titre/$contenu/$image/$date_debut/$date_fin";
           $data = array('titre' => $titre, 'paragraphe' => $contenu, 'dateDebut' => $date_debut, 'dateFin' => $date_fin, 'image' => $image);
 
