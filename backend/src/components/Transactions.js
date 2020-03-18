@@ -1,18 +1,18 @@
 import React from 'react';
-import Dbal from "../modele/dbal";
-import Reservation from "../metier/Reservation";
-import Salle from "../metier/Salle";
-import Theme from "../metier/Theme";
 import DetailsTransaction from "./DetailsTransaction";
-import Obstacle from "../metier/Obstacle";
-
-const d = new Dbal();
+import DaoSalle from "../modele/DaoSalle";
+import DaoReservation from "../modele/DaoReservation";
+import DaoObstacle from "../modele/DaoObstacle";
+import DaoTheme from "../modele/DaoTheme";
 
 export default class Transactions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            transactions: null,
             details: -1,
+            lastDetails: -1,
+            reservationDetailee: null
         }
     }
 
@@ -21,7 +21,8 @@ export default class Transactions extends React.Component {
         if (transactions[index].reservation !== " "){
             if (this.state.details === index){
                 this.setState({
-                    details: -1,
+                    lastDetails: this.state.details,
+                    details: -1
                 })
             } else {
                 this.setState({
@@ -31,36 +32,23 @@ export default class Transactions extends React.Component {
         }
     }
 
-    async loadSalle(reservation){
-        const response = await d.get("http://localhost:8080" + reservation.salle);
-        let salle = new Salle(JSON.parse(response));
-        return salle;
-    }
-
-    async loadObstacles(reservation){
-        const response = await d.get("http://localhost:8080/api/obstacle/obstacleByIdReservation/" + reservation.id);
-        const obstacles = JSON.parse(response);
-        const list = [];
-        for (const i in obstacles) {
-            list.push(new Obstacle(obstacles[i]));
-        }
-        return list;
-    }
-
     async loadReservation(){
-        const transaction = this.props.transactions[this.state.details];
-        let response = await d.get("http://localhost:8080" + transaction.reservation);
-        const reservation = new Reservation(JSON.parse(response));
-        
-        let salle = this.loadSalle(reservation);
-        await salle.then((resolve)=>{salle = resolve;});
-
-        let obstacle = await this.loadObstacles(reservation);
-
-        response = await d.get("http://localhost:8080" + salle.theme);
-        const theme = new Theme(JSON.parse(response));
-
-        return [reservation, salle, theme, obstacle];
+        if (this.state.lastDetails !== this.state.details) {
+            document.body.style.cursor = 'progress';
+            const transaction = this.props.transactions[this.state.details];
+            const reservation = await new DaoReservation().getReservationByTransaction(transaction);
+            const salle = await new DaoSalle().getSalleByReservation(reservation);
+            const obstacle = await new DaoObstacle().getObstacleByReservation(reservation);
+            const theme = await new DaoTheme().getThemeBySalle(salle);
+            const resaDetail = [reservation, salle, theme, obstacle];
+            this.setState({
+                reservationDetailee: resaDetail,
+            });
+            document.body.style.cursor = 'default';
+            return resaDetail;
+        } else{
+            return  this.state.reservationDetailee;
+        }
     }
 
     afficherDetails(){
@@ -74,6 +62,10 @@ export default class Transactions extends React.Component {
 
     render() {
         const transactions = this.props.transactions;
+        if (this.state.transaction && transactions[0].id !== this.state.transaction[0].id){
+            this.state.details = -1;
+            this.state.lastDetails = -1;
+        }
         const options = {weekday: "short",day: "numeric", month: "short", year: "numeric"};
         if (transactions.length > 0){
             return (

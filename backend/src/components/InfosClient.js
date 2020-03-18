@@ -1,8 +1,7 @@
 import React from 'react';
 import client from "../metier/client";
-import Dbal from "../modele/dbal";
-
-const d = new Dbal();
+import DaoClient from "../modele/DaoClient";
+import DaoVille from "../modele/DaoVille";
 
 class InfosClient extends React.Component {
     constructor(props) {
@@ -10,6 +9,8 @@ class InfosClient extends React.Component {
         this.state = {
             update: 0,
             listeClients: props.clients,
+            listeVilles: [],
+            daoClient: new DaoClient(),
             client: new client(null),
         }
     }
@@ -20,17 +21,28 @@ class InfosClient extends React.Component {
         })
     }
 
-    change(propriete, event) {
+    async change(propriete, event) {
         const client = this.state.client;
         client[propriete] = event.target.value;
-        this.setState({
-            client: client
-        });
+
+        if (propriete === "ville" && event.target.value.length >= 4){
+            document.body.style.cursor = 'progress';
+            const villes = await new DaoVille().getVilleByNom(event.target.value);
+            document.body.style.cursor = 'default';
+            this.setState({
+                listeVilles: villes,
+                client: client
+            });
+        } else {
+            this.setState({
+                listeVilles: [],
+                client: client
+            });
+        }
         this.props.onChange(client);
     }
 
     selectClient(event) {
-        //Indique si l'on a séléctionne le client
         const self = this;
         if (event.nativeEvent.data === undefined) {
             const options = Array.from(event.target.list.children);
@@ -53,68 +65,44 @@ class InfosClient extends React.Component {
     }
 
     async loadClient(c){
-        let response = await d.get("http://localhost:8080" + c.ville);
-        c.ville = (JSON.parse(response)).nom;
-        response = await d.get("http://localhost:8080/api/client/soldeById/" + c.id);
-        c.solde = JSON.parse(response);
-        return new client(c);
+        document.body.style.cursor = 'progress';
+        const result = await this.state.daoClient.load(c);
+        document.body.style.cursor = 'default';
+        return result;
     }
 
     reset() {
         const c = new client(null);
-        this.setState({
-            client: c
-        });
+        this.setState({client: c});
         this.props.onChange(c);
     }
 
     async archiver(archive){
         const client = this.state.client;
         client.archive = (archive !== "0");
-        const url = "http://localhost:8080/api/client/modifClient/"+ client.id + "/,/,/,/,/,/" + archive;
-        d.put(url);
+        document.body.style.cursor = 'progress';
+        await this.state.daoClient.archiver(client, archive);
+        document.body.style.cursor = 'default';
         this.setState({
             client: client
         })
     }
 
     async modifier(){
-        const client = this.state.client;
-        const archive = (!client.archive)?"0":"1";
-        const mail = client.mail.replace(".", ",");
-        const url = "http://localhost:8080/api/client/modifClient/"+ client.id + "/"
-            + client.nom + "/"
-            + client.prenom + "/"
-            + client.ville + "/"
-            + client.tel + "/"
-            + mail + "/"
-            + archive;
-        d.put(url);
+        document.body.style.cursor = 'progress';
+        await this.state.daoClient.modifier(this.state.client);
+        alert("Le client a été modifié");
+        document.body.style.cursor = 'default';
         this.update();
     }
 
     async creer(){
-        let client = this.state.client;
-        const mail = client.mail.replace(".", ",");
-        const aujourdhui = d.date2amd(new Date());
-        const ville = client.ville;
-        let url = "http://localhost:8080/api/client/addClient/"
-            + client.nom + "/"
-            + client.prenom + "/"
-            + ville + "/"
-            + client.tel + "/"
-            + mail + "/0";
-        let response = await d.post(url);
-        const lastId = JSON.parse(response);
-        url = "http://localhost:8080/api/clients/" + lastId;
-        response = await d.get(url);
-        client = JSON.parse(response);
-        url = "http://localhost:8080/api/transaction/addTransaction/" + aujourdhui + "/0,00/Carte bancaire/ /Creation du compte/ /" + client.id;
-        response = await d.post(url);
-        client =  await this.loadClient(client);
+        document.body.style.cursor = 'progress';
+        const client = await this.state.daoClient.creer(this.state.client);
+        document.body.style.cursor = 'default';
+        alert("Le client a été crée");
         this.setState({client: client});
         this.props.onChange(client);
-        if(JSON.parse(response)){alert("Le joueur à bien été crée.")}
     }
 
     afficherActions() {
@@ -170,8 +158,16 @@ class InfosClient extends React.Component {
                     </div>
                     <div className="saisie">
                         <legend className="description">VILLE</legend>
-                        <input className="zone ville" type="text" value={client.ville}
+                        <input className="zone ville" type="text" list="listeVille" value={client.ville}
                                onChange={this.change.bind(this, "ville")}/>
+                        <datalist id="listeVille">
+                            {this.state.listeVilles.map((ville, index) => {
+                                return (
+                                    <option key={index}
+                                            data-client={JSON.stringify(ville)}>{ville.nom}</option>
+                                )
+                            })}
+                        </datalist>
                     </div>
                     <div className="saisie">
                         <legend className="description">E-MAIL</legend>

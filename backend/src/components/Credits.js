@@ -1,8 +1,6 @@
 import React from 'react';
 import Transaction from "../metier/Transaction";
-import Dbal from "../modele/dbal";
-
-const d = new Dbal();
+import DaoTransaction from "../modele/DaoTransaction";
 
 export default class Page extends React.Component {
     constructor(props) {
@@ -26,23 +24,11 @@ export default class Page extends React.Component {
     }
 
     async ajouter() {
-        const t = this.state.transaction;
-        if (t.montant > 0) {
-            const aujourdhui = d.date2amd(new Date());
-
-            const url = "http://localhost:8080/api/transaction/addTransaction/" + aujourdhui + "/"
-                + t.montant + "/"
-                + t.type + "/"
-                + t.numero + "/"
-                + t.commentaire
-                + "/ /"
-                + this.state.client.id;
-            const response = await d.post(url);
-            if (JSON.parse(response)) {
-                alert("Les crédits ont bien été ajoutés.")
-            }
-            const client = this.state.client;
-            client.solde = parseFloat(client.solde) + parseFloat(t.montant);
+        if (this.state.transaction.montant > 0) {
+            document.body.style.cursor = 'progress';
+            const client = await new DaoTransaction().ajouter(this.state.client, this.state.transaction);
+            document.body.style.cursor = 'default';
+            alert("Les pépètes ont été ajoutés");
             this.props.onAdd(client);
         } else {
             alert("Veuillez saisir un montant supérieur à 0");

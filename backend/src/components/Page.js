@@ -1,10 +1,13 @@
 import React from 'react';
+
+import DaoClient from "../modele/DaoClient";
+import DaoTransaction from "../modele/DaoTransaction";
+
+import client from "../metier/client";
+
 import InfosClient from './InfosClient';
 import Transactions from './Transactions';
-import client from "../metier/client";
-import Transaction from "../metier/Transaction";
 import Credits from "./Credits";
-import Dbal from "../modele/dbal";
 
 export default class Page extends React.Component {
     constructor(props) {
@@ -18,13 +21,7 @@ export default class Page extends React.Component {
     }
 
     async componentDidMount() {
-        const d = new Dbal();
-        const liste =  [];
-        let response = await d.get("http://localhost:8080/api/clients");
-        const clients = JSON.parse(response);
-        for (const c of clients) {
-            liste.push(new client(c));
-        }
+        const liste = await new DaoClient().getAll();
         this.setState({
             initialized: true,
             liste_clients: liste
@@ -32,14 +29,9 @@ export default class Page extends React.Component {
     }
 
     async changeClient(client){
-        const list = [];
+        let list = [];
         if (client.id !== ""){
-            const d = new Dbal();
-            const response = await d.get("http://localhost:8080/api/transaction/byIdClient/" + client.id);
-            const transactions = (JSON.parse(response));
-            transactions.forEach((t)=>{
-                list.push(new Transaction(t))
-            });
+            list = await new DaoTransaction().getAllByClientId(client.id);
         }
         this.setState({
             client: client,
@@ -68,9 +60,6 @@ export default class Page extends React.Component {
                     <section className="entete">
                         <section className="navigation">
                             <h2 className="title">Comptabilité</h2>
-                            <h3 className="nav">Client</h3>
-                            <h3 className="nav">Transactions</h3>
-                            <h3 className="nav">Crédits</h3>
                         </section>
                         <section className="stickClient">
                             <h3>{client.nom}</h3>
