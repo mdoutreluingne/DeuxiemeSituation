@@ -1,51 +1,40 @@
 <?php
 include 'include/header.php';
+require('model/dbal.php');
+require('model/daoActualite.php');
+require('model/daoConfiguration.php');
+require('model/daoAvis.php');
+require('model/daoImage.php');
+require('model/daoSalle.php');
+require('model/daoTheme.php');
+require('model/daoArticle.php');
 ?>
+
+<?php
+$daoSalle = new daoSalle();
+$daoTheme = new daoTheme();
+$daoActu = new daoActualite();
+$daoConfig = new daoConfiguration();
+$daoImage = new daoImage();
+$daoAvis = new daoAvis();
+$daoArticle = new daoArticle();
+?>
+
   <header>
     <div class="container-fluid">
       <div class="row">
         <?php
-        /* Barre de naviguation */
-        include 'include/navbar.php';
+          /* Barre de naviguation */
+          include 'include/navbar.php';
         ?>
         <div class="content">
           <div class="content_accueil">
             <h1 class="title">Bienvenue chez Escape Game Corporation</h1>
             <h4 class="description_egc">POURREZ-VOUS VOUS ÉCHAPPER ?</h4>
           </div>
-          <div class="content_news">
-            <div class="slide_news">
-              <?php
-
-                //Récupération des actualités en json
-                $lesActus = file_get_contents("http://localhost:8080/api/actualites");
-                $actualites = json_decode($lesActus, true);
-
-                //Récupération du nombre d'actualités en json
-                $nombreActualites = file_get_contents("http://localhost:8080/api/actualites/countActualite");
-                $nbActus = json_decode($nombreActualites, true);
-
-                for ($t=0; $t < $nbActus; $t++) {
-                    //Affiche les news qui sont supérieur à celle d'aujourd'hui
-                  if (new DateTime($actualites[$t]['dateFin']) > new DateTime(date('Y-m-d'))) {
-                      echo '
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <img src="css/images/actualites/'. $actualites[$t]['image'] .'" class="img-fluid img-thumbnail mx-auto d-block">
-                      <div class="carousel-caption">
-                        <h3 class="titre_actu">'. $actualites[$t]['titre'] .'</h3>
-                        <p class="date_actu">'. date('d/m/Y H:i:s', strtotime($actualites[$t]['dateDebut'])) .' - '. date('d/m/Y H:i:s', strtotime($actualites[$t]['dateFin'])) .'</p>
-                        <p class="text_actu">'. $actualites[$t]['paragraphe'] .'</p>
-                      </div>
-                    </div>
-                  </div>';
-                  }
-                }
-
-              ?>
-
-            </div>
-          </div>
+          <?php
+            include 'vues/actualite.php';
+          ?>
         </div>
       </div>
     </div>

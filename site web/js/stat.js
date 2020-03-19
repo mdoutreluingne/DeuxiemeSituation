@@ -3,6 +3,29 @@ $(function() {
 /************************************************************************/
 /***************Affiche les avis lors du clique de chaque bouton**********/
 /************************************************************************/
+var token = {};
+
+const Url = "http://localhost:8080/api/login_check";
+const Data={
+  username: "Annecy-comptabilite",
+  password: "test"
+};
+
+const Param = {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(Data)
+};
+
+fetch(Url, Param)
+.then(data=>{return data.json()})
+.then(res=>{token = res.token})
+.catch(error=>console.log(error))
+
+console.log(data);
+
 
       $('#button_salle0').on("click",function() {
         var salle = document.getElementById('salle0');

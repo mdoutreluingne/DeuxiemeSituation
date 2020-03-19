@@ -7,8 +7,7 @@
       <div class="slides_obstacles" id="slides_obstacles">
           <?php
           //Récupération des obstacles en json
-          $articles = file_get_contents("http://localhost:8080/api/articles/lesArticles");
-          $lesArticles = json_decode($articles, true);
+          $lesArticles = $daoArticle->getAllObstacles();
 
           $l=0;
 

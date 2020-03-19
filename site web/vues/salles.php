@@ -6,12 +6,10 @@
       </div>
       <div class="slide_salles" id="slide_salles">
         <?php
-        $json = file_get_contents("http://localhost:8080/api/salles/countSalle");
-        $parsee = json_decode($json, true);
+        $parsee = $daoSalle->countSalle();
 
         //Récupère les salles avec theme et ville
-        $salles = file_get_contents("http://localhost:8080/api/salles/lesSalles");
-        $lesSalles = json_decode($salles, true);
+        $lesSalles = $daoSalle->getAllSalle();
 
         $m=0;
 

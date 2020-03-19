@@ -8,15 +8,15 @@
     $nbMaxPhotos = 0;
 
     //Récupération de la configuration en json
-    $configurations = file_get_contents("http://localhost:8080/api/configurations");
-    $parsee = json_decode($configurations, true);
+    $lesConfig = $daoConfig->getAllConfig();
 
     //Parcour le resultat en json de la configuration
-    foreach ($parsee as $config){
+    foreach ($lesConfig as $config){
       $nbavis = $config['nbAvis'];
       $notemini = $config['noteMin'];
       $nbphotos = $config['nbCommentaire'];
     }
+
 ?>
 <div class="comm_avis" id="comm_avis">
   <div class="container">
@@ -29,17 +29,16 @@
 
       <?php
       //Récupération du nombre d'image en json
-      $nbPhotosTotal = file_get_contents("http://localhost:8080/api/images/countPhotos");
-      $nbMaxPhotos = json_decode($nbPhotosTotal, true);
+
+      $nbMaxPhotos = $daoImage->countPhotos();
 
       //Parcour le tableau retournée
       foreach ($nbMaxPhotos as $nombre) {
         $nbMaxPhotos = $nombre['nbPhotos'];
       }
 
+      $nomPhotos = $daoImage->getPhotosSalle();
       //Récupération du nom des photos en json
-      $lesPhotos = file_get_contents("http://localhost:8080/api/themes/getImagesSalle");
-      $nomPhotos = json_decode($lesPhotos, true);
 
         //Affichage des photos
         for ($o=0; $o < $nbphotos; $o++) {
@@ -67,12 +66,12 @@
       <?php
 
           //Récupération du nombre d'avis en json
-          $nbAvisTotal = file_get_contents("http://localhost:8080/api/avis/countAvis");
-          $nbMaxAvis = json_decode($nbAvisTotal, true);
+          
+          $nbMaxAvis = $daoAvis->countAvis();
 
           //Récupération des avis en json
-          $lesAvis = file_get_contents("http://localhost:8080/api/avis/allAvis");
-          $avis = json_decode($lesAvis, true);
+
+          $avis = $daoAvis->getAllAvis();
 
           $inc = 1;
 

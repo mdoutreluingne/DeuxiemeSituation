@@ -10,16 +10,13 @@
 
           <?php
           //Récupère le nombre de salles
-          $nombreSalles = file_get_contents("http://localhost:8080/api/salles/countSalle");
-          $nbSalles = json_decode($nombreSalles, true);
+          $nbSalles = $daoSalle->countSalle();
 
           //Récupère les thèmes
-          $themes = file_get_contents("http://localhost:8080/api/themes/lesThemes");
-          $lesThemes = json_decode($themes, true);
+          $lesThemes = $daoTheme->getAllTheme();
 
           //Récupère les taux de satisfaction des salles
-          $taux = file_get_contents("http://localhost:8080/api/avis/byTauxSatisfaction");
-          $lesTaux = json_decode($taux, true);
+          $lesTaux = $daoAvis->getTauxSatisfaction();
 
           //Génère les cards avec les noms et les avis des salles
           for ($i=0; $i < $nbSalles; $i++) {
