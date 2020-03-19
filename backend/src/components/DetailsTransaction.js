@@ -1,14 +1,23 @@
 import React from 'react';
 
+/**
+ * Composant qui affiche le détail d'une transaction
+ */
 export default class DetailsTransaction extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            /**@type {boolean}**/
             initialized: false,
+            /**@type {[Reservation, Salle, Theme, [Obstacle]]}**/
             reservationDetailee: null,
         }
     }
 
+    /**
+     * Récupère les objets du détail
+     * @returns {Promise<void>}
+     */
     async componentDidMount() {
         let resaDetail = this.props.reservationDetailee;
         await resaDetail.then((resolve)=>{

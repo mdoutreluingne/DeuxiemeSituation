@@ -1,16 +1,27 @@
-import Dbal from "./dbal";
+import Dbal from "./Dbal";
 import Obstacle from "../metier/Obstacle";
 
 export default class DaoObstacle {
+    /**
+     * Singleton
+     * @returns {DaoObstacle|DaoObstacle}
+     */
     constructor() {
         if (!!DaoObstacle.instance) {
             return DaoObstacle.instance;
         }
+        /**@type {DaoObstacle}**/
         DaoObstacle.instance = this;
+        /**@type {Dbal}**/
         this.dbal = new Dbal();
         return this;
     }
 
+    /**
+     * Récupères les données supplémentaire d'un obstacle
+     * @param obstacle {Obstacle}
+     * @returns {Promise<*>}
+     */
     async load(obstacle){
         const reponse = await this.dbal.get(obstacle.article);
         const article = JSON.parse(reponse);
@@ -19,6 +30,11 @@ export default class DaoObstacle {
         return obstacle;
     }
 
+    /**
+     * Récupère les obstacles d'une réservation
+     * @param reservation {Reservation}
+     * @returns {Promise<[]>}
+     */
     async getObstacleByReservation(reservation){
         const response = await this.dbal.get("/api/obstacle/obstacleByIdReservation/" + reservation.id);
         const obstacles = JSON.parse(response);

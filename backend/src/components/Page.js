@@ -3,23 +3,34 @@ import React from 'react';
 import DaoClient from "../modele/DaoClient";
 import DaoTransaction from "../modele/DaoTransaction";
 
-import client from "../metier/client";
+import client from "../metier/Client";
 
 import InfosClient from './InfosClient';
 import Transactions from './Transactions';
 import Credits from "./Credits";
 
+/**
+ * Page principale qui appelle les composants
+ */
 export default class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            /**@type {boolean}**/
             initialized: false,
+            /**@type {[Client]}**/
             liste_clients: props.clients,
+            /**@type {Client}**/
             client: new client(null),
+            /**@type {[Transaction]}**/
             transactions: [],
         }
     }
 
+    /**
+     * Récupère la liste des clients
+     * @returns {Promise<void>}
+     */
     async componentDidMount() {
         const liste = await new DaoClient().getAll();
         this.setState({
@@ -28,6 +39,11 @@ export default class Page extends React.Component {
         })
     }
 
+    /**
+     * Charge les infos du client séléctionné
+     * @param client
+     * @returns {Promise<void>}
+     */
     async changeClient(client){
         let list = [];
         if (client.id !== ""){
@@ -39,11 +55,17 @@ export default class Page extends React.Component {
         });
     }
 
+    /**
+     * Affiche les transactions et l'ajout de crédit du client
+     * @link {Transactions}
+     * @link {Credits}
+     * @returns {*}
+     */
     afficherDonnees(){
         if (this.state.client.id !== ""){
             return(
                 <section>
-                    <Transactions transactions={this.state.transactions}/>
+                    <Transactions client={this.state.client} transactions={this.state.transactions}/>
                     <Credits client={this.state.client} onAdd={this.changeClient.bind(this)}/>
                 </section>
             )

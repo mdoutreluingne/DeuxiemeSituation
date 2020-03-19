@@ -2,27 +2,44 @@ import React from 'react';
 import Transaction from "../metier/Transaction";
 import DaoTransaction from "../modele/DaoTransaction";
 
-export default class Page extends React.Component {
+/**
+ * Composant qui affiche le formulaire d'ajout des crédits
+ */
+export default class Credits extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            /**@type {Client}**/
             client: props.client,
+            /**@type {Transaction}**/
             transaction: new Transaction(),
         }
     }
 
+    /**
+     * Change les infos du formulaire
+     * @param zone {string}
+     * @param event
+     */
     change(zone, event) {
         const t = this.state.transaction;
         t[zone] = event.target.value;
         this.setState({transaction: t})
     }
 
+    /**
+     * Met à jour le client s'il a changé
+     */
     updateClient(){
         this.setState({
             client: this.props.client
         })
     }
 
+    /**
+     * Ajoute les crédits
+     * @returns {Promise<void>}
+     */
     async ajouter() {
         if (this.state.transaction.montant > 0) {
             document.body.style.cursor = 'progress';

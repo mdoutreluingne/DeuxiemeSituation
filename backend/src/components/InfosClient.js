@@ -1,26 +1,43 @@
 import React from 'react';
-import client from "../metier/client";
+import client from "../metier/Client";
 import DaoClient from "../modele/DaoClient";
 import DaoVille from "../modele/DaoVille";
 
+/**
+ * Composant qui affiche le client
+ */
 class InfosClient extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            /**@type {number}**/
             update: 0,
-            listeClients: props.clients,
-            listeVilles: [],
+            /**@type {DaoClient}**/
             daoClient: new DaoClient(),
+            /**@type {Client}**/
             client: new client(null),
+            /**@type {[Client]}**/
+            listeClients: props.clients,
+            /**@type {[Ville]}**/
+            listeVilles: [],
         }
     }
 
+    /**
+     * Force la mise à jour de la page
+     */
     update() {
         this.setState({
             update: this.state.update + 1
         })
     }
 
+    /**
+     * Change une info du client
+     * @param propriete {string}
+     * @param event
+     * @returns {Promise<void>}
+     */
     async change(propriete, event) {
         const client = this.state.client;
         client[propriete] = event.target.value;
@@ -42,6 +59,10 @@ class InfosClient extends React.Component {
         this.props.onChange(client);
     }
 
+    /**
+     * Séléctionne un client
+     * @param event
+     */
     selectClient(event) {
         const self = this;
         if (event.nativeEvent.data === undefined) {
@@ -64,6 +85,11 @@ class InfosClient extends React.Component {
         }
     }
 
+    /**
+     * Charge les infos d'un client
+     * @param c {Client}
+     * @returns {Promise<client>}
+     */
     async loadClient(c){
         document.body.style.cursor = 'progress';
         const result = await this.state.daoClient.load(c);
@@ -71,12 +97,20 @@ class InfosClient extends React.Component {
         return result;
     }
 
+    /**
+     * Reset les infos du client
+     */
     reset() {
         const c = new client(null);
         this.setState({client: c});
         this.props.onChange(c);
     }
 
+    /**
+     * Archive le client séléctionné
+     * @param archive {string}
+     * @returns {Promise<void>}
+     */
     async archiver(archive){
         const client = this.state.client;
         client.archive = (archive !== "0");
@@ -88,6 +122,10 @@ class InfosClient extends React.Component {
         })
     }
 
+    /**
+     * Modifie le client
+     * @returns {Promise<void>}
+     */
     async modifier(){
         document.body.style.cursor = 'progress';
         await this.state.daoClient.modifier(this.state.client);
@@ -96,6 +134,10 @@ class InfosClient extends React.Component {
         this.update();
     }
 
+    /**
+     * Crée un nouveau client
+     * @returns {Promise<void>}
+     */
     async creer(){
         document.body.style.cursor = 'progress';
         const client = await this.state.daoClient.creer(this.state.client);
@@ -105,6 +147,10 @@ class InfosClient extends React.Component {
         this.props.onChange(client);
     }
 
+    /**
+     * Affiche les boutons d'actions
+     * @returns {*}
+     */
     afficherActions() {
         if (this.state.client.id !== "" && !this.state.client.archive) {
             return (

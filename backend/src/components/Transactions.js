@@ -5,17 +5,30 @@ import DaoReservation from "../modele/DaoReservation";
 import DaoObstacle from "../modele/DaoObstacle";
 import DaoTheme from "../modele/DaoTheme";
 
+/**
+ * Composant qui affiche la liste des transaction
+ */
 export default class Transactions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            /**@type {Transaction}**/
             transactions: null,
+            /**@type {Client}**/
+            client: props.client,
+            /**@type {number}**/
             details: -1,
+            /**@type {number}**/
             lastDetails: -1,
+            /**@type {[Reservation, Salle, Theme, [Obstacle]]}**/
             reservationDetailee: null
         }
     }
 
+    /**
+     * Définit la transaction qui a été séléctionné
+     * @param index {number}
+     */
     details(index){
         const transactions = this.props.transactions;
         if (transactions[index].reservation !== " "){
@@ -32,6 +45,10 @@ export default class Transactions extends React.Component {
         }
     }
 
+    /**
+     * Charge le détail d'une réservation
+     * @returns {Promise<(Reservation|Salle|Theme|Obstacle[])[]|null|[Reservation, Salle, Theme, *[]]>}
+     */
     async loadReservation(){
         if (this.state.lastDetails !== this.state.details) {
             document.body.style.cursor = 'progress';
@@ -51,6 +68,11 @@ export default class Transactions extends React.Component {
         }
     }
 
+    /**
+     * Affiche ou non le composant DetailsTransaction
+     * @link {DetailsTransaction}
+     * @returns {null|*}
+     */
     afficherDetails(){
         if (this.state.details > -1) {
             let reservationDetaille = this.loadReservation();
@@ -60,45 +82,57 @@ export default class Transactions extends React.Component {
         }
     }
 
+    updateTransaction(){
+        //console.log("ici");
+        this.setState({
+            client: this.props.client,
+            details : -1,
+            lastDetails: -1
+        });
+    }
+
     render() {
         const transactions = this.props.transactions;
-        if (this.state.transaction && transactions[0].id !== this.state.transaction[0].id){
-            this.state.details = -1;
-            this.state.lastDetails = -1;
-        }
-        const options = {weekday: "short",day: "numeric", month: "short", year: "numeric"};
-        if (transactions.length > 0){
-            return (
-                <section className="transactions">
-                    <h2 className="title">TRANSACTIONS</h2>
-                    <section className="tableau">
-                        <h3 className="colonne">Date</h3>
-                        <h3 className="colonne bordure">Montant</h3>
-                        {transactions.map((t, i)=>{
-                            const date = new Intl.DateTimeFormat("fr-FR", options).format(t.date);
-                            if(transactions[i].reservation !== " "){
-                                const selected = (this.state.details === i);
-                                return (
-                                    <section className={"ligne depense " + selected} key={i} onClick={this.details.bind(this, i)}>
-                                        <span className="date">{date.toUpperCase()}</span>
-                                        <span className="montant bordure">{t.montant}</span>
-                                    </section>
-                                )
-                            } else {
-                                return (
-                                    <section className={"ligne ajout"} key={i}>
-                                        <span className="date">{date.toUpperCase()}</span>
-                                        <span className="montant bordure">{t.montant}</span>
-                                    </section>
-                                )
-                            }
-                        })}
+        if (this.state.client.id !== this.props.client.id) {
+            this.updateTransaction();
+            return null
+        } else {
+            //console.log(this.state);
+            const options = {weekday: "short", day: "numeric", month: "short", year: "numeric"};
+            if (transactions.length > 0) {
+                return (
+                    <section className="transactions">
+                        <h2 className="title">TRANSACTIONS</h2>
+                        <section className="tableau">
+                            <h3 className="colonne">Date</h3>
+                            <h3 className="colonne bordure">Montant</h3>
+                            {transactions.map((t, i) => {
+                                const date = new Intl.DateTimeFormat("fr-FR", options).format(t.date);
+                                if (transactions[i].reservation !== " ") {
+                                    const selected = (this.state.details === i);
+                                    return (
+                                        <section className={"ligne depense " + selected} key={i}
+                                                 onClick={this.details.bind(this, i)}>
+                                            <span className="date">{date.toUpperCase()}</span>
+                                            <span className="montant bordure">{t.montant}</span>
+                                        </section>
+                                    )
+                                } else {
+                                    return (
+                                        <section className={"ligne ajout"} key={i}>
+                                            <span className="date">{date.toUpperCase()}</span>
+                                            <span className="montant bordure">{t.montant}</span>
+                                        </section>
+                                    )
+                                }
+                            })}
+                        </section>
+                        {this.afficherDetails()}
                     </section>
-                    {this.afficherDetails()}
-                </section>
-            );
-        } else{
-            return null;
+                );
+            } else {
+                return null;
+            }
         }
     }
 }

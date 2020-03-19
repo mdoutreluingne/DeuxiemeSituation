@@ -1,18 +1,34 @@
 export default class Dbal {
+    /**
+     * Singleton
+     * @returns {Dbal}
+     */
     constructor() {
         if (!!Dbal.instance) {
             return Dbal.instance;
         }
+        /**@type Dbal**/
         Dbal.instance = this;
+        /**@type string**/
         this.ip = "localhost:8080";
+        /**@type Promise<string>**/
         this.token = this.load();
         return this;
     }
 
+    /**
+     * Récupère le token d'authorisation pour accéder à l'API
+     * @returns {Promise<string>}
+     */
     async load(){
         return await this.post("/api/login_check", {"username":"admin","password":"admin"});
     }
 
+    /**
+     * Métode get
+     * @param url {string}
+     * @returns {Promise<string>}
+     */
     async get(url){
         url = "http://" + this.ip + url;
         let token = await this.token;
@@ -34,6 +50,11 @@ export default class Dbal {
         })
     }
 
+    /**
+     * Méthode put
+     * @param url {string}
+     * @returns {Promise<string>}
+     */
     async put(url){
         url = "http://" + this.ip + url;
         let token = await this.token;
@@ -55,6 +76,12 @@ export default class Dbal {
         })
     }
 
+    /**
+     * Méthode post
+     * @param url {string}
+     * @param objet {string}
+     * @returns {Promise<string>}
+     */
     post(url, objet){
         url = "http://" + this.ip + url;
         return new Promise(async (resolve, reject)=>{
@@ -82,6 +109,11 @@ export default class Dbal {
         })
     }
 
+    /**
+     * Transforme une date au format YYYY-MM-DD
+     * @param date
+     * @returns {string}
+     */
     date2amd(date){
         const options = {year: 'numeric', month: 'numeric', day: 'numeric' };
         date = date.toLocaleDateString('fr-FR', options);
@@ -91,16 +123,17 @@ export default class Dbal {
     }
 }
 
+//============== A R CH I V E S ==================
 /**
- *             fetch("http://localhost:8080/api/clients")
- .then(res => res.json())
- .then(
- async (result) => {
-                        const create = result.map((c)=> {
-                            clients.push(new client(c));
-                        });
-                        return await Promise.all(create);
-                    },
- (error) => {console.log(error);}
+ *fetch("http://localhost:8080/api/clients")
+    .then(res => res.json())
+    .then(
+        async (result) => {
+        const create = result.map((c)=> {
+        clients.push(new client(c));
+        });
+        return await Promise.all(create);
+    },
+    (error) => {console.log(error);}
  );
  **/
