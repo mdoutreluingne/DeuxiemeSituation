@@ -19,39 +19,27 @@ if (isset($_POST['submit_new'])) {
           $image = $_FILES['photo']['name'];
           $image = str_replace('.', ',', $image); //Remplace , par . dans le nom de l'image
           $titre = $_POST['titre'];
-          $titre = str_replace(' ', '%', $titre); //Remplace l'espace par % pour l'url
+          $titre = str_replace(' ', '%20', $titre); //Remplace l'espace par % pour l'url
           $contenu = $_POST['contenu'];
-          $contenu = str_replace(' ', '%', $contenu); //Remplace l'espace par % pour l'url
+          $contenu = str_replace(' ', '%20', $contenu); //Remplace l'espace par % pour l'url
           $date_debut = $_POST['date_debut'];
           $date_fin = $_POST['date_fin'];
 
-          
-          $url = "http://localhost:8080/api/actualites/addActualite/$titre/$contenu/$image/$date_debut/$date_fin";
-          $data = array('titre' => $titre, 'paragraphe' => $contenu, 'dateDebut' => $date_debut, 'dateFin' => $date_fin, 'image' => $image);
+          //Ajout l'actualités
+          $addNews = $daoActu->postActu($titre, $contenu, $date_debut, $date_fin, $image);
 
-          $options = array(
-            'http' => array(
-              'header'  => "Content-type: application/x-www-form-urlencoded",
-              'method'  => 'POST',
-              'content' => http_build_query($data)
-            )
-          );
-          $context  = stream_context_create($options);
-
-          $result = file_get_contents($url, false, $context);
-
-          $msg_news = '<div class="alert alert-success" role="alert">La news a bien été ajouté</div>';
+          $msg_news = '<div class="alert alert-success text-center" role="alert">La news a bien été ajouté</div>';
         }
         else {
-          $msg_news = '<div class="alert alert-danger" role="alert">L\'extension de cette image n\'est pas autorisée</div>';
+          $msg_news = '<div class="alert alert-danger text-center" role="alert">L\'extension de cette image n\'est pas autorisée</div>';
         }
     }
     else {
-      $msg_news = '<div class="alert alert-danger" role="alert">L\'image est trop volumineuse</div>';
+      $msg_news = '<div class="alert alert-danger text-center" role="alert">L\'image est trop volumineuse</div>';
     }
   }
   else {
-    $msg_news = '<div class="alert alert-danger" role="alert">Echec de l\'upload de l\'image</div>';
+    $msg_news = '<div class="alert alert-danger text-center" role="alert">Echec de l\'upload de l\'image</div>';
   }
 }
 

@@ -13,7 +13,7 @@ class daoArticle
 
   public function getAllObstacles()
   {
-    $donnees = $this->dbal->get("http://localhost:8080/api/articles/lesArticles");
+    $donnees = $this->dbal->get("/articles/lesArticles");
     $result = json_decode($donnees, true);
     return $result;
   }

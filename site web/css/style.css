@@ -181,7 +181,6 @@ header {
   height: 100%;
 }
 
-
 .obstacles {
   width: 100%;
   height: 100%;
@@ -232,60 +231,6 @@ header {
   letter-spacing: 1px;
 }
 
-/* LOGIN */
-
-
-
-/*form {
-  width: 450px;
-  margin: auto;
-  padding: 10px 20px;
-  background-color: rgba(0,0,0,0.55);
-  border: 1px solid #da1a35;
-  border-radius: 4px;
-}
-
-h2 {
-  color: #fff;
-  text-align: center;
-  font-size: 30px;
-}
-
-input, textarea {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 7px;
-  box-sizing: border-box;
-  font-size: 17px;
-  border: none;
-}
-
-#valide {
-  color: #fff;
-  font-size: 20px;
-  padding: 20px;
-}
-
-.txtlogin {
-  border: 3px solid #D71A35;
-  box-sizing: border-box;
-  border-radius: 4px;
-}
-
-.lbllogin {
-  font-family: Roboto;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 42px;
-  color: #FFFFFF;
-}
-
-@media (max-width: 480px) {
-  form {
-    width: 100%;
-  }
-}*/
-
 /* STAT */
 
 .stat {
@@ -309,6 +254,25 @@ input, textarea {
 .taux {
   font-family: chiffre;
   font-size: 25px;
+}
+
+/*Titre boite modal*/
+#exampleModalScrollableTitle {
+  font-family: title;
+  color: white;
+}
+
+/*Boite modal*/
+.modal-content {
+  background-color: black;
+}
+
+.modal-header {
+  border-color: red;
+}
+
+.modal-footer {
+  border-color: red;
 }
 
 /* COMMENTAIRES ET AVIS */

@@ -21,6 +21,8 @@
           //Génère les cards avec les noms et les avis des salles
           for ($i=0; $i < $nbSalles; $i++) {
 
+            $avisStat = $daoAvis->getAvisByTheme($lesThemes[$i]['nom']);
+
             echo '
             <div class="col-sm-4 col-md-4 pb-2">
               <div class="card cardstat" id="Panel">
@@ -37,16 +39,17 @@
                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalScrollableTitle">'. $lesThemes[$i]['nom'] .'</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                          <h5 class="modal-title" id="exampleModalScrollableTitle">'. $lesThemes[$i]['nom'] .'</h5>
                         </div>
                         <!-- Contenu de la popup -->
-                        <div class="modal-body text-left" id="avis_salle'. $i .'">
-                        </div>
+                        <div class="modal-body text-left" id="avis_salle'. $i .'">';
+                        //Parcours les avis selon le thème
+                        foreach ($avisStat as $unAvisStat) {
+                          echo '<h6 class="text-white"><strong>'.$unAvisStat['note'].'/5</strong> - '.$unAvisStat['commentaire'].'</h6>';
+                        }
+                        echo '</div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
                         </div>
                       </div>
                     </div>

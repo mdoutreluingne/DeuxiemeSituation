@@ -21,6 +21,9 @@
       <li class="nav-item">
         <a class="nav-link text-white links" href="../#comm_avis">Photos & Avis</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link text-white links" href="deco.php">Se déconnecter</a>
+      </li>
     </ul>
   </div>
 </nav>

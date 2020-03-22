@@ -1,4 +1,25 @@
 <?php
+session_start();
+if (!isset($_SESSION['id']))
+{
+  header('Location: ../vues/login.php ');
+}
+
+require('../model/dbal.php');
+require('../model/daoActualite.php');
+require('../model/daoConfiguration.php');
+?>
+
+<?php
+
+?>
+
+<?php
+$daoActu = new daoActualite();
+$daoConfig = new daoConfiguration();
+?>
+
+<?php
 include 'include/header.php';
 include 'put_nbphotos.php'; //Formulaire pour changer le nombre de photo
 include 'put_nbavis.php'; //Formulaire pour changer le nombre d'avis
@@ -6,6 +27,7 @@ include 'put_notemini.php'; //Formulaire pour changer la note minimale
 include 'post_news.php'; //Formulaire pour ajouter une actu
 include 'delete_news.php'; //Formulaire pour supprimer une actu
 ?>
+
 <div class="container-fluid">
   <div class="row">
     <?php
@@ -54,8 +76,7 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
                 <?php
 
                 //Récupération des actualités en json
-                $lesActualites = file_get_contents("http://localhost:8080/api/actualites");
-                $actualites = json_decode($lesActualites, true);
+                $actualites = $daoActu->getAllActu();
 
                 //Parcour le resultat obtenue en json
                 foreach ($actualites as $actu){
@@ -113,7 +134,6 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
         </div>
       </div>
     </div>
-
   </div>
 
 </div>

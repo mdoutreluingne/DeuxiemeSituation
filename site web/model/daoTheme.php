@@ -13,7 +13,7 @@ class daoTheme
 
   public function getAllTheme()
   {
-    $donnees = $this->dbal->get("http://localhost:8080/api/themes/lesThemes");
+    $donnees = $this->dbal->get("/themes/lesThemes");
     $result = json_decode($donnees, true);
     return $result;
   }

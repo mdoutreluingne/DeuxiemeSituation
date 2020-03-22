@@ -13,7 +13,7 @@ class dbal
   {
     $this->username = "Annecy-comptabilite";
     $this->password = "test";
-    $this->server = "localhost:8080/api";
+    $this->server = "http://localhost:8080/api";
     $this->token = $this->getToken();
   }
 
@@ -22,7 +22,7 @@ class dbal
   {
     $token = "";
 
-    $url = "http://" . $this->server ."/login_check";
+    $url = $this->server ."/login_check";
 
     $data = array("username" => $this->username, "password" => $this->password);
     $data_string = json_encode($data);
@@ -50,7 +50,68 @@ class dbal
       'header' => 'Authorization: Bearer '.$this->token
     ));
     $lesDonnees  = stream_context_create($options);
-    $lesDonnees = file_get_contents($url, false, $lesDonnees);
+    $lesDonnees = file_get_contents($this->server . $url, false, $lesDonnees);
+
+    return $lesDonnees;
+  }
+
+  public function getById($url, $data)
+  {
+    $options = array(
+        'http' => array(
+            'header'  => "Content-Type: application/x-www-form-urlencoded\r\n".
+                         "Authorization: Bearer ".$this->token,
+            'method'  => 'GET',
+            'content' => http_build_query($data)
+        )
+    );
+    $lesDonnees  = stream_context_create($options);
+    $lesDonnees = file_get_contents($this->server . $url, false, $lesDonnees);
+
+    return $lesDonnees;
+  }
+
+  public function put($url, $data)
+  {
+    $options = array(
+        'http' => array(
+            'header'  => 'Authorization: Bearer '.$this->token,
+            'method'  => 'PUT',
+            'content' => http_build_query($data)
+        )
+    );
+    $lesDonnees  = stream_context_create($options);
+    $lesDonnees = file_get_contents($this->server . $url, false, $lesDonnees);
+
+    return $lesDonnees;
+  }
+
+  public function post($url, $data)
+  {
+    $options = array(
+        'http' => array(
+            'header'  => 'Authorization: Bearer '.$this->token,
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $lesDonnees  = stream_context_create($options);
+    $lesDonnees = file_get_contents($this->server . $url, false, $lesDonnees);
+
+    return $lesDonnees;
+  }
+
+  public function delete($url, $data)
+  {
+    $options = array(
+        'http' => array(
+            'header'  => 'Authorization: Bearer '.$this->token,
+            'method'  => 'DELETE',
+            'content' => http_build_query($data)
+        )
+    );
+    $lesDonnees  = stream_context_create($options);
+    $lesDonnees = file_get_contents($this->server . $url, false, $lesDonnees);
 
     return $lesDonnees;
   }

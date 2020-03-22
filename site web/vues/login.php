@@ -1,6 +1,27 @@
 <?php
+require('../model/dbal.php');
+require('../model/daoUser.php');
+
+$daoUser = new daoUser();
+
 if (isset($_POST['submit'])) {
-  // code...
+
+  $leUser = $daoUser->getUserById(2);
+  $password = md5($_POST['pass']);
+
+  if ($leUser['username'] == $_POST['login']) {
+    if ($leUser['password'] == $password) {
+        session_start();
+        $_SESSION['id'] = $leUser['id'];
+        header('Location: ../admin/index.php');
+    }
+    else {
+      $msg = '<div class="alert alert-danger text-center" role="alert">Mot de passe incorrect</div>';
+    }
+  }
+  else {
+    $msg = '<div class="alert alert-danger text-center" role="alert">Login incorrect</div>';
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -10,6 +31,7 @@ if (isset($_POST['submit'])) {
     <title>Login</title>
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
     body,html,header,h1 {
@@ -69,7 +91,7 @@ if (isset($_POST['submit'])) {
     }
 
     .txtlogin {
-      border: 3px solid #D71A35;
+      border: 2px solid #D71A35;
       box-sizing: border-box;
       border-radius: 4px;
       float: left;
@@ -101,17 +123,27 @@ if (isset($_POST['submit'])) {
     <header>
       <div class="wrapper">
         <div class="content">
-          <form action="">
+          <form action="" method="post">
              <h2 class="title_login">Connexion</h2>
              <label class="lbllogin">Login :</label>
              <input type="text" class="txtlogin" name="login" placeholder=""/>
              <label class="lbllogin">Mot de passe :</label>
              <input type="password" class="txtlogin" name="pass" placeholder=""/>
              <input type="submit" name="submit" value="Se connecter" class="btn btn-danger" id="valide"/>
+             <?php if(isset($msg)) {echo $msg;}  ?>
            </form>
         </div>
       </div>
     </header>
+
+    <script type="text/javascript">
+    //Fait disparaitre l'alert après 3sec
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
+      });
+    }, 2500);
+    </script>
 
   </body>
 </html>

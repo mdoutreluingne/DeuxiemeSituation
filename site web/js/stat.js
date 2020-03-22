@@ -3,7 +3,7 @@ $(function() {
 /************************************************************************/
 /***************Affiche les avis lors du clique de chaque bouton**********/
 /************************************************************************/
-var token = {};
+/*var token = {};
 
 const Url = "http://localhost:8080/api/login_check";
 const Data={
@@ -179,5 +179,5 @@ console.log(data);
         })
         .catch(error => alert("Erreur : " + error));
 
-      })
+      })*/
 });
