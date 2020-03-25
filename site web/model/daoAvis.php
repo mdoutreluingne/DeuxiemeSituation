@@ -11,6 +11,10 @@ class daoAvis
     $this->dbal = new dbal();
   }
 
+  /**
+  * Récupère le nombre d'avis.
+  * @return array un tableau de string
+  */
   public function countAvis()
   {
     $donnees = $this->dbal->get("/avis/countAvis");
@@ -18,6 +22,10 @@ class daoAvis
     return $result;
   }
 
+  /**
+  * Récupère les avis.
+  * @return array un tableau de string
+  */
   public function getAllAvis()
   {
     $donnees = $this->dbal->get("/avis/allAvis");
@@ -25,6 +33,10 @@ class daoAvis
     return $result;
   }
 
+  /**
+  * Récupère les taux de satisfaction.
+  * @return array un tableau de string
+  */
   public function getTauxSatisfaction()
   {
     $donnees = $this->dbal->get("/avis/byTauxSatisfaction");
@@ -32,6 +44,13 @@ class daoAvis
     return $result;
   }
 
+  /**
+  * Récupère les avis.
+  *
+  * @param string $theme Le thème
+  *
+  * @return array un tableau de string
+  */
   public function getAvisByTheme($theme)
   {
     $theme = str_replace(' ', '%20', $theme);

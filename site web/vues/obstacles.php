@@ -9,8 +9,10 @@
           //Récupération des obstacles en json
           $lesArticles = $daoArticle->getAllObstacles();
 
+          //Variable d'incrémentation
           $l=0;
 
+          //Affiche les obstacles
           for ($i=0; $i < 2; $i++) {
 
             echo '

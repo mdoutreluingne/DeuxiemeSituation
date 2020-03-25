@@ -6,13 +6,16 @@
       </div>
       <div class="slide_salles" id="slide_salles">
         <?php
+        //Récupère le nombre de salle
         $parsee = $daoSalle->countSalle();
 
-        //Récupère les salles avec theme et ville
+        //Récupère les salles avec le theme et la ville
         $lesSalles = $daoSalle->getAllSalle();
 
+        //Variable d'incrémentation
         $m=0;
 
+        //Affiche les salles
         for ($i=0; $i < 3; $i++) {
 
           echo '

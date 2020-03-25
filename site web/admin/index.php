@@ -5,6 +5,11 @@ if (!isset($_SESSION['id']))
   header('Location: ../vues/login.php ');
 }
 
+//Inclue les classe métier
+require('../metier/actualite.php');
+require('../metier/configuration.php');
+
+//Inclue les classes dao et le dbal
 require('../model/dbal.php');
 require('../model/daoActualite.php');
 require('../model/daoConfiguration.php');

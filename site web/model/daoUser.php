@@ -11,6 +11,13 @@ class daoUser
     $this->dbal = new dbal();
   }
 
+  /**
+  * Récupère l'utilisateur en fonction de l'id.
+  *
+  * @param int $idUser Le titre de l'actualité
+  *
+  * @return array un tableau de string
+  */
   public function getUserById($idUser)
   {
     $tabDonnees = array('id' => $idUser);

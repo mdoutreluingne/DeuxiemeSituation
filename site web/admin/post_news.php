@@ -25,7 +25,7 @@ if (isset($_POST['submit_new'])) {
           $date_debut = $_POST['date_debut'];
           $date_fin = $_POST['date_fin'];
 
-          //Ajout l'actualités
+          //Ajout l'actualité
           $addNews = $daoActu->postActu($titre, $contenu, $date_debut, $date_fin, $image);
 
           $msg_news = '<div class="alert alert-success text-center" role="alert">La news a bien été ajouté</div>';

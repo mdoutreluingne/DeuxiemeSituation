@@ -7,7 +7,7 @@
 
       //Affiche les Actualités
       for ($t=0; $t < $nbActus; $t++) {
-          //Affiche les news qui sont supérieur à celle d'aujourd'hui
+          //Test si la date de fin des news sont supérieur à la date d'aujourd'hui
         if (new DateTime($actualites[$t]['dateFin']) > new DateTime(date('Y-m-d'))) {
             echo '
         <div class="carousel-inner">

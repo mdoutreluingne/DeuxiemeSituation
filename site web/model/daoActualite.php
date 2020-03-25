@@ -11,6 +11,10 @@ class daoActualite
     $this->dbal = new dbal();
   }
 
+  /**
+  * Récupère toutes les actualités.
+  * @return array un tableau de string
+  */
   public function getAllActu()
   {
     $actualites = $this->dbal->get("/actualites");
@@ -18,6 +22,10 @@ class daoActualite
     return $result;
   }
 
+  /**
+  * Récupère le nombre d'actualités.
+  * @return array un tableau de string
+  */
   public function countActu()
   {
     $nbActualites = $this->dbal->get("/actualites/countActualite");
@@ -25,6 +33,17 @@ class daoActualite
     return $result;
   }
 
+  /**
+  * Ajoute une actualité.
+  *
+  * @param string $titre Le titre de l'actualité
+  * @param string $contenu Contenue de l'actualité
+  * @param datetime $date_debut Date de l'ajout
+  * @param datetime $date_fin Date d'éxpiration
+  * @param string $image Chemin de l'image
+  *
+  * @return boolean
+  */
   public function postActu($titre, $contenu, $date_debut, $date_fin, $image)
   {
     $tabDonnees = array('titre' => $titre, 'paragraphe' => $contenu, 'dateDebut' => $date_debut, 'dateFin' => $date_fin, 'image' => $image);
@@ -32,6 +51,13 @@ class daoActualite
     return $data;
   }
 
+  /**
+  * Supprime l'actualité par son id
+  *
+  * @param int $idActu id de l'actualité
+  *
+  * @return boolean
+  */
   public function deleteActuById($idActu)
   {
     $tabDonnees = array('id' => $idActu);

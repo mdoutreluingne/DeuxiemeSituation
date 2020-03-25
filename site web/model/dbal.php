@@ -17,7 +17,10 @@ class dbal
     $this->token = $this->getToken();
   }
 
-  //Recupère le token
+  /**
+  * Récupère le token.
+  * @return string le token
+  */
   public function getToken()
   {
     $token = "";
@@ -43,6 +46,13 @@ class dbal
     return $token;
   }
 
+  /**
+  * Méthode de type get.
+  *
+  * @param string $url l'url de la fonction
+  *
+  * @return boolean
+  */
   public function get($url)
   {
     $options = array('http' => array(
@@ -55,6 +65,14 @@ class dbal
     return $lesDonnees;
   }
 
+  /**
+  * Méthode de type get.
+  *
+  * @param string $url l'url de la fonction
+  * @param array $data tableau des paramètres
+  *
+  * @return boolean
+  */
   public function getById($url, $data)
   {
     $options = array(
@@ -71,6 +89,14 @@ class dbal
     return $lesDonnees;
   }
 
+  /**
+  * Méthode de type put.
+  *
+  * @param string $url l'url de la fonction
+  * @param array $data tableau des paramètres
+  *
+  * @return boolean
+  */
   public function put($url, $data)
   {
     $options = array(
@@ -86,6 +112,14 @@ class dbal
     return $lesDonnees;
   }
 
+  /**
+  * Méthode de type post.
+  *
+  * @param string $url l'url de la fonction
+  * @param array $data tableau des paramètres
+  *
+  * @return boolean
+  */
   public function post($url, $data)
   {
     $options = array(
@@ -101,6 +135,14 @@ class dbal
     return $lesDonnees;
   }
 
+  /**
+  * Méthode de type delete.
+  *
+  * @param string $url l'url de la fonction
+  * @param array $data tableau des paramètres
+  *
+  * @return boolean
+  */
   public function delete($url, $data)
   {
     $options = array(

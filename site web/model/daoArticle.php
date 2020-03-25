@@ -11,6 +11,10 @@ class daoArticle
     $this->dbal = new dbal();
   }
 
+  /**
+  * Récupère touts les obstacles.
+  * @return array un tableau de string
+  */
   public function getAllObstacles()
   {
     $donnees = $this->dbal->get("/articles/lesArticles");

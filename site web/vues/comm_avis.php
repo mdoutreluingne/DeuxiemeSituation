@@ -1,5 +1,5 @@
 <?php
-    //Variables initialisé pour le container photos et avis
+    //Variables initialisé pour les photos et avis
     $nbavis = 0;
     $notemini = 0;
     $nbAvisAlea = 0;
@@ -7,10 +7,10 @@
     $nbPhotosAlea = 0;
     $nbMaxPhotos = 0;
 
-    //Récupération de la configuration en json
+    //Récupération de la configuration
     $lesConfig = $daoConfig->getAllConfig();
 
-    //Parcour le resultat en json de la configuration
+    //Parcour le resultat en json de la configuration et affecte les valeurs de la configuration
     foreach ($lesConfig as $config){
       $nbavis = $config['nbAvis'];
       $notemini = $config['noteMin'];
@@ -28,8 +28,7 @@
     <div class="row mb-3">
 
       <?php
-      //Récupération du nombre d'image en json
-
+      //Récupération du nombre d'image
       $nbMaxPhotos = $daoImage->countPhotos();
 
       //Parcour le tableau retournée
@@ -37,13 +36,13 @@
         $nbMaxPhotos = $nombre['nbPhotos'];
       }
 
+      //Récupération du nom des photos
       $nomPhotos = $daoImage->getPhotosSalle();
-      //Récupération du nom des photos en json
 
-        //Affichage des photos
+        //Affichage les photos
         for ($o=0; $o < $nbphotos; $o++) {
 
-          $nbPhotosAlea = rand(0, $nbMaxPhotos-1); //nombre aléatoire photos
+          $nbPhotosAlea = rand(0, $nbMaxPhotos-1); //nombre aléatoire généré
 
           echo '
           <div class="col-md-4" id="border_salle">
@@ -65,14 +64,13 @@
 
       <?php
 
-          //Récupération du nombre d'avis en json
-          
+          //Récupération du nombre d'avis
           $nbMaxAvis = $daoAvis->countAvis();
 
-          //Récupération des avis en json
-
+          //Récupération des avis
           $avis = $daoAvis->getAllAvis();
 
+          //Variable d'incrémentation
           $inc = 1;
 
           for ($j=0; $j < $nbMaxAvis; $j++) {
@@ -82,8 +80,8 @@
             if ($inc > $nbavis) { //Force le sortie de la boucle
               break;
             }
-            if ($avis[$nbAvisAlea]['note'] >= $notemini) { //Affichage des avis
-
+            if ($avis[$nbAvisAlea]['note'] >= $notemini) { //Test si la note est supérieur ou égale à la note minimale
+              //Affichage des avis
               echo '
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 content_avis">
                 <div class="card cardavis" id="lesAvis">

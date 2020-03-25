@@ -11,6 +11,10 @@ class daoConfiguration
     $this->dbal = new dbal();
   }
 
+  /**
+  * Récupère la configuration.
+  * @return array un tableau de string
+  */
   public function getAllConfig()
   {
     $data = $this->dbal->get("/configurations");
@@ -18,6 +22,13 @@ class daoConfiguration
     return $result;
   }
 
+  /**
+  * Modifie le nombre d'avis à afficher.
+  *
+  * @param int $nbAvis Le nombre d'avis
+  *
+  * @return boolean
+  */
   public function putNbAvis($nbAvis)
   {
     $tabDonnees = array('nbAvis' => $nbAvis);
@@ -25,6 +36,13 @@ class daoConfiguration
     return $data;
   }
 
+  /**
+  * Modifie le nombre de photo à afficher.
+  *
+  * @param int $nbPhotos Le nombre de photo
+  *
+  * @return boolean
+  */
   public function putNbPhotos($nbPhotos)
   {
     $tabDonnees = array('nbCommentaire' => $nbPhotos);
@@ -32,6 +50,13 @@ class daoConfiguration
     return $data;
   }
 
+  /**
+  * Modifie la note minimale des avis.
+  *
+  * @param int $noteMini La note minimale des avis
+  *
+  * @return boolean
+  */
   public function putNoteMini($noteMini)
   {
     $tabDonnees = array('noteMin' => $noteMini);

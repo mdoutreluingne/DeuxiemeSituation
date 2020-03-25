@@ -11,6 +11,10 @@ class daoTheme
     $this->dbal = new dbal();
   }
 
+  /**
+  * Récupère les thèmes.
+  * @return array un tableau de string
+  */
   public function getAllTheme()
   {
     $donnees = $this->dbal->get("/themes/lesThemes");
