@@ -1,9 +1,4 @@
 @font-face {
-    font-family: play;
-    src: url(fonts/play.otf);
-}
-
-@font-face {
     font-family: chiffre;
     src: url(fonts/newyorkescape.ttf);
 }
@@ -18,6 +13,73 @@
     src: url(fonts/redundead.ttf);
 }
 
+/* Loader */
+.loader {
+position : fixed;
+z-index: 9999;
+background-color: #0e0e0e;
+top : 0px;
+left : 0px;
+height : 100%;
+width : 100%;
+}
+
+.wait {
+    border-radius: 48px;
+    width: 48px;
+    height: 48px;
+    animation: spin .5s infinite linear;
+    -moz-animation: spin .5s infinite linear;
+    -webkit-animation: spin .5s infinite linear;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.double{
+    border-style: double;
+}
+
+.red{
+    border-top-color: rgba(255,0,0,0);
+    border-right-color: rgba(255,0,0,0.30);
+    border-bottom-color: rgba(255,0,0,0.60);
+    border-left-color: rgba(255,0,0,1);
+}
+
+.txt_wait {
+  letter-spacing: 1px;
+  font-style: italic;
+  color: rgb(175, 0, 0);
+  position: absolute;
+  top: 65%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* definim les transicions */
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+    };
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    };
+}
+
+/*******************/
 html { /* Effect scrolling */
   overflow-x: hidden;
   overflow-y: scroll;
@@ -158,7 +220,7 @@ header {
   text-transform: uppercase;
   display: block;
   font-size: 20px;
-  font-family: play;
+  font-family: title;
 }
 
 #color_lejeu {

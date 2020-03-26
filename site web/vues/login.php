@@ -7,7 +7,7 @@ $daoUser = new daoUser();
 if (isset($_POST['submit'])) {
 
   //Récupère l'utilisateur avec son id
-  $leUser = $daoUser->getUserById(2);
+  $leUser = $daoUser->getUserById(1);
   $password = md5($_POST['pass']); //Crypte le mdp saisie en md5
 
   //Test si l'utilisateur est Annecy-comptabilite

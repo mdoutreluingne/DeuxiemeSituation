@@ -11,7 +11,7 @@ class dbal
 
   function __construct()
   {
-    $this->username = "Annecy-comptabilite";
+    $this->username = "Annecy-direction";
     $this->password = "test";
     $this->server = "http://localhost:8080/api";
     $this->token = $this->getToken();

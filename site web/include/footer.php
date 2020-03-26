@@ -13,5 +13,10 @@
       <small>Copyright &copy; 2020, EGC. All Rights Reserved.</small>
     </div>
   </footer>
+  <script type="text/javascript" src="js/jquery-latest.js"></script>
+  <script type="text/javascript">
+  $(window).load(function() {
+    $(".loader").fadeOut("1500"); })
+  </script>
   </body>
 </html>

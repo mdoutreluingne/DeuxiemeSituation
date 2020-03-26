@@ -1,6 +1,5 @@
-$(document).ready(function(){
 
-  /*Configuration des deux slides */
+  /*Configuration des trois slides */
   $('.slide_news').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -59,5 +58,3 @@ $(document).ready(function(){
        tmp--;
        $('.compte_a_rebours').text('00:'+min+':'+sec);
   },100);
-
-});

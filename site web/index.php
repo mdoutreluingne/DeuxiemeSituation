@@ -1,7 +1,7 @@
 <?php
 include 'include/header.php';
 
-//Inclue les classe métier
+//Inclue les classes métier
 require('metier/actualite.php');
 require('metier/article.php');
 require('metier/avis.php');
@@ -46,6 +46,7 @@ $daoArticle = new daoArticle();
             <h4 class="description_egc">POURREZ-VOUS VOUS ÉCHAPPER ?</h4>
           </div>
           <?php
+            //Inclue la vue actualité
             include 'vues/actualite.php';
           ?>
         </div>
