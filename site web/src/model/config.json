@@ -1,0 +1,11 @@
+[
+     {
+          "username":"Annecy-direction"
+     },
+     {
+          "password":"test"
+     },
+     {
+          "server":"http://localhost:8080/api"
+     }
+]

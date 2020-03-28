@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoActualite
+namespace App\model;
+class daoActualite extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère toutes les actualités.
   * @return array un tableau de string

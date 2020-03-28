@@ -2,6 +2,7 @@
 /**
  *
  */
+namespace App\model;
 class dbal
 {
   private $username;
@@ -9,11 +10,11 @@ class dbal
   private $server;
   private $token;
 
-  function __construct()
+  function __construct($username, $password, $server)
   {
-    $this->username = "Annecy-direction";
-    $this->password = "test";
-    $this->server = "http://localhost:8080/api";
+    $this->username = $username;
+    $this->password = $password;
+    $this->server = $server;
     $this->token = $this->getToken();
   }
 

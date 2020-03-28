@@ -1,29 +1,33 @@
 <?php
 include 'include/header.php';
 
-//Inclue les classes métier
-require('metier/actualite.php');
-require('metier/article.php');
-require('metier/avis.php');
-require('metier/configuration.php');
-require('metier/image.php');
-require('metier/salle.php');
-require('metier/theme.php');
-require('metier/user.php');
+require "vendor/autoload.php";
 
-//Inclue les classes dao et le dbal
-require('model/dbal.php');
-require('model/daoActualite.php');
-require('model/daoConfiguration.php');
-require('model/daoAvis.php');
-require('model/daoImage.php');
-require('model/daoSalle.php');
-require('model/daoTheme.php');
-require('model/daoArticle.php');
+//Inclue les classes metier
+use App\metier\actualite;
+use App\metier\article;
+use App\metier\avis;
+use App\metier\configuration;
+use App\metier\image;
+use App\metier\salle;
+use App\metier\theme;
+use App\metier\user;
+
+//Inclue les classes dao
+use App\model\dao;
+use App\model\daoSalle;
+use App\model\daoTheme;
+use App\model\daoActualite;
+use App\model\daoConfiguration;
+use App\model\daoImage;
+use App\model\daoAvis;
+use App\model\daoArticle;
+
 ?>
 
 <?php
 //Initialisation des dao
+$dao = new dao();
 $daoSalle = new daoSalle();
 $daoTheme = new daoTheme();
 $daoActu = new daoActualite();
@@ -46,7 +50,7 @@ $daoArticle = new daoArticle();
             <h4 class="description_egc">POURREZ-VOUS VOUS ÉCHAPPER ?</h4>
           </div>
           <?php
-            //Inclue la vue actualité
+            //Inclue la vue actualite
             include 'vues/actualite.php';
           ?>
         </div>

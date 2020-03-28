@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoSalle
+namespace App\model;
+class daoSalle extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère le nombre de salle.
   * @return array un tableau de string

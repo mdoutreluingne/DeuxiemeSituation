@@ -2,6 +2,7 @@
 /**
  *
  */
+namespace App\metier;
 class image
 {
   private $id;

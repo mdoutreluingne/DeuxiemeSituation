@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoArticle
+namespace App\model;
+class daoArticle extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère touts les obstacles.
   * @return array un tableau de string

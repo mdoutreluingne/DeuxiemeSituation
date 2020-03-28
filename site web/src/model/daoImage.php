@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoImage
+namespace App\model;
+class daoImage extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   public function getPhotosSalle()
   {
     $donnees = $this->dbal->get("/images/getImagesSalle");

@@ -2,6 +2,7 @@
 /**
  *
  */
+namespace App\metier;
 class theme
 {
   private $id;

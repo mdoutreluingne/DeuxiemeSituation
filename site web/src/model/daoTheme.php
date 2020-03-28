@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoTheme
+namespace App\model;
+class daoTheme extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère les thèmes.
   * @return array un tableau de string

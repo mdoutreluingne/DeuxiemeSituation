@@ -1,7 +1,10 @@
 <?php
-require('../model/dbal.php');
-require('../model/daoUser.php');
+require "../vendor/autoload.php";
 
+use App\model\dao;
+use App\model\daoUser;
+
+$dao = new dao();
 $daoUser = new daoUser();
 
 if (isset($_POST['submit'])) {

@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoAvis
+namespace App\model;
+class daoAvis extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère le nombre d'avis.
   * @return array un tableau de string

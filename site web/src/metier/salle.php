@@ -2,6 +2,7 @@
 /**
  *
  */
+namespace App\metier;
 class Salle
 {
   private $id;

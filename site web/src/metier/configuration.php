@@ -2,6 +2,7 @@
 /**
  *
  */
+namespace App\metier;
 class configuration
 {
   private $id;

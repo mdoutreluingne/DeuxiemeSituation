@@ -5,21 +5,20 @@ if (!isset($_SESSION['id']))
   header('Location: ../vues/login.php ');
 }
 
+require "../vendor/autoload.php";
+
 //Inclue les classe métier
-require('../metier/actualite.php');
-require('../metier/configuration.php');
+use App\metier\actualite;
+use App\metier\configuration;
 
-//Inclue les classes dao et le dbal
-require('../model/dbal.php');
-require('../model/daoActualite.php');
-require('../model/daoConfiguration.php');
+//Inclue les classes dao
+use App\model\dao;
+use App\model\daoActualite;
+use App\model\daoConfiguration;
 ?>
 
 <?php
-
-?>
-
-<?php
+$dao = new dao();
 $daoActu = new daoActualite();
 $daoConfig = new daoConfiguration();
 ?>

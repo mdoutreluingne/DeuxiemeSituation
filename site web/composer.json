@@ -1,0 +1,15 @@
+{
+    "name": "siteweb/composer",
+    "authors": [
+        {
+            "name": "Maxime",
+            "email": "maxime.doutr@sfr.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

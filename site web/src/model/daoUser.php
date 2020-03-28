@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoUser
+namespace App\model;
+class daoUser extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère l'utilisateur en fonction de l'id.
   *

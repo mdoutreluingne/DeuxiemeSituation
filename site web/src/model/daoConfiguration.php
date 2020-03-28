@@ -2,15 +2,9 @@
 /**
  *
  */
-class daoConfiguration
+namespace App\model;
+class daoConfiguration extends dao
 {
-  private $dbal;
-
-  function __construct()
-  {
-    $this->dbal = new dbal();
-  }
-
   /**
   * Récupère la configuration.
   * @return array un tableau de string
