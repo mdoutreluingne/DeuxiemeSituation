@@ -2,18 +2,25 @@
 /**
  *
  */
+
 namespace App\model;
+use App\metier\actualite;
+
 class daoActualite extends dao
 {
   /**
   * Récupère toutes les actualités.
-  * @return array un tableau de string
+  * @return array un tableau d'actualité
   */
   public function getAllActu()
   {
+    $lesActus = array();
     $actualites = $this->dbal->get("/actualites");
     $result = json_decode($actualites, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $lesActus[] = new actualite($result[$t]['id'], $result[$t]['titre'], $result[$t]['paragraphe'], $result[$t]['dateDebut'], $result[$t]['dateFin'], $result[$t]['image']);
+    }
+    return $lesActus;
   }
 
   /**

@@ -3,6 +3,8 @@
  *
  */
 namespace App\model;
+use App\metier\avis;
+
 class daoAvis extends dao
 {
   /**
@@ -22,9 +24,13 @@ class daoAvis extends dao
   */
   public function getAllAvis()
   {
+    $lesAvis = array();
     $donnees = $this->dbal->get("/avis/allAvis");
     $result = json_decode($donnees, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $lesAvis[] = new avis($result[$t]['id'], $result[$t]['note'], null, $result[$t]['commentaire'], null, null, $result[$t]['theme']);
+    }
+    return $lesAvis;
   }
 
   /**
@@ -47,10 +53,14 @@ class daoAvis extends dao
   */
   public function getAvisByTheme($theme)
   {
+    $lesAvisByThemes = array();
     $theme = str_replace(' ', '%20', $theme);
     $donnees = $this->dbal->get("/avis/byTheme/" . $theme);
     $result = json_decode($donnees, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $lesAvisByThemes[] = new avis($result[$t]['id'], $result[$t]['note'], $result[$t]['date'], $result[$t]['commentaire'], $result[$t]['salle'], $result[$t]['client']);
+    }
+    return $lesAvisByThemes;
   }
 
 }

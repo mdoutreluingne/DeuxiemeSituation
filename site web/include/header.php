@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body>
-    <div class="loader">
+    <!-- <div class="loader">
       <div class="wait red double"></div>
       <h4 class="txt_wait">Veuillez patienter quelques instants...</h4>
-    </div>
+    </div>-->

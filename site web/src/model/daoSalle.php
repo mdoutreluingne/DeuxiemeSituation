@@ -3,6 +3,8 @@
  *
  */
 namespace App\model;
+use App\metier\Salle;
+
 class daoSalle extends dao
 {
   /**
@@ -22,9 +24,13 @@ class daoSalle extends dao
   */
   public function getAllSalle()
   {
+    $lesSalles = array();
     $donnees = $this->dbal->get("/salles/lesSalles");
     $result = json_decode($donnees, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $lesSalles[] = new salle(null, $result[$t]['ville'], $result[$t]['salle_id'], null, null, null, null, $result[$t]['theme'], $result[$t]['image']);
+    }
+    return $lesSalles;
   }
 
 }

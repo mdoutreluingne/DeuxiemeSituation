@@ -12,9 +12,9 @@
 
     //Parcour le resultat en json de la configuration et affecte les valeurs de la configuration
     foreach ($lesConfig as $config){
-      $nbavis = $config['nbAvis'];
-      $notemini = $config['noteMin'];
-      $nbphotos = $config['nbCommentaire'];
+      $nbavis = $config->getNbAvis();
+      $notemini = $config->getNoteMin();
+      $nbphotos = $config->getNbCommentaire();
     }
 
 ?>
@@ -47,7 +47,7 @@
           echo '
           <div class="col-md-4" id="border_salle">
                 <div class="card">
-                    <a href="css/images/photos/'. $nomPhotos[$nbPhotosAlea]['nom'] .'" class="photos"><img src="css/images/photos/'. $nomPhotos[$nbPhotosAlea]['nom'] .'" class="card-img-top img-fluid affiche_photos"></a>
+                    <a href="css/images/photos/'. $nomPhotos[$nbPhotosAlea]->getNom() .'" class="photos"><img src="css/images/photos/'. $nomPhotos[$nbPhotosAlea]->getNom() .'" class="card-img-top img-fluid affiche_photos"></a>
                 </div>
             </div>';
         }
@@ -80,15 +80,15 @@
             if ($inc > $nbavis) { //Force le sortie de la boucle
               break;
             }
-            if ($avis[$nbAvisAlea]['note'] >= $notemini) { //Test si la note est supérieur ou égale à la note minimale
+            if ($avis[$nbAvisAlea]->getNote() >= $notemini) { //Test si la note est supérieur ou égale à la note minimale
               //Affichage des avis
               echo '
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 content_avis">
                 <div class="card cardavis" id="lesAvis">
                   <div class="card-body">
-                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]['theme'] .'</h5>
-                    <h6 class="card-subtitle mb-2 font-weight-bold text-white">'. $avis[$nbAvisAlea]['note'] .'/5</h6>
-                    <p class="card-text text-white">'. $avis[$nbAvisAlea]['commentaire'] .'</p>
+                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]->getTheme() .'</h5>
+                    <h6 class="card-subtitle mb-2 font-weight-bold text-white">'. $avis[$nbAvisAlea]->getNote() .'/5</h6>
+                    <p class="card-text text-white">'. $avis[$nbAvisAlea]->getCommentaire() .'</p>
                   </div>
                 </div>
               </div>';

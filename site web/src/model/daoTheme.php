@@ -3,6 +3,8 @@
  *
  */
 namespace App\model;
+use App\metier\theme;
+
 class daoTheme extends dao
 {
   /**
@@ -11,9 +13,13 @@ class daoTheme extends dao
   */
   public function getAllTheme()
   {
+    $lesThemes = array();
     $donnees = $this->dbal->get("/themes/lesThemes");
     $result = json_decode($donnees, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $lesThemes[] = new theme($result[$t]['id'], $result[$t]['nom']);
+    }
+    return $lesThemes;
   }
 
 }

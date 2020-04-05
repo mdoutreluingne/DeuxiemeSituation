@@ -3,6 +3,8 @@
  *
  */
 namespace App\model;
+use App\metier\configuration;
+
 class daoConfiguration extends dao
 {
   /**
@@ -11,9 +13,13 @@ class daoConfiguration extends dao
   */
   public function getAllConfig()
   {
+    $laConfiguration = array();
     $data = $this->dbal->get("/configurations");
     $result = json_decode($data, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $laConfiguration[] = new configuration(null, $result[$t]['nbCommentaire'], $result[$t]['nbAvis'], $result[$t]['noteMin']);
+    }
+    return $laConfiguration;
   }
 
   /**

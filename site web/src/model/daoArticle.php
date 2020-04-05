@@ -3,6 +3,8 @@
  *
  */
 namespace App\model;
+use App\metier\article;
+
 class daoArticle extends dao
 {
   /**
@@ -11,9 +13,13 @@ class daoArticle extends dao
   */
   public function getAllObstacles()
   {
+    $lesArticles = array();
     $donnees = $this->dbal->get("/articles/lesArticles");
     $result = json_decode($donnees, true);
-    return $result;
+    for($t = 0, $size = count($result); $t < $size; ++$t) {
+      $lesArticles[] = new article(null, $result[$t]['libelle'], $result[$t]['montant'], null, $result[$t]['image']);
+    }
+    return $lesArticles;
   }
 
 }
