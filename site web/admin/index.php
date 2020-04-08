@@ -87,8 +87,8 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
                   echo '
                   <form class="" action="" method="post">
                     <tr>
-                      <th scope="row">'. $actu['titre'] .'</th>
-                      <input type="hidden" name="id_title" value="'. $actu['id'] .'">
+                      <th scope="row">'. $actu->getTitre() .'</th>
+                      <input type="hidden" name="id_title" value="'. $actu->getId() .'">
                       <td><input type="submit" name="delete_new" class="btn btn-danger" value="Supprimer"></td>
                     </tr>
                   </form>';

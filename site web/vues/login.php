@@ -11,14 +11,16 @@ if (isset($_POST['submit'])) {
 
   //Récupère l'utilisateur avec son id
   $leUser = $daoUser->getUserById(1);
-  $password = md5($_POST['pass']); //Crypte le mdp saisie en md5
+  $login = htmlspecialchars($_POST['login']); //N'execute pas les balises html
+  $password = htmlspecialchars($_POST['pass']); //N'execute pas les balises html
+  $password = md5($password); //Crypte le mdp saisie en md5
 
   //Test si l'utilisateur est Annecy-comptabilite
-  if ($leUser['username'] == $_POST['login']) {
+  if ($leUser[0]->getLogin() == $login) {
     //Test si le mot de passe est correct
-    if ($leUser['password'] == $password) {
+    if ($leUser[0]->getMdp() == $password) {
         session_start();
-        $_SESSION['id'] = $leUser['id'];
+        $_SESSION['id'] = $leUser[0]->getId();
         header('Location: ../admin/index.php');
     }
     else {

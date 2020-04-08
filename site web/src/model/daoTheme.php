@@ -9,7 +9,7 @@ class daoTheme extends dao
 {
   /**
   * Récupère les thèmes.
-  * @return array un tableau de string
+  * @return array un tableau de type theme
   */
   public function getAllTheme()
   {

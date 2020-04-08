@@ -9,7 +9,7 @@ class daoConfiguration extends dao
 {
   /**
   * Récupère la configuration.
-  * @return array un tableau de string
+  * @return array un tableau de type configuration
   */
   public function getAllConfig()
   {
@@ -31,8 +31,9 @@ class daoConfiguration extends dao
   */
   public function putNbAvis($nbAvis)
   {
-    $tabDonnees = array('nbAvis' => $nbAvis);
-    $data = $this->dbal->put("/configuration/modifConfiguration/,/$nbAvis/,", $tabDonnees);
+    $uneConfig = new configuration(null, null, $nbAvis, null);
+    $tabDonnees = array('nbAvis' => $uneConfig->getNbAvis());
+    $data = $this->dbal->put("/configuration/modifConfiguration/,/". $uneConfig->getNbAvis()."/,", $tabDonnees);
     return $data;
   }
 
@@ -45,8 +46,9 @@ class daoConfiguration extends dao
   */
   public function putNbPhotos($nbPhotos)
   {
-    $tabDonnees = array('nbCommentaire' => $nbPhotos);
-    $data = $this->dbal->put("/configuration/modifConfiguration/$nbPhotos/,/,", $tabDonnees);
+    $uneConfig = new configuration(null, $nbPhotos, null, null);
+    $tabDonnees = array('nbCommentaire' => $uneConfig->getNbCommentaire());
+    $data = $this->dbal->put("/configuration/modifConfiguration/". $uneConfig->getNbCommentaire()."/,/,", $tabDonnees);
     return $data;
   }
 
@@ -59,8 +61,9 @@ class daoConfiguration extends dao
   */
   public function putNoteMini($noteMini)
   {
-    $tabDonnees = array('noteMin' => $noteMini);
-    $data = $this->dbal->put("/configuration/modifConfiguration/,/,/$noteMini", $tabDonnees);
+    $uneConfig = new configuration(null, null, null, $noteMini);
+    $tabDonnees = array('noteMin' => $uneConfig->getNoteMin());
+    $data = $this->dbal->put("/configuration/modifConfiguration/,/,/". $uneConfig->getNoteMin()."", $tabDonnees);
     return $data;
   }
 

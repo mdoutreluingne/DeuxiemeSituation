@@ -9,7 +9,7 @@ class daoArticle extends dao
 {
   /**
   * Récupère touts les obstacles.
-  * @return array un tableau de string
+  * @return array un tableau de type article
   */
   public function getAllObstacles()
   {

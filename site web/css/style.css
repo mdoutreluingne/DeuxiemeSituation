@@ -68,7 +68,7 @@ width : 100%;
     }
     100% {
         -moz-transform: rotate(360deg);
-    };
+    }
 }
 @-webkit-keyframes spin {
     0% {
@@ -76,7 +76,7 @@ width : 100%;
     }
     100% {
         -webkit-transform: rotate(360deg);
-    };
+    }
 }
 
 /*******************/

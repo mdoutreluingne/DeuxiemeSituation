@@ -10,7 +10,7 @@ class daoActualite extends dao
 {
   /**
   * Récupère toutes les actualités.
-  * @return array un tableau d'actualité
+  * @return array un tableau de type actualité
   */
   public function getAllActu()
   {
@@ -47,8 +47,9 @@ class daoActualite extends dao
   */
   public function postActu($titre, $contenu, $date_debut, $date_fin, $image)
   {
-    $tabDonnees = array('titre' => $titre, 'paragraphe' => $contenu, 'dateDebut' => $date_debut, 'dateFin' => $date_fin, 'image' => $image);
-    $data = $this->dbal->post("/actualites/addActualite/$titre/$contenu/$image/$date_debut/$date_fin", $tabDonnees);
+    $uneActu = new actualite(null, $titre, $contenu, $date_debut, $date_fin, $image);
+    $tabDonnees = array('titre' => $uneActu->getTitre(), 'paragraphe' => $uneActu->getParagraphe(), 'dateDebut' => $uneActu->getDateDebut(), 'dateFin' => $uneActu->getDateFin(), 'image' => $uneActu->getImage());
+    $data = $this->dbal->post("/actualites/addActualite/". $uneActu->getTitre()."/". $uneActu->getParagraphe()."/". $uneActu->getImage()."/". $uneActu->getDateDebut()."/". $uneActu->getDateFin()."", $tabDonnees);
     return $data;
   }
 
@@ -61,8 +62,9 @@ class daoActualite extends dao
   */
   public function deleteActuById($idActu)
   {
-    $tabDonnees = array('id' => $idActu);
-    $data = $this->dbal->delete("/actualites/$idActu", $tabDonnees);
+    $uneActu = new actualite($idActu, null, null, null, null, null);
+    $tabDonnees = array('id' => $uneActu->getId());
+    $data = $this->dbal->delete("/actualites/". $uneActu->getId()."", $tabDonnees);
     return $data;
   }
 }

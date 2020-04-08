@@ -9,7 +9,7 @@ class daoSalle extends dao
 {
   /**
   * Récupère le nombre de salle.
-  * @return array un tableau de string
+  * @return array un tableau de type string
   */
   public function countSalle()
   {
@@ -20,7 +20,7 @@ class daoSalle extends dao
 
   /**
   * Récupère les salles.
-  * @return array un tableau de string
+  * @return array un tableau de type salle
   */
   public function getAllSalle()
   {

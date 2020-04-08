@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22fae465-c2d9-4251-ab38-153d9e4d0833" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/site web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/site web.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/actualite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/actualite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/avis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/avis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/configuration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/image.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/image.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/salle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/salle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/theme.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/theme.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metier/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/daoActualite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoActualite.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/daoArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoArticle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/daoAvis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoAvis.php" afterDir="false" />
@@ -20,11 +15,8 @@
       <change beforePath="$PROJECT_DIR$/src/model/daoImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoImage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/daoSalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoSalle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/daoTheme.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoTheme.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/actualite.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/actualite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/comm_avis.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/comm_avis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/obstacles.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/obstacles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/salles.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/salles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/stat.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/stat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/daoUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vues/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +77,7 @@
       <workItem from="1585906093931" duration="2293000" />
       <workItem from="1585913832231" duration="3641000" />
       <workItem from="1586097275557" duration="4127000" />
+      <workItem from="1586330238813" duration="8803000" />
     </task>
     <servers />
   </component>

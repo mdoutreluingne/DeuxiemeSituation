@@ -9,7 +9,7 @@ class daoAvis extends dao
 {
   /**
   * Récupère le nombre d'avis.
-  * @return array un tableau de string
+  * @return array un tableau de type string
   */
   public function countAvis()
   {
@@ -20,7 +20,7 @@ class daoAvis extends dao
 
   /**
   * Récupère les avis.
-  * @return array un tableau de string
+  * @return array un tableau de type avis
   */
   public function getAllAvis()
   {
@@ -49,7 +49,7 @@ class daoAvis extends dao
   *
   * @param string $theme Le thème
   *
-  * @return array un tableau de string
+  * @return array un tableau de type theme
   */
   public function getAvisByTheme($theme)
   {

@@ -5,7 +5,8 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+    <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link text-white links" href="#le_jeu">Le jeu</a>
       </li>
@@ -21,9 +22,10 @@
       <li class="nav-item">
         <a class="nav-link text-white links" href="#comm_avis">Photos & Avis</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white links" href="vues/login.php">Connexion</a>
-      </li>
+        <li class="nav-item">
+
+            <a class="nav-link text-white links" href="vues/login.php">Connexion</a>
+        </li>
     </ul>
   </div>
 </nav>

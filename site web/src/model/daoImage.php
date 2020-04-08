@@ -7,6 +7,10 @@ use App\metier\image;
 
 class daoImage extends dao
 {
+  /**
+   * Récupère les photos des salles.
+   * @return array un tableau de type image
+   */
   public function getPhotosSalle()
   {
     $lesImagesSalle = array();
@@ -18,6 +22,10 @@ class daoImage extends dao
     return $lesImagesSalle;
   }
 
+  /**
+   * Récupère le nombre de photos.
+   * @return array un tableau de type string
+   */
   public function countPhotos()
   {
     $donnees = $this->dbal->get("/images/countPhotos");
