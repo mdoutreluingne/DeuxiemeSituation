@@ -10,10 +10,16 @@ export default class Dbal {
         /**@type Dbal**/
         Dbal.instance = this;
         /**@type string**/
-        this.ip = "localhost:8080";
+        this.ip = this.readIp();
         /**@type Promise<string>**/
         this.token = this.load();
         return this;
+    }
+
+
+    readIp(){
+        const config = require('../config.json');
+        return config.bdd;
     }
 
     /**
@@ -21,7 +27,9 @@ export default class Dbal {
      * @returns {Promise<string>}
      */
     async load(){
-        return await this.post("/api/login_check", {"username":"admin","password":"admin"});
+        const username = window.prompt("username : ");
+        const mdp = window.prompt("mot de passe : ");
+        return await this.post("/api/login_check", {"username": username,"password":mdp});
     }
 
     /**

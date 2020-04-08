@@ -152,7 +152,7 @@ class InfosClient extends React.Component {
      * @returns {*}
      */
     afficherActions() {
-        if (this.state.client.id !== "" && !this.state.client.archive) {
+        if (this.state.client.id !== 0 && !this.state.client.archive) {
             return (
                 <section className="actions">
                     <button className="editer" onClick={this.modifier.bind(this)}>MODIFIER</button>
@@ -160,7 +160,7 @@ class InfosClient extends React.Component {
                     <button className="nouveau" onClick={this.reset.bind(this)}>NOUVEAU</button>
                 </section>
             )
-        } else if (this.state.client.id !== "") {
+        } else if (this.state.client.id !== 0) {
             return (
                 <section className="actions">
                     <button className="editer" onClick={this.modifier.bind(this)}>MODIFIER</button>
