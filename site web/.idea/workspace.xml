@@ -3,20 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="22fae465-c2d9-4251-ab38-153d9e4d0833" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/user.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoActualite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoActualite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoAvis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoAvis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoConfiguration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoSalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoSalle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoTheme.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoTheme.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/daoUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vues/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/post_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/post_news.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +68,8 @@
       <workItem from="1585913832231" duration="3641000" />
       <workItem from="1586097275557" duration="4127000" />
       <workItem from="1586330238813" duration="8803000" />
+      <workItem from="1586435443717" duration="799000" />
+      <workItem from="1586439564626" duration="3997000" />
     </task>
     <servers />
   </component>

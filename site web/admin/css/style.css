@@ -38,3 +38,7 @@ body,html, header {
 .save {
   margin-top: 2%;
 }
+
+.obligatoire {
+  color: red;
+}

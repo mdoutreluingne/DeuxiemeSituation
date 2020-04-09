@@ -49,15 +49,16 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
           <button type="button" class="btn btn-success btn-lg btn-block text-uppercase" id="button_addnews">Ajouter des news</button>
           <div class="add_news">
             <form action="" method="post" enctype="multipart/form-data">
-                <span class="text-white">Titre de la news :</span><br>
-                <input type="text" name="titre" class="form-control">
+                <span class="text-danger">Champs obligatoires : *</span><br>
+                <span class="text-white">Titre de la news :<span class="obligatoire">*</span></span><br>
+                <input type="text" name="titre" class="form-control" value="<?php if (isset($_POST['titre'])){ echo $_POST['titre']; }?>">
                 <span class="text-white">Contenu de la news :</span><br>
-                <textarea class="form-control" name="contenu" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <span class="text-white">Date de début :</span><br>
-                <input type="datetime-local" class="form-control" name="date_debut" value="">
-                <span class="text-white">Date de fin :</span><br>
-                <input type="datetime-local" class="form-control" name="date_fin" value="">
-                <span class="text-white">Image :</span><br>
+                <textarea class="form-control" name="contenu" id="exampleFormControlTextarea1" rows="3"><?php if (isset($_POST['contenu'])){ echo $_POST['contenu']; }?></textarea>
+                <span class="text-white">Date de début :<span class="obligatoire">*</span></span><br>
+                <input type="datetime-local" class="form-control" name="date_debut" value="<?php if (isset($_POST['date_debut'])){ echo $_POST['date_debut']; }?>">
+                <span class="text-white">Date de fin :<span class="obligatoire">*</span></span><br>
+                <input type="datetime-local" class="form-control" name="date_fin" value="<?php if (isset($_POST['date_fin'])){ echo $_POST['date_fin']; }?>">
+                <span class="text-white">Image :<span class="obligatoire">*</span></span><br>
                 <span class="text-danger font-italic">Taille maximale : 1Mo </span><br>
                 <span class="text-danger font-italic">Dimension 1200x400 de préférence</span><br>
                 <input type="file" class="text-white" name="photo">
