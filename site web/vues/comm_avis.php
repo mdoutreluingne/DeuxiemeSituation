@@ -7,6 +7,30 @@
     $nbPhotosAlea = 0;
     $nbMaxPhotos = 0;
 
+    /**
+     * Génère des nombres aléatoires sans doublons.
+     * @return array un tableau d'entier
+     */
+    function nbAlea($nbTotal, $nbMax)
+    {
+      //Contient les numéros aléatoires
+      $numTab = array();
+
+      //Evite qu'un nombre aléatoire ce répète
+      for ($h=0; $h < $nbTotal; $h++) {
+        $nbPhotosAlea = rand(0, $nbMax-1); //nombre aléatoire généré
+
+        if (in_array($nbPhotosAlea, $numTab, true) == false) { //Vérifie si le nombre généré n'est pas dans le tableau
+          $numTab[] = $nbPhotosAlea; //Affecte le nombre
+        }
+        else {
+          $nbTotal++;
+        }
+
+      }
+      return $numTab;
+    }
+
     //Récupération de la configuration
     $lesConfig = $daoConfig->getAllConfig();
 
@@ -38,18 +62,18 @@
 
       //Récupération du nom des photos
       $nomPhotos = $daoImage->getPhotosSalle();
-
+      //Récupère les nombres aléatoires
+      $numTabPhotos = nbAlea($nbphotos, $nbMaxPhotos);
         //Affichage les photos
         for ($o=0; $o < $nbphotos; $o++) {
-
-          $nbPhotosAlea = rand(0, $nbMaxPhotos-1); //nombre aléatoire généré
 
           echo '
           <div class="col-md-4" id="border_salle">
                 <div class="card">
-                    <a href="css/images/photos/'. $nomPhotos[$nbPhotosAlea]->getNom() .'" class="photos"><img src="css/images/photos/'. $nomPhotos[$nbPhotosAlea]->getNom() .'" class="card-img-top img-fluid affiche_photos"></a>
+                    <a href="css/images/photos/'. $nomPhotos[$numTabPhotos[$o]]->getNom() .'" class="photos"><img src="css/images/photos/'. $nomPhotos[$numTabPhotos[$o]]->getNom() .'" class="card-img-top img-fluid affiche_photos"></a>
                 </div>
             </div>';
+
         }
       ?>
 
@@ -72,10 +96,10 @@
 
           //Variable d'incrémentation
           $inc = 1;
-
+          //Affiche les avis
           for ($j=0; $j < $nbMaxAvis; $j++) {
 
-            $nbAvisAlea = rand(0, $nbMaxAvis-1); //nombre aléatoire avis
+            $nbAvisAlea = rand(0, $nbMaxAvis-1); //nombre aléatoire généré
 
             if ($inc > $nbavis) { //Force le sortie de la boucle
               break;
