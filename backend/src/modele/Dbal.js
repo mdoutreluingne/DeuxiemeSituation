@@ -63,7 +63,7 @@ export default class Dbal {
      * @param url {string}
      * @returns {Promise<string>}
      */
-    async put(url){
+    async put(url, params){
         url = "http://" + this.ip + url;
         let token = await this.token;
         token = JSON.parse(token).token;
@@ -79,8 +79,9 @@ export default class Dbal {
                 }
             };
             xhr.open('PUT', url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("Authorization", "Bearer " + token);
-            xhr.send()
+            xhr.send(params)
         })
     }
 

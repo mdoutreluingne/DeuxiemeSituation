@@ -74,15 +74,9 @@ export default class DaoClient {
      */
     async modifier(client){
         const archive = (!client.archive)?"0":"1";
-        const mail = client.mail.replace(".", ",");
-        const url = "/api/client/modifClient/"+ client.id + "/"
-            + client.nom + "/"
-            + client.prenom + "/"
-            + client.ville + "/"
-            + client.tel + "/"
-            + mail + "/"
-            + archive;
-        return await this.dbal.put(url);
+        const url = "/api/clients/modifclient";
+        const params = '{\"id\":\"'+client.id+'\",\"nom\":\"'+client.nom+'\",\"prenom\":\"'+client.prenom+'\",\"ville\":\"'+client.ville+'\",\"tel\":\"'+client.tel+'\",\"mail\":\"'+client.mail+'\",\"archive\":\"'+archive+'\"}';
+        return await this.dbal.put(url, params);
     }
 
     /**
