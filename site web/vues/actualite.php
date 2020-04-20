@@ -10,7 +10,7 @@
             echo '
             <div class="carousel-inner">
               <div class="item active">
-                <img src="css/images/actualites/' . $uneActu->getImage() . '" class="img-fluid img-thumbnail mx-auto d-block">
+                <img src="css/images/actualites/' . $uneActu->getImage()->getNom() . '" class="img-fluid img-thumbnail mx-auto d-block">
                 <div class="carousel-caption">
                   <h3 class="titre_actu">' . $uneActu->getTitre() . '</h3>
                   <p class="date_actu">' . date('d/m/Y H:i:s', strtotime($uneActu->getDateDebut())) . ' - ' . date('d/m/Y H:i:s', strtotime($uneActu->getDateFin())) . '</p>

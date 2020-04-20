@@ -5,6 +5,7 @@
 
 namespace App\model;
 use App\metier\actualite;
+use App\metier\image;
 
 class daoActualite extends dao
 {
@@ -18,7 +19,8 @@ class daoActualite extends dao
     $actualites = $this->dbal->get("/actualites");
     $result = json_decode($actualites, true);
     for($t = 0, $size = count($result); $t < $size; ++$t) {
-      $lesActus[] = new actualite($result[$t]['id'], $result[$t]['titre'], $result[$t]['paragraphe'], $result[$t]['dateDebut'], $result[$t]['dateFin'], $result[$t]['image']);
+      $uneImage = new Image(null, null, null, $result[$t]['image'], null, null);
+      $lesActus[] = new actualite($result[$t]['id'], $result[$t]['titre'], $result[$t]['paragraphe'], $result[$t]['dateDebut'], $result[$t]['dateFin'], $uneImage);
     }
     return $lesActus;
   }
@@ -41,15 +43,15 @@ class daoActualite extends dao
   * @param string $contenu Contenue de l'actualité
   * @param datetime $date_debut Date de l'ajout
   * @param datetime $date_fin Date d'éxpiration
-  * @param string $image Chemin de l'image
+  * @param Image $image Nom de l'image
   *
   * @return boolean
   */
   public function postActu($titre, $contenu, $date_debut, $date_fin, $image)
   {
     $uneActu = new actualite(null, $titre, $contenu, $date_debut, $date_fin, $image);
-    $tabDonnees = array('titre' => $uneActu->getTitre(), 'paragraphe' => $uneActu->getParagraphe(), 'dateDebut' => $uneActu->getDateDebut(), 'dateFin' => $uneActu->getDateFin(), 'image' => $uneActu->getImage());
-    $data = $this->dbal->post("/actualites/addActualite/". $uneActu->getTitre()."/". $uneActu->getParagraphe()."/". $uneActu->getImage()."/". $uneActu->getDateDebut()."/". $uneActu->getDateFin()."", $tabDonnees);
+    $tabDonnees = array('titre' => $uneActu->getTitre(), 'paragraphe' => $uneActu->getParagraphe(), 'dateDebut' => $uneActu->getDateDebut(), 'dateFin' => $uneActu->getDateFin(), 'image' => $image->getNom());
+    $data = $this->dbal->post("/actualites/addActualite/". $uneActu->getTitre()."/". $uneActu->getParagraphe()."/". $image->getNom()."/". $uneActu->getDateDebut()."/". $uneActu->getDateFin()."", $tabDonnees);
     return $data;
   }
 

@@ -35,10 +35,10 @@
               }
               else {
                 echo '
-                <img src="css/images/salles/'. $lesSalles[$m]->getImage() .'" class="card-img-top">
+                <img src="css/images/salles/'. $lesSalles[$m]->getImage()->getNom() .'" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title" id="salle_presentation">'. $lesSalles[$m]->getTheme() .'</h5>
-                    <span class="font-italic text-white" id="ville">'. $lesSalles[$m]->getVille() .'</span>
+                    <h5 class="card-title" id="salle_presentation">'. $lesSalles[$m]->getTheme()->getNom()  .'</h5>
+                    <span class="font-italic text-white" id="ville">'. $lesSalles[$m]->getVille()->getNom()  .'</span>
                   </div>
                 </div>';
               }

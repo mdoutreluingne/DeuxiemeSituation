@@ -4,6 +4,7 @@
  */
 namespace App\model;
 use App\metier\article;
+use App\metier\image;
 
 class daoArticle extends dao
 {
@@ -17,7 +18,8 @@ class daoArticle extends dao
     $donnees = $this->dbal->get("/articles/lesArticles");
     $result = json_decode($donnees, true);
     for($t = 0, $size = count($result); $t < $size; ++$t) {
-      $lesArticles[] = new article(null, $result[$t]['libelle'], $result[$t]['montant'], null, $result[$t]['image']);
+      $uneImage = new Image(null, null, null, $result[$t]['image'], null, null);
+      $lesArticles[] = new article(null, $result[$t]['libelle'], $result[$t]['montant'], null, $uneImage);
     }
     return $lesArticles;
   }

@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22fae465-c2d9-4251-ab38-153d9e4d0833" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/metier/ville.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/post_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/post_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/daoActualite.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoActualite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/daoArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/daoAvis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoAvis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/daoSalle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/daoSalle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vues/actualite.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/actualite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vues/comm_avis.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/comm_avis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vues/obstacles.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/obstacles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vues/salles.php" beforeDir="false" afterPath="$PROJECT_DIR$/vues/salles.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +35,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1YyXcuYOmAgmNKsoW8C52ezpMjm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/PhpstormProjects/APIDeuxiemeSituation/tesapi" />
@@ -68,6 +81,10 @@
       <workItem from="1586439564626" duration="3997000" />
       <workItem from="1586702929697" duration="836000" />
       <workItem from="1586762663685" duration="37000" />
+      <workItem from="1587386065024" duration="1000" />
+      <workItem from="1587386075670" duration="426000" />
+      <workItem from="1587386663243" duration="169000" />
+      <workItem from="1587391780060" duration="5524000" />
     </task>
     <servers />
   </component>
@@ -86,5 +103,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

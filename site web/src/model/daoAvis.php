@@ -4,6 +4,8 @@
  */
 namespace App\model;
 use App\metier\avis;
+use App\metier\Salle;
+use App\metier\theme;
 
 class daoAvis extends dao
 {
@@ -28,7 +30,8 @@ class daoAvis extends dao
     $donnees = $this->dbal->get("/avis/allAvis");
     $result = json_decode($donnees, true);
     for($t = 0, $size = count($result); $t < $size; ++$t) {
-      $lesAvis[] = new avis($result[$t]['id'], $result[$t]['note'], null, $result[$t]['commentaire'], null, null, $result[$t]['theme']);
+      $theme = new theme(null, $result[$t]['theme']);
+      $lesAvis[] = new avis($result[$t]['id'], $result[$t]['note'], null, $result[$t]['commentaire'], null, null, $theme);
     }
     return $lesAvis;
   }

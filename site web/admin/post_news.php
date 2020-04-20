@@ -34,6 +34,7 @@ if (isset($_POST['submit_new'])) {
                     }
 
                   //Ajout l'actualité
+                  $image = new \App\metier\image(null, null, null, $image, null, null);
                   $addNews = $daoActu->postActu($titre, $contenu, $date_debut, $date_fin, $image);
 
                   $msg_news = '<div class="alert alert-success text-center" role="alert">La news a bien été ajouté</div>';

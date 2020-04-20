@@ -110,7 +110,7 @@
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 content_avis">
                 <div class="card cardavis" id="lesAvis">
                   <div class="card-body">
-                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]->getTheme() .'</h5>
+                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]->getTheme()->getNom() .'</h5>
                     <h6 class="card-subtitle mb-2 font-weight-bold text-white">'. $avis[$nbAvisAlea]->getNote() .'/5</h6>
                     <p class="card-text text-white">'. $avis[$nbAvisAlea]->getCommentaire() .'</p>
                   </div>

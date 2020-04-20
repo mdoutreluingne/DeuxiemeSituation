@@ -23,7 +23,7 @@
                   echo '
                   <div class="col mb-4">
                     <div class="card cardobstacles">
-                      <img src="css/images/obstacles/'. $lesArticles[$l]->getImage() .'" class="img-fluid img-thumbnail img_obstacle" alt="...">
+                      <img src="css/images/obstacles/'. $lesArticles[$l]->getImage()->getNom() .'" class="img-fluid img-thumbnail img_obstacle" alt="...">
                       <div class="card-body">
                         <h5 class="card-title text-white titre_obstacles">'. $lesArticles[$l]->getLibelle() .'</h5>
                         <p class="card-text text-white chiffre_obstacles">'. $lesArticles[$l]->getMontant() .'€</p>
