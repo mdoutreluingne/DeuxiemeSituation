@@ -9,6 +9,8 @@
 
     /**
      * Génère des nombres aléatoires sans doublons.
+     * @param int $nbTotal le nombre d'affichage
+     * @param int $nbMax le nombre maximum d'avis
      * @return array un tableau d'entier
      */
     function nbAlea($nbTotal, $nbMax)
@@ -55,18 +57,18 @@
       //Récupération du nombre d'image
       $nbMaxPhotos = $daoImage->countPhotos();
 
-      //Parcour le tableau retournée
+      //Récupère le nombre maximum de photo
       foreach ($nbMaxPhotos as $nombre) {
         $nbMaxPhotos = $nombre['nbPhotos'];
       }
 
       //Récupération du nom des photos
       $nomPhotos = $daoImage->getPhotosSalle();
-      //Récupère les nombres aléatoires
+      //Récupère un tableau d'entier de nombre aléatoire
       $numTabPhotos = nbAlea($nbphotos, $nbMaxPhotos);
-        //Affichage les photos
-        for ($o=0; $o < $nbphotos; $o++) {
 
+        //Affichage les photos avec le nombre d'affichage correspondant
+        for ($o=0; $o < $nbphotos; $o++) {
           echo '
           <div class="col-md-4" id="border_salle">
                 <div class="card">
@@ -87,39 +89,33 @@
     <div class="row">
 
       <?php
-
-          //Récupération du nombre d'avis
+          //Récupère le nombre maximum d'avis
           $nbMaxAvis = $daoAvis->countAvis();
-
           //Récupération des avis
           $avis = $daoAvis->getAllAvis();
+          //Récupère un tableau d'entier de nombre aléatoire
+          $nbAvisAlea = nbAlea($nbavis, $nbMaxAvis);
 
-          //Variable d'incrémentation
-          $inc = 1;
-          //Affiche les avis
-          for ($j=0; $j < $nbMaxAvis; $j++) {
+          //Affiche les avis avec la note et le nombre d'affichage correspondant
+          for ($j=0; $j < $nbavis; $j++) {
 
-            $nbAvisAlea = rand(0, $nbMaxAvis-1); //nombre aléatoire généré
-
-            if ($inc > $nbavis) { //Force le sortie de la boucle
-              break;
-            }
-            if ($avis[$nbAvisAlea]->getNote() >= $notemini) { //Test si la note est supérieur ou égale à la note minimale
+            if ($avis[$nbAvisAlea[$j]]->getNote() >= $notemini) { //Test si la note est supérieur ou égale à la note minimale
               //Affichage des avis
               echo '
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 content_avis">
                 <div class="card cardavis" id="lesAvis">
                   <div class="card-body">
-                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea]->getTheme()->getNom() .'</h5>
-                    <h6 class="card-subtitle mb-2 font-weight-bold text-white">'. $avis[$nbAvisAlea]->getNote() .'/5</h6>
-                    <p class="card-text text-white">'. $avis[$nbAvisAlea]->getCommentaire() .'</p>
+                    <h5 class="font-italic text-danger avis_theme">'. $avis[$nbAvisAlea[$j]]->getTheme()->getNom() .'</h5>
+                    <h6 class="card-subtitle mb-2 font-weight-bold text-white">'. $avis[$nbAvisAlea[$j]]->getNote() .'/5</h6>
+                    <p class="card-text text-white">'. $avis[$nbAvisAlea[$j]]->getCommentaire() .'</p>
                   </div>
                 </div>
               </div>';
-
-              $inc++;
             }
-
+            else {
+              $j--;
+              $nbAvisAlea = nbAlea($nbavis, $nbMaxAvis);
+            }
           }
 
        ?>
