@@ -1,6 +1,7 @@
 import Dbal from "./Dbal";
 import client from "../metier/Client";
 import DaoTransaction from "./DaoTransaction";
+import DaoUtilisateur from "./DaoUtilisateur";
 
 export default class DaoClient {
     /**
@@ -63,8 +64,9 @@ export default class DaoClient {
      * @returns {Promise<string>}
      */
     async archiver(client, valeur){
-        const url = "/api/client/modifClient/"+ client.id + "/,/,/,/,/,/" + valeur;
-        return await this.dbal.put(url);
+        const url = "/api/clients/modifclient";
+        const params = '{"id":"'+client.id+'","nom":"'+client.nom+'","prenom":"'+client.prenom+'","ville":"'+client.ville+'","tel":"'+client.tel+'","mail":"'+client.mail+'","archive":"'+valeur+'"}';
+        return await this.dbal.put(url, params);
     }
 
     /**
@@ -85,20 +87,14 @@ export default class DaoClient {
      * @returns {Promise<client>}
      */
     async creer(client){
-        const mail = client.mail.replace(".", ",");
-        const ville = client.ville;
-
-        let url = "/api/client/addClient/"
-            + client.nom + "/"
-            + client.prenom + "/"
-            + ville + "/"
-            + client.tel + "/"
-            + mail + "/0";
-        let reponse = await this.dbal.post(url);
+        let url = "/api/clients/addClient";
+        const params = '{"id":"'+client.id+'","nom":"'+client.nom+'","prenom":"'+client.prenom+'","ville":"'+client.ville+'","tel":"'+client.tel+'","mail":"'+client.mail+'","archive":"0"}';
+        let reponse = await this.dbal.post(url, params);
         const lastId = JSON.parse(reponse);
         client = await this.getById(lastId);
 
         new DaoTransaction().initialiser(client);
+        new DaoUtilisateur().addUser(client);
         return await this.load(client);
     }
 }

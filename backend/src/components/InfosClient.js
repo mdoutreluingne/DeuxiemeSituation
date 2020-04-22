@@ -127,11 +127,15 @@ class InfosClient extends React.Component {
      * @returns {Promise<void>}
      */
     async modifier(){
-        document.body.style.cursor = 'progress';
-        await this.state.daoClient.modifier(this.state.client);
-        alert("Le client a été modifié");
-        document.body.style.cursor = 'default';
-        this.update();
+        if (this.state.client.nom !== "" && this.state.client.prenom !== ""){
+            document.body.style.cursor = 'progress';
+            await this.state.daoClient.modifier(this.state.client);
+            alert("Le client a été modifié");
+            document.body.style.cursor = 'default';
+            this.update();
+        } else {
+            alert("Le nom et le prénom ne peuvent pas être vide")
+        }
     }
 
     /**
@@ -139,12 +143,16 @@ class InfosClient extends React.Component {
      * @returns {Promise<void>}
      */
     async creer(){
-        document.body.style.cursor = 'progress';
         const client = await this.state.daoClient.creer(this.state.client);
-        document.body.style.cursor = 'default';
-        alert("Le client a été crée");
-        this.setState({client: client});
-        this.props.onChange(client);
+        if (client.nom !== "" && client.prenom !== ""){
+            document.body.style.cursor = 'progress';
+            document.body.style.cursor = 'default';
+            alert("Le client a été crée");
+            this.setState({client: client});
+            this.props.onChange(client);
+        } else {
+            alert("Merci de renseigner les champs obligatoires")
+        }
     }
 
     /**
@@ -192,7 +200,7 @@ class InfosClient extends React.Component {
                             {this.state.listeClients.map((client, index) => {
                                 return (
                                     <option key={index}
-                                            data-client={JSON.stringify(client)}>{client.nom + client.prenom}</option>
+                                            data-client={JSON.stringify(client)}>{client.nom + " " +  client.prenom}</option>
                                 )
                             })}
                         </datalist>

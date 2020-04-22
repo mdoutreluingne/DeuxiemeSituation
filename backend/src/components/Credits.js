@@ -53,10 +53,15 @@ export default class Credits extends React.Component {
     }
 
     render() {
+        console.log(this.state.client.id);
         if (this.state.client.id !== this.props.client.id) {
             this.updateClient();
             return null
-        } else {
+        }
+        else if(this.state.client.id === 0){
+            return null
+        }
+        else {
             const t = this.state.transaction;
             return (
                 <section className="credits">

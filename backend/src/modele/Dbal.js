@@ -61,6 +61,7 @@ export default class Dbal {
     /**
      * Méthode put
      * @param url {string}
+     * @param params {string||object}
      * @returns {Promise<string>}
      */
     async put(url, params){
@@ -112,7 +113,8 @@ export default class Dbal {
             }
             if (objet){
                 xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.send(JSON.stringify(objet))
+                if (typeof objet === "object"){xhr.send(JSON.stringify(objet))}
+                else {xhr.send(objet)}
             }
             else {xhr.send()}
         })
