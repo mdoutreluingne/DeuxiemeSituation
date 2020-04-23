@@ -132,7 +132,7 @@ include 'delete_news.php'; //Formulaire pour supprimer une actu
         <div class="col-12">
           <form class="" action="" method="post">
             <span class="text-white font-weight-bold">Saisir la note minimale des avis : </span>
-            <input type="number" name="notemini" value="" placeholder="Chiffre entre 0 et 5">
+            <input type="number" step="any" name="notemini" value="" placeholder="Chiffre entre 0 et 5">
             <button type="submit" name="submit_notemini" id="submit" class="btn btn-info">Valider</button>
             <?php if(isset($msg_notemini)) {echo $msg_notemini;}  ?>
           </form>

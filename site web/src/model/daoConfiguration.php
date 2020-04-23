@@ -32,8 +32,9 @@ class daoConfiguration extends dao
   public function putNbAvis($nbAvis)
   {
     $uneConfig = new configuration(null, null, $nbAvis, null);
-    $tabDonnees = array('nbAvis' => $uneConfig->getNbAvis());
-    $data = $this->dbal->put("/configuration/modifConfiguration/,/". $uneConfig->getNbAvis()."/,", $tabDonnees);
+    $tabDonnees = array('nbcommentaire' => ",",'nbavis' => $uneConfig->getNbAvis(), 'notemini' => ",");
+    $tabDonnees = json_encode($tabDonnees);
+    $data = $this->dbal->put("/configuration/modifConfiguration", $tabDonnees);
     return $data;
   }
 
@@ -47,8 +48,9 @@ class daoConfiguration extends dao
   public function putNbPhotos($nbPhotos)
   {
     $uneConfig = new configuration(null, $nbPhotos, null, null);
-    $tabDonnees = array('nbCommentaire' => $uneConfig->getNbCommentaire());
-    $data = $this->dbal->put("/configuration/modifConfiguration/". $uneConfig->getNbCommentaire()."/,/,", $tabDonnees);
+    $tabDonnees = array('nbcommentaire' => $uneConfig->getNbCommentaire(),'nbavis' => ",", 'notemini' => ",");
+    $tabDonnees = json_encode($tabDonnees);
+    $data = $this->dbal->put("/configuration/modifConfiguration", $tabDonnees);
     return $data;
   }
 
@@ -62,8 +64,9 @@ class daoConfiguration extends dao
   public function putNoteMini($noteMini)
   {
     $uneConfig = new configuration(null, null, null, $noteMini);
-    $tabDonnees = array('noteMin' => $uneConfig->getNoteMin());
-    $data = $this->dbal->put("/configuration/modifConfiguration/,/,/". $uneConfig->getNoteMin()."", $tabDonnees);
+    $tabDonnees = array('nbcommentaire' => ",",'nbavis' => ",", 'notemini' => $uneConfig->getNoteMin());
+    $tabDonnees = json_encode($tabDonnees);
+    $data = $this->dbal->put("/configuration/modifConfiguration", $tabDonnees);
     return $data;
   }
 

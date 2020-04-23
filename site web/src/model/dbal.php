@@ -94,7 +94,7 @@ class dbal
   * Méthode de type put.
   *
   * @param string $url l'url de la fonction
-  * @param array $data tableau des paramètres
+  * @param array $data tableau des paramètres en json
   *
   * @return boolean
   */
@@ -102,11 +102,13 @@ class dbal
   {
     $options = array(
         'http' => array(
-            'header'  => 'Authorization: Bearer '.$this->token,
+            'header'  => "Content-Type: application/json\r\n".
+                         'Authorization: Bearer '.$this->token,
             'method'  => 'PUT',
-            'content' => http_build_query($data)
+            'content' => $data
         )
     );
+
     $lesDonnees  = stream_context_create($options);
     $lesDonnees = file_get_contents($this->server . $url, false, $lesDonnees);
 
