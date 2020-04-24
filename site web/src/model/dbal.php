@@ -127,9 +127,10 @@ class dbal
   {
     $options = array(
         'http' => array(
-            'header'  => 'Authorization: Bearer '.$this->token,
+            'header'  => "Content-Type: application/json\r\n".
+                         'Authorization: Bearer '.$this->token,
             'method'  => 'POST',
-            'content' => http_build_query($data)
+            'content' => $data
         )
     );
     $lesDonnees  = stream_context_create($options);

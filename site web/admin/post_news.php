@@ -20,18 +20,10 @@ if (isset($_POST['submit_new'])) {
                   // On peut valider le fichier et le stocker définitivement
                   move_uploaded_file($_FILES['photo']['tmp_name'], '../css/images/actualites/' . basename($_FILES['photo']['name']));
                   $image = $_FILES['photo']['name'];
-                  $image = str_replace('.', ',', $image); //Remplace , par . dans le nom de l'image
                   $titre = $_POST['titre'];
-                  $titre = str_replace(' ', '%20', $titre); //Remplace l'espace par % pour l'url
                   $contenu = $_POST['contenu'];
-                  $contenu = str_replace(' ', '%20', $contenu); //Remplace l'espace par % pour l'url
                   $date_debut = $_POST['date_debut'];
                   $date_fin = $_POST['date_fin'];
-
-                  // Met null si le contenu est vide
-                  if (empty($contenu)) {
-                      $contenu = ",";
-                    }
 
                   //Ajout l'actualité
                   $image = new \App\metier\image(null, null, null, $image, null, null);

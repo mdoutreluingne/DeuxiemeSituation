@@ -50,8 +50,9 @@ class daoActualite extends dao
   public function postActu($titre, $contenu, $date_debut, $date_fin, $image)
   {
     $uneActu = new actualite(null, $titre, $contenu, $date_debut, $date_fin, $image);
-    $tabDonnees = array('titre' => $uneActu->getTitre(), 'paragraphe' => $uneActu->getParagraphe(), 'dateDebut' => $uneActu->getDateDebut(), 'dateFin' => $uneActu->getDateFin(), 'image' => $image->getNom());
-    $data = $this->dbal->post("/actualites/addActualite/". $uneActu->getTitre()."/". $uneActu->getParagraphe()."/". $image->getNom()."/". $uneActu->getDateDebut()."/". $uneActu->getDateFin()."", $tabDonnees);
+    $tabDonnees = array('titre' => $uneActu->getTitre(), 'paragraphe' => $uneActu->getParagraphe(), 'datedebut' => $uneActu->getDateDebut(), 'datefin' => $uneActu->getDateFin(), 'image' => $uneActu->getImage()->getNom());
+    $tabDonnees = json_encode($tabDonnees);
+    $data = $this->dbal->post("/actualites/addActualite", $tabDonnees);
     return $data;
   }
 
