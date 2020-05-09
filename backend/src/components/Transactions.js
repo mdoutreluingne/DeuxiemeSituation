@@ -83,7 +83,6 @@ export default class Transactions extends React.Component {
     }
 
     updateTransaction(){
-        //console.log("ici");
         this.setState({
             client: this.props.client,
             details : -1,
@@ -97,7 +96,6 @@ export default class Transactions extends React.Component {
             this.updateTransaction();
             return null
         } else {
-            //console.log(this.state);
             const options = {weekday: "short", day: "numeric", month: "short", year: "numeric"};
             if (transactions.length > 0) {
                 return (

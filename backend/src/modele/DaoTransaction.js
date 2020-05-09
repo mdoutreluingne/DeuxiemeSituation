@@ -39,8 +39,9 @@ export default class DaoTransaction {
      */
     async initialiser(client){
         const aujourdhui = this.dbal.date2amd(new Date());
-        const url = "/api/transaction/addTransaction/" + aujourdhui + "/0,00/Carte bancaire/ /Creation du compte/ /" + client.id;
-        return await this.dbal.post(url);
+        const url = "/api/transaction/addTransaction";
+        const params = '{"date":"'+aujourdhui+'","montant":"0,00","type":"Carte Bancaire","numero":" ","commentaire":"Création du compte","reservation":" ","client":"'+client.id+'"}';
+        return await this.dbal.post(url, params);
     }
 
     /**
@@ -51,14 +52,9 @@ export default class DaoTransaction {
      */
     async ajouter(client, transaction){
         const aujourdhui = this.dbal.date2amd(new Date());
-        const url = "/api/transaction/addTransaction/" + aujourdhui + "/"
-            + transaction.montant + "/"
-            + transaction.type + "/"
-            + transaction.numero + "/"
-            + transaction.commentaire
-            + "/ /"
-            + client.id;
-        await this.dbal.post(url);
+        const url = "/api/transaction/addTransaction";
+        const params = '{"date":"'+aujourdhui+'","montant":"'+transaction.montant+'","type":"'+transaction.type+'","numero":"'+transaction.numero+'","commentaire":"'+transaction.commentaire+'","reservation":" ","client":"'+client.id+'"}';
+        await this.dbal.post(url, params);
         client.solde = parseFloat(client.solde) + parseFloat(transaction.montant);
         return client;
     }
