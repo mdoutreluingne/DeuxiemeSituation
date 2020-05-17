@@ -40,7 +40,7 @@ if (isset($_POST['submit_new'])) {
           }
       }
       else {
-          $msg_news = '<div class="alert alert-danger text-center" role="alert">Une erreur est survenue lors de l\'envoi de l\'image, veuillez ressayer</div>';
+          $msg_news = '<div class="alert alert-danger text-center" role="alert">L\'image est trop volumineuse</div>';
       }
   }
   else {

@@ -24,6 +24,17 @@ class daoArticle extends dao
     return $lesArticles;
   }
 
+  /**
+  * Récupère le nombre d'obstacle.
+  * @return array un tableau de type string
+  */
+  public function getCountObstacles()
+  {
+    $donnees = $this->dbal->get("/articles/countArticles");
+    $result = json_decode($donnees, true);
+    return $result;
+  }
+
 }
 
 ?>
