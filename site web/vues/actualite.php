@@ -5,7 +5,7 @@
     $actualites = $daoActu->getAllActu();
 
     foreach ($actualites as $uneActu) {
-        //Test si la date de fin des news sont supérieur à la date d'aujourd'hui
+        //Test si la date de fin des news est supérieur à la date d'aujourd'hui
         if (new DateTime($uneActu->getDateFin()) > new DateTime(date('Y-m-d'))) {
             echo '
             <div class="carousel-inner">

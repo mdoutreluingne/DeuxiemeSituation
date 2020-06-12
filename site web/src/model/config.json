@@ -6,6 +6,6 @@
           "password":"test"
      },
      {
-          "server":"http://localhost:8080/api"
+          "server":"http://localhost:8081/api"
      }
 ]
