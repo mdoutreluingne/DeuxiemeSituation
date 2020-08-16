@@ -1,0 +1,403 @@
+@font-face {
+    font-family: chiffre;
+    src: url(fonts/newyorkescape.ttf);
+}
+
+@font-face {
+    font-family: timer;
+    src: url(fonts/Pixel-lcd-machine.ttf);
+}
+
+@font-face {
+    font-family: title;
+    src: url(fonts/redundead.ttf);
+}
+
+/* Loader */
+.loader {
+position : fixed;
+z-index: 9999;
+background-color: #0e0e0e;
+top : 0px;
+left : 0px;
+height : 100%;
+width : 100%;
+}
+
+.wait {
+    border-radius: 48px;
+    width: 48px;
+    height: 48px;
+    animation: spin .5s infinite linear;
+    -moz-animation: spin .5s infinite linear;
+    -webkit-animation: spin .5s infinite linear;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.double{
+    border-style: double;
+}
+
+.red{
+    border-top-color: rgba(255,0,0,0);
+    border-right-color: rgba(255,0,0,0.30);
+    border-bottom-color: rgba(255,0,0,0.60);
+    border-left-color: rgba(255,0,0,1);
+}
+
+.txt_wait {
+  letter-spacing: 1px;
+  font-style: italic;
+  color: rgb(175, 0, 0);
+  position: absolute;
+  top: 65%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* definim les transicions */
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+/*******************/
+html { /* Effect scrolling */
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body,html, header {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: auto;
+  background-color: #0e0e0e;
+}
+
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)),url("images/accueil.jpg") no-repeat center center;
+  background-size: cover;
+  padding-bottom: 2%;
+}
+
+.links {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.links::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #da1a35;
+  transition: width 0.3s;
+}
+
+.links:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+.title {
+  color: white;
+}
+
+.description_egc {
+  color: white;
+  width: 50%;
+  margin-top: 1%;
+  font-weight: 600;
+  color: rgb(175, 0, 0);
+  font-family: title;
+}
+
+.content {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.content_accueil {
+  margin-top: 7%;
+  margin-bottom: 8%;
+}
+
+.img_news {
+  float: left;
+}
+
+.txt {
+  float: left;
+  width: 50%;
+  height: 100%;
+  margin-left: 2%;
+}
+
+.desc_news {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slick-dots li button:before /* le style des points (Slider) */
+{
+  font-size: 20px;
+  line-height: 20px;
+  color: red;
+}
+
+.slick-dots li.slick-active button:before { /* Quand le point est actif (Slider) */
+  color: white;
+}
+
+.underline {
+  padding-bottom: 10px;
+  border-bottom: 5px solid #da1a35;
+  text-align: center;
+  margin: 0 0 35px;
+  letter-spacing: 1px;
+  font-family: title;
+  font-size: 45px;
+  color: white;
+}
+
+.titre_actu {
+  font-family: title;
+  font-size: 3.5vw;
+  letter-spacing: 1px;
+}
+
+.date_actu {
+  font-size: 1.5vw;
+}
+
+.text_actu {
+  font-size: 1.5vw;
+}
+
+/* Le jeu */
+
+.le_jeu {
+  margin-top: 2%;
+}
+
+.description {
+  font-size: 18px;
+}
+
+.contexte {
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+#color_accueil {
+  color: rgb(175, 0, 0);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  font-size: 20px;
+  font-family: title;
+}
+
+#color_lejeu {
+  color: rgb(175, 0, 0);
+  font-style: italic;
+  font-size: 1.7em;
+  font-weight: normal;
+}
+
+.compte_a_rebours {
+  font-family: timer;
+  color: #da1a35;
+  font-size: 30px;
+}
+
+/* OBSTACLES */
+
+.slides_obstacles {
+  width: 100%;
+  height: 100%;
+}
+
+.obstacles {
+  width: 100%;
+  height: 100%;
+  margin-top: 5%;
+}
+
+.cardobstacles {
+  background: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.50));
+  border: 1px solid #da1a35;
+}
+
+.img_obstacle {
+  background: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0.50));
+  border: none;
+}
+
+.titre_obstacles {
+  font-family: title;
+}
+
+.chiffre_obstacles {
+  font-family: chiffre;
+}
+
+/* SALLES */
+
+.salles {
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+}
+
+.cardsalle {
+  background-color: black;
+  border: 1px solid #da1a35;
+}
+
+.slide_salles {
+  width: 100%;
+  height: 100%;
+}
+
+#salle_presentation {
+  font-family: title;
+  font-weight: 900;
+  font-size: 23px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* STAT */
+
+.stat {
+  width: 100%;
+  height: 100%;
+  margin-top: 5%;
+}
+
+.stat_salle {
+  font-family: title;
+  font-size: 25px;
+}
+
+.cardstat {
+  margin-top: 1%;
+  background: rgb(0,0,0);
+  border-left: none;
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(50,9,9,1) 53%, rgba(218,26,53,1) 100%);
+}
+
+.taux {
+  font-family: chiffre;
+  font-size: 25px;
+}
+
+/*Titre boite modal*/
+#exampleModalScrollableTitle {
+  font-family: title;
+  color: white;
+}
+
+/*Boite modal*/
+.modal-content {
+  background-color: black;
+}
+
+.modal-header {
+  border-color: red;
+}
+
+.modal-footer {
+  border-color: red;
+}
+
+/* COMMENTAIRES ET AVIS */
+
+.cardavis {
+  background-color: black;
+  border: 1px solid #da1a35;
+}
+
+.avis_theme {
+  font-family: title;
+  letter-spacing: 1px;
+}
+
+.comm_avis {
+  width: 100%;
+  height: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.gallery_comm {
+  margin-bottom: 5%;
+}
+
+.pseudo_avis {
+  font-weight: 650;
+}
+
+#lesAvis {
+  width: 18rem;
+  margin-bottom:1.5rem;
+}
+
+#border_salle .card {
+  border: none;
+  margin-bottom: 7%;
+}
+
+.affiche_photos {
+  height: 300px;
+}
+
+.photos {
+  cursor: zoom-in;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 5px solid #da1a35;
+}
+
+.sociaux {
+  display: block;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1000px) {
+  .content_avis {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+}
